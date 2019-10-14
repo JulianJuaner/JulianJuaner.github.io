@@ -67,7 +67,7 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
   - Software front-end design(intermediate):CSS/HTML/React. 
   - Unity VR/AR game development(intermediate): VR tooklit, Voforia Engine.
   
-- An enthusiastic fan of Lai Meiyun, Rocket Girl 101. *[Her Weibo page](https://www.weibo.com/p/1004065541182601)*\
+- An enthusiastic fan of Lai Meiyun, Rocket Girl 101. *[Her Weibo page](https://www.weibo.com/p/1004065541182601)*
   
 ![IMY](/img/1.jpg "Lai Mei Yun")
 
