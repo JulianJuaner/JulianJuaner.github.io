@@ -46,6 +46,7 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 ### Tsinghua University Yao Class Summer Program
 > July 2019.
 - A summer exchange experience for two weeks in Tsinghua University. Studying the course Computation and Alegbra.
+
 ### Three Heart Club Volunteering Teaching Trip
 > December 2017 and July 2018.
 - Member of CUHK 3HeartClub in year 2017-2018, prepared and participated two volunteering teaching trip in mainland China.
@@ -53,11 +54,11 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 ![Mini Program: Escape the Pigeon Farm](/img/003.jpg "Mini Program: Escape the Pigeon Farm")
 
 ## AWARDS
-- CUHK ELITE Stream Scholarship, 2016-2017, 2017-2018
-- CUHK CSE Academic Outstanding Award, 2017-2018, 2018-2019
-- CUHK Faculty of Engineering, Dean’s List, 2016-2017, 2017-2018
-- CWChu College Exchange Scholarship, 2018-2019
-- CWChu College Scholarships for Academic Excellence, 2017-2018, 2018-2019
+> CUHK ELITE Stream Scholarship, 2016-2017, 2017-2018
+ CUHK CSE Academic Outstanding Award, 2017-2018, 2018-2019
+ CUHK Faculty of Engineering, Dean’s List, 2016-2017, 2017-2018
+ CWChu College Exchange Scholarship, 2018-2019
+ CWChu College Scholarships for Academic Excellence, 2017-2018, 2018-2019
 
 
 ## LAST BUT NOT LEAST
