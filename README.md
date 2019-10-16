@@ -53,11 +53,11 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 ![Mini Program: Escape the Pigeon Farm](/img/003.jpg "Mini Program: Escape the Pigeon Farm")
 
 ## AWARDS
-> CUHK ELITE Stream Scholarship, 2016-2017, 2017-2018\
- CUHK CSE Academic Outstanding Award, 2017-2018, 2018-2019\
- CUHK Faculty of Engineering, Dean’s List, 2016-2017, 2017-2018\
- CWChu College Exchange Scholarship, 2018-2019\
- CWChu College Scholarships for Academic Excellence, 2017-2018, 2018-2019
+> - CUHK ELITE Stream Scholarship, 2016-2017, 2017-2018
+> - CUHK CSE Academic Outstanding Award, 2017-2018, 2018-2019
+> - CUHK Faculty of Engineering, Dean’s List, 2016-2017, 2017-2018
+> - CWChu College Exchange Scholarship, 2018-2019
+> - CWChu College Scholarships for Academic Excellence, 2017-2018, 2018-2019
 
 
 ## LAST BUT NOT LEAST
@@ -66,7 +66,7 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
   - Software front-end design(intermediate):CSS/HTML/React. 
   - Unity VR/AR game development(intermediate): VR tooklit, Voforia Engine.
   
-- An enthusiastic fan of Lai Meiyun, Rocket Girl 101. *[Her Weibo page](https://www.weibo.com/p/1004065541182601)*
+- An enthusiastic fan of Lai Meiyun, Rocket Girl 101. [Her Weibo page](https://www.weibo.com/p/1004065541182601)
   
 ![IMY](/img/1.jpg "Lai Mei Yun")
 
