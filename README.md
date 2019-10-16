@@ -1,4 +1,3 @@
-Personal Website of Julian ZHANG
 # *ZHANG Yuechen, Julian*
 >*TRUST WHAT I LOVE.*
 
@@ -54,10 +53,10 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 ![Mini Program: Escape the Pigeon Farm](/img/003.jpg "Mini Program: Escape the Pigeon Farm")
 
 ## AWARDS
-> CUHK ELITE Stream Scholarship, 2016-2017, 2017-2018
- CUHK CSE Academic Outstanding Award, 2017-2018, 2018-2019
- CUHK Faculty of Engineering, Dean’s List, 2016-2017, 2017-2018
- CWChu College Exchange Scholarship, 2018-2019
+> CUHK ELITE Stream Scholarship, 2016-2017, 2017-2018\
+ CUHK CSE Academic Outstanding Award, 2017-2018, 2018-2019\
+ CUHK Faculty of Engineering, Dean’s List, 2016-2017, 2017-2018\
+ CWChu College Exchange Scholarship, 2018-2019\
  CWChu College Scholarships for Academic Excellence, 2017-2018, 2018-2019
 
 
