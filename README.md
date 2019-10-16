@@ -8,11 +8,11 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 ## EDUCATION
 - **The Chinese University of Hong Kong**
   >Bachelor of Computer Science, September 2016 - July 2020
-- **Nanyang Technological University Singapore**
+- **Nanyang Technological University, Singapore**
   > GEM Trailblazer Exchange Program, January 2019 - May 2019
 
 ## ACADEMIC PROJECTS
-### Sketch-based Image Retrieval Using Region Proposal Network
+### Sketch-based Image Retrieval
 >May 2019 - October 2019. Research project in the summer research internship 2019, faculty of Engineering, CUHK.
 - Supervised by Prof. WONG Tien-Tsin and Ms. XIE Minshan.
 - Detail preserved for further possible publication.
