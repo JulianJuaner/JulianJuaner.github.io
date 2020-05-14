@@ -2,12 +2,12 @@
 >*TRUST WHAT I LOVE.*
 
 ## PROFILE
-Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the Chinese Universiy of Hong Kong. As a beginner of computer science research, I am interested in Computer Graphics / Vision with Deep Learning. 
->Research interests: Style Transfer, Image Processing.
+Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the Chinese Universiy of Hong Kong. Now I am having a one-year internship as the computer vision developer in [SmartMore](https://www.smartmore.com) in 2020.
+>Research interests: Style Transfer, Image Processing, Semantic Segmentation.
 
 ## EDUCATION
 - **The Chinese University of Hong Kong**
-  >Bachelor of Computer Science, September 2016 - July 2020
+  > Bachelor of Computer Science, September 2016 - July 2020
 - **Nanyang Technological University, Singapore**
   > GEM Trailblazer Exchange Program, January 2019 - May 2019
 
@@ -15,7 +15,9 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 ### Sketch-based Image Retrieval
 >May 2019 - October 2019. Research project in the summer research internship 2019, faculty of Engineering, CUHK.
 - Supervised by Prof. WONG Tien-Tsin and Ms. XIE Minshan.
-- Detail preserved for further possible publication.
+- Train a CycleGAN network to uniformize the line width of extracted screentone-riched manga sketches. 
+- Deep feature encoder network to train a compressed feature for online manga feature matching.
+- 16 seconds for searching on a hand-drawing query sketch among the manga109 dataset(21k images), return regions with highest similarity in the space of deep-feature.
   
 ![Sketch-based Image Retrieval Using Region Proposal Network](/img/004.jpg "Sketch-based Image Retrieval Using Region Proposal Network")
 
@@ -36,6 +38,10 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 ![Pattern Analysis and Score Model in Mahjong Games](/img/002.jpg "Pattern Analysis and Score Model in Mahjong Games")
 
 ## EXPERIENCE
+### Work Study Program: Internship in SmartMore
+>Jan 2020 - Dec 2020.
+- Join as a computer vision algorithm developer, designed algorithms for semantic segmentation projects: Integrated circuit refined segmentation; Airpod wireless charger defect segmentation (Updated on May 14). For the reason of confidentiality agreements, details are not shown.
+
 ### Mini Program: Escape the Pigeon Farm
 >May 2018 - July 2018. 
 - A mini program application project, aiming at letting people attend appointments more punctually.
@@ -53,11 +59,16 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 ![Mini Program: Escape the Pigeon Farm](/img/003.jpg "Mini Program: Escape the Pigeon Farm")
 
 ## AWARDS
-> - CUHK ELITE Stream Scholarship, 2016-2017, 2017-2018
-> - CUHK CSE Academic Outstanding Award, 2017-2018, 2018-2019
-> - CUHK Faculty of Engineering, Dean’s List, 2016-2017, 2017-2018
+> - CUHK ELITE Stream Scholarship, 2016-2017
+> - CUHK ELITE Stream Scholarship, 2017-2018
+> - CUHK CSE Academic Outstanding Award, 2017-2018
+> - CUHK CSE Academic Outstanding Award, 2018-2019
+> - CUHK Faculty of Engineering, Dean’s List, 2016-2017
+> - CUHK Faculty of Engineering, Dean’s List, 2017-2018
 > - CWChu College Exchange Scholarship, 2018-2019
-> - CWChu College Scholarships for Academic Excellence, 2017-2018, 2018-2019
+> - CWChu College Scholarships for Academic Excellence, 2017-2018
+> - CWChu College Scholarships for Academic Excellence, 2018-2019
+> - CWChu College Scholarships for Academic Excellence, 2019-2020
 
 
 ## LAST BUT NOT LEAST
@@ -68,5 +79,5 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
   
 - An enthusiastic fan of Lai Meiyun, Rocket Girl 101. [Her Weibo page](https://www.weibo.com/p/1004065541182601)
   
-![IMY](/img/1.jpg "Lai Mei Yun")
+
 
