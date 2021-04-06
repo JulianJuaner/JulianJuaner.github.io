@@ -7,10 +7,20 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 
 ## EDUCATION
 - **The Chinese University of Hong Kong**
-  > Bachelor of Computer Science, September 2016 - July 2020
+  > Doctor of Philosophy, Computer Science, September 2021 - 
+- **The Chinese University of Hong Kong**
+  > Bachelor of Computer Science, September 2016 - July 2021
 - **Nanyang Technological University, Singapore**
   > GEM Trailblazer Exchange Program, January 2019 - May 2019
-
+ 
+## WORK EXPERIENCE
+- **SmartMore**
+  > Computer Vision Developer, January 2020 -
+  > Work-Study Programe, Computer Vision Developer Internship, January 2020- December 2020
+- **The Chinese University of Hong Kong**
+  > Summer Research Internship, June 2019 - September 2019
+  > Summer Research Internship, June 2018 - September 2018
+  
 ## ACADEMIC PROJECTS
 ### Sketch-based Image Retrieval
 >May 2019 - October 2019. Research project in the summer research internship 2019, faculty of Engineering, CUHK.
@@ -63,6 +73,7 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 > - CUHK ELITE Stream Scholarship, 2017-2018
 > - CUHK CSE Academic Outstanding Award, 2017-2018
 > - CUHK CSE Academic Outstanding Award, 2018-2019
+> - CUHK CSE Academic Outstanding Award, 2019-2020
 > - CUHK Faculty of Engineering, Dean’s List, 2016-2017
 > - CUHK Faculty of Engineering, Dean’s List, 2017-2018
 > - CWChu College Exchange Scholarship, 2018-2019
