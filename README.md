@@ -20,8 +20,21 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
 - **The Chinese University of Hong Kong**
   > - Summer Research Internship, June 2019 - September 2019
   > - Summer Research Internship, June 2018 - September 2018
-  
-## ACADEMIC PROJECTS
+ 
+## PUBLICATIONS
+### High Quality Segmentation for Ultra High-resolution Images
+- Tiancheng SHEN, ***Yuechen ZHANG***, Lu QI, Jason Kuen, Xingyu XIE, Jianlong WU, Zhe LIN, Jiaya JIA. 
+- IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2022
+
+### PCL: Proxy-based Contrastive Learning for Domain Generalization
+- Xufeng YAO, Yang BAI, Xinyun ZHANG, ***Yuechen ZHANG***, Qi SUN, Ran CHEN, Ruiyu LI, Bei YU. 
+- IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2022
+
+### Flow-aware synthesis: A generic motion model for video frame interpolation
+- Jinbo XING, Wenbo HU, ***Yuechen ZHANG***, Tien-Tisn WONG
+- Computational Visual Media 7 (3), 393-405
+
+## (Previous) ACADEMIC PROJECTS
 ### Sketch-based Image Retrieval
 >May 2019 - October 2019. Research project in the summer research internship 2019, faculty of Engineering, CUHK.
 - Supervised by Prof. WONG Tien-Tsin and Ms. XIE Minshan.
