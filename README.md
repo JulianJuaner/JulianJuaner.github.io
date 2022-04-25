@@ -23,15 +23,15 @@ Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the
  
 ## PUBLICATIONS
 ### High Quality Segmentation for Ultra High-resolution Images
-- Tiancheng SHEN, ***Yuechen ZHANG***, Lu QI, Jason Kuen, Xingyu XIE, Jianlong WU, Zhe LIN, Jiaya JIA. 
+- Tiancheng SHEN\*, ***Yuechen ZHANG***, Lu QI, Jason Kuen, Xingyu XIE, Jianlong WU, Zhe LIN, Jiaya JIA. 
 - IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2022
 
 ### PCL: Proxy-based Contrastive Learning for Domain Generalization
-- Xufeng YAO, Yang BAI, Xinyun ZHANG, ***Yuechen ZHANG***, Qi SUN, Ran CHEN, Ruiyu LI, Bei YU. 
+- Xufeng YAO\*, Yang BAI, Xinyun ZHANG, ***Yuechen ZHANG***, Qi SUN, Ran CHEN, Ruiyu LI, Bei YU. 
 - IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2022
 
 ### Flow-aware synthesis: A generic motion model for video frame interpolation
-- Jinbo XING, Wenbo HU, ***Yuechen ZHANG***, Tien-Tisn WONG
+- Jinbo XING\*, Wenbo HU\*, ***Yuechen ZHANG***, Tien-Tisn WONG
 - Computational Visual Media 7 (3), 393-405
 
 ## (Previous) ACADEMIC PROJECTS
