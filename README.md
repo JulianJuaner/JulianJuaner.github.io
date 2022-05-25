@@ -2,7 +2,7 @@
 >*TRUST WHAT I LOVE.*
 
 ## PROFILE
-Hi! Here is ZHANG Yuechen, Julian. I am a year four undergraduate student in the Chinese Universiy of Hong Kong. Now I am having a one-year internship as the computer vision developer in [SmartMore](https://www.smartmore.com) in 2020.
+Hi! Here is ZHANG Yuechen, Julian. Now I am a Ph.D student in the Chinese Universiy of Hong Kong, as well as a computer vision developer in [SmartMore](https://www.smartmore.com).
 >Research interests: Style Transfer, Image Processing, Semantic Segmentation.
 
 ## EDUCATION
