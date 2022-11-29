@@ -1,1 +1,1 @@
-This is the source code to Yuechen Zhang's public academic website: julianjuaner.github.io
+This is the source code to Yuechen Zhang's public academic website: https://julianjuaner.github.io
