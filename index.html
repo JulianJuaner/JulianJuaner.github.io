@@ -37,8 +37,23 @@
                 <a href="https://github.com/JulianJuaner">Github</a>
               </p>
             </td>
-            <td style="padding:5%;width:40%;max-width:40%">
-              <a href="images/julian_portrait_1200.png"><img style="width:100%;max-width:100%" alt="profile photo" src="images/julian_portrait_1200.png" class="hoverZoomLink"></a>
+            <td style="padding:5%;width:40%;max-width:40%" onmouseout="avator_stop()" onmouseover="avator_start()">
+              <div class="one" style="display: inline;">
+                <div class="two" id='avator' style="display: inline;">
+                  <img style="width:100%" src="images/julian_portrait_1200.png">
+                </div>
+                <img style="width:100%" src="images/julian_portrait_1200_style.png">
+              </div>
+              <script type="text/javascript">
+                function avator_start() {
+                  document.getElementById('avator').style.opacity = "1";
+                }
+
+                function avator_stop() {
+                  document.getElementById('avator').style.opacity = "0";
+                }
+                avator_stop()
+              </script>
             </td>
           </tr>
         </tbody></table>
