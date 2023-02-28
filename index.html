@@ -20,7 +20,7 @@
           <tr style="padding:0px">
             <td style="padding:1%;width:63%;vertical-align:middle">
               <p style="text-align:center">
-                <name>ZHANG Yuechen</name>
+                <name>ZHANG Yuechen, Julian</name>
               </p>
               <p>
                 Hi! Here is ZHANG Yuechen, Julian. I am a second-year Ph.D. student at <a href="https://www.cuhk.edu.hk/english/index.html"> CUHK</a>, advised by <a href="https://jiaya.me">Prof. Jiaya Jia</a>. I also join <a href="https://www.smartmore.com">SmartMore </a> as a computer vision developer.
@@ -67,7 +67,46 @@
           </tr>
           </tbody></table>
         <table style="width:100%;padding:3px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          
+          <!-- 2.5 CodeTalker-->
+          <tr class="single_element" >
+            <td style="padding:20px;width:45%;vertical-align:middle;text-align:middle" onmouseout="codetalker_stop()" onmouseover="codetalker_start()">
+              <div class="one" style="display: inline;">
+                <div class="two" id='codetalker' style="display: inline;">
+                  <video width-max="480" width="100%" muted autoplay loop>
+                    <source src="images/codetalker_video.mp4" alt="Annimation for codetalker" width="480" width="100%" type="video/mp4">
+                  </video>
+                </div>
+                  <img src='images/codetalker.png' width-max="480" width="100%">
+              </div>
+              <script type="text/javascript">
+                function codetalker_start() {
+                  document.getElementById('codetalker').style.opacity = "1";
+                }
+
+                function codetalker_stop() {
+                  document.getElementById('codetalker').style.opacity = "0";
+                }
+                codetalker_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:55%;vertical-align:middle">
+                <papertitle>CodeTalker: Speech-Driven 3D Facial Animation with Discrete Motion Prior</papertitle>
+              <br>
+              Jinbo Xing, Menghan Xia, <a style="color:#ffac4d">Yuechen Zhang</a>, 
+              Xiaodong Cun, Jue Wang, Tien-Tsin Wong
+              <br>
+              <p></p>
+              <em>CVPR</em>, 2023
+              <br>
+              <a href="https://arxiv.org/abs/2301.02379" target="blank_">arXiv</a> / 
+              <a href="https://doubiiu.github.io/projects/codetalker/" target="blank_">Project Page</a>
+            <p></p>
+            <p style="font-size:16px;"><em>
+               A speech input generates an authentic 3D facial animation based on representations with discrete motion prior.
+              </em>
+              </p>
+            </td>
+          </tr>
           <!-- 2.4 Ref-NPR-->
           <tr class="single_element" >
             <td style="padding:20px;width:45%;vertical-align:middle;text-align:middle" onmouseout="refnpr_stop()" onmouseover="refnpr_start()">
@@ -95,7 +134,7 @@
               Zexin He, Jinbo Xing, Xufeng Yao, Jiaya Jia 
               <br>
               <p></p>
-              <em>arXiv Preprint</em>, 2022
+              <em>CVPR</em>, 2023
               <br>
               <a href="https://arxiv.org/abs/2212.02766" target="blank_">arXiv</a>
               /
