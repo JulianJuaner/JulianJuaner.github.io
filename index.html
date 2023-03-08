@@ -67,6 +67,44 @@
           </tr>
           </tbody></table>
         <table style="width:100%;padding:3px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <!-- 2.6 Video-P2P-->
+          <tr class="single_element" style="width:70%">
+            <td style="padding:20px;width:45%;vertical-align:middle;text-align:middle" onmouseout="videop2p_stop()" onmouseover="videop2p_start()">
+              <div class="one" style="display: inline;vertical-align:middle;">
+                <div class="two" id='videop2p' style="display: inline;vertical-align:middle;">
+                  <img src='images/videop2p.png' width-max="480" width="100%" vertical-align="middle">
+                </div>
+                  <img src='images/videop2p.gif' width-max="480" width="100%" vertical-align="middle">
+              </div>
+              <script type="text/javascript">
+                function videop2p_start() {
+                  document.getElementById('videop2p').style.opacity = "1";
+                }
+
+                function videop2p_stop() {
+                  document.getElementById('videop2p').style.opacity = "0";
+                }
+                videop2p_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:55%;vertical-align:middle">
+                <papertitle>Video-P2P: Video Editing with Cross-attention Control</papertitle>
+              <br>
+              Shaoteng Liu, <a style="color:#ffac4d">Yuechen Zhang</a>, Wenbo Li, 
+              Zhe Lin, Jiaya Jia
+              <br>
+              <p></p>
+              <em>Preprint</em>, 2023
+              <br>
+              <!-- <a href="https://arxiv.org/abs/2301.02379" target="blank_">arXiv</a> /  -->
+              <a href="https://video-p2p.github.io/" target="blank_">Project Page</a>
+            <p></p>
+            <p style="font-size:16px;"><em>
+               Add 'Lego' attribute to the child, an edited video is generated. Powered by a novel video inversion process and cross-attention control. We also find that a Decoupled-Guidance strategy is essential for video editing.
+              </em>
+              </p>
+            </td>
+          </tr>
           <!-- 2.5 CodeTalker-->
           <tr class="single_element" >
             <td style="padding:20px;width:45%;vertical-align:middle;text-align:middle" onmouseout="codetalker_stop()" onmouseover="codetalker_start()">

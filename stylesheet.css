@@ -147,6 +147,10 @@ heading{
   color: rgb(106, 219, 168);
 }
 
+/* .single_element {
+  height: 400px;
+} */
+
 .single_element:hover {
   background-color: #1c2b20;
 }
