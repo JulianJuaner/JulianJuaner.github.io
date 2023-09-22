@@ -67,6 +67,47 @@
           </tr>
           </tbody></table>
         <table style="width:100%;padding:3px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <!-- 2.7 RIVAL -->
+          <tr class="single_element" style="width:70%">
+            <td style="padding:20px;width:45%;vertical-align:middle;text-align:middle" onmouseout="rival_stop()" onmouseover="rival_start()">
+              <div class="one" style="display: inline;vertical-align:middle;">
+                <div class="two" id='rival' style="display: inline;vertical-align:middle;">
+                  <img src='images/rival.png' width-max="480" width="100%" vertical-align="middle">
+                </div>
+                  <img src='images/rival-default.png' width-max="480" width="100%" vertical-align="middle">
+              </div>
+              <script type="text/javascript">
+                function rival_start() {
+                  document.getElementById('rival').style.opacity = "1";
+                }
+
+                function rival_stop() {
+                  document.getElementById('rival').style.opacity = "0";
+                }
+                rival_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:55%;vertical-align:middle">
+                <papertitle>Real-World Image Variation by Aligning Diffusion Inversion Chain</papertitle>
+              <br>
+              <a style="color:#ffac4d">Yuechen Zhang</a>, Jinbo Xing, 
+              Eric Lo, Jiaya Jia
+              <br>
+              <p></p>
+              <em>NeurIPS <a style="color:#ffac4d">(Spotlight)</a></em>, 2023
+              <br>
+              <a href="https://arxiv.org/abs/2305.18729" target="blank_">arXiv</a> /
+              <a href="https://rival-diff.github.io/" target="blank_">Project Page</a>/ 
+              <a href="https://github.com/julianjuaner/RIVAL/">Code [stay tuned]</a> 
+              <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/julianjuaner/RIVAL?style=social"> 
+            <p></p>
+            <p style="font-size:16px;"><em>
+               Given an image as the prompt, we can generate its variations by aligning the diffusion inversion chain. The variations are diverse and controllable.
+              </em>
+              </p>
+            </td>
+          </tr>
+
           <!-- 2.6 Video-P2P-->
           <tr class="single_element" style="width:70%">
             <td style="padding:20px;width:45%;vertical-align:middle;text-align:middle" onmouseout="videop2p_stop()" onmouseover="videop2p_start()">
@@ -96,7 +137,7 @@
               <p></p>
               <em>Preprint</em>, 2023
               <br>
-              <!-- <a href="https://arxiv.org/abs/2301.02379" target="blank_">arXiv</a> /  -->
+              <a href="https://arxiv.org/abs/2303.04761" target="blank_">arXiv</a> / 
               <a href="https://video-p2p.github.io/" target="blank_">Project Page</a>/ 
               <a href="https://github.com/ShaoTengLiu/Video-P2P">Code</a> 
               <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ShaoTengLiu/Video-P2P?style=social"> 
