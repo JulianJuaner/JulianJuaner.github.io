@@ -67,6 +67,47 @@
           </tr>
           </tbody></table>
         <table style="width:100%;padding:3px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <!-- 2.8 Prompt Highlighter -->
+          <tr class="single_element" style="width:70%">
+            <td style="padding:20px;width:45%;vertical-align:middle;text-align:middle" onmouseout="ph_stop()" onmouseover="ph_start()">
+              <div class="one" style="display: inline;vertical-align:middle;">
+                <div class="two" id='ph' style="display: inline;vertical-align:middle;">
+                  <img src='images/ph.png' width-max="480" width="100%" vertical-align="middle">
+                </div>
+                  <img src='images/ph-default.png' width-max="480" width="100%" vertical-align="middle">
+              </div>
+              <script type="text/javascript">
+                function ph_start() {
+                  document.getElementById('ph').style.opacity = "1";
+                }
+
+                function ph_stop() {
+                  document.getElementById('ph').style.opacity = "0";
+                }
+                ph_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:55%;vertical-align:middle">
+                <papertitle>Prompt Highlighter: Interactive Control for Multi-Modal LLMs</papertitle>
+              <br>
+              <a style="color:#ffac4d">Yuechen Zhang</a>, Shengju Qian, 
+              Bohao Peng, Shu Liu, Jiaya Jia
+              <br>
+              <p></p>
+              <em>arXiv Preprint</em>, 2023
+              <br>
+              <a href="https://arxiv.org/abs/2305.18729" target="blank_">arXiv</a> /
+              <a href="projects/PromptHighlighter/index.html" target="blank_">Project Page</a> / 
+              <a href="https://github.com/dvlab-research/Prompt-Highlighter/">Code </a> 
+              <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/dvlab-research/Prompt-Highlighter?style=social"> 
+            <p></p>
+            <p style="font-size:16px;"><em>
+              Control text generation by highlighting our prompt! Prompt Highlighter is a training-free inference pipeline, which facilitates token-level user interactions for customized generation. Our method is compatible for both LLMs and VLMs.
+              </em>
+              </p>
+            </td>
+          </tr>
+
           <!-- 2.7 RIVAL -->
           <tr class="single_element" style="width:70%">
             <td style="padding:20px;width:45%;vertical-align:middle;text-align:middle" onmouseout="rival_stop()" onmouseover="rival_start()">
@@ -97,8 +138,8 @@
               <em>NeurIPS <a style="color:#ffac4d">(Spotlight)</a></em>, 2023
               <br>
               <a href="https://arxiv.org/abs/2305.18729" target="blank_">arXiv</a> /
-              <a href="https://rival-diff.github.io/" target="blank_">Project Page</a>/ 
-              <a href="https://github.com/julianjuaner/RIVAL/">Code [stay tuned]</a> 
+              <a href="https://rival-diff.github.io/" target="blank_">Project Page</a> / 
+              <a href="https://github.com/julianjuaner/RIVAL/">Code </a> 
               <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/julianjuaner/RIVAL?style=social"> 
             <p></p>
             <p style="font-size:16px;"><em>
@@ -138,7 +179,7 @@
               <em>Preprint</em>, 2023
               <br>
               <a href="https://arxiv.org/abs/2303.04761" target="blank_">arXiv</a> / 
-              <a href="https://video-p2p.github.io/" target="blank_">Project Page</a>/ 
+              <a href="https://video-p2p.github.io/" target="blank_">Project Page</a> / 
               <a href="https://github.com/ShaoTengLiu/Video-P2P">Code</a> 
               <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/ShaoTengLiu/Video-P2P?style=social"> 
             <p></p>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Prompt Highlighter</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto Serif" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/bulma-slider.min.css"> -->
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/highlighter_favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <!-- <script src="./static/js/bulma-slider.min.js"></script> -->
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title"> <img src="./static/images/highlighter_favicon.png" style="width:4%;"/>
+              Prompt Highlighter: Interactive Control for <br/> Multi-Modal LLMs
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://julianjuaner.github.io/" target="_blank">Yuechen Zhang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="http://thesouthfrog.com/about.me/" target="_blank">Shengju Qian</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?user=9xcCm1oAAAAJ&hl=en" target="_blank">Bohao Peng</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="http://shuliu.me/" target="_blank">Shu Liu</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://jiaya.me/" target="_blank">Jiaya Jia</a><sup>1,2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>The Chinese University of Hong Kong,</span>
+              <span class="author-block"><sup>2</sup>SmartMore</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2305.18729.pdf" class="button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Arxiv Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2305.18729" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/dvlab-research/Prompt-Highlighter/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <img src="./static/images/logo.png" style="width:100%;"/> -->
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <section class="hero is-light is-small">
+        <div class="hero-body">
+          Control text generation by highlighting our prompt! Prompt Highlighter is a training-free inference pipeline, which facilitates token-level user interactions for customized generation. Our method is compatible for both LLMs and VLMs.</b>
+          <div class="container" style="text-align:center">
+            <br>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-exp1">
+                <img src="./static/images/example1.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp2">
+                <img src="./static/images/example2.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp3">
+                <img src="./static/images/example3.png" style="width:100%; " />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p style="font-size: small;">
+              This study targets a critical aspect of multi-modal LLMs' (LLMs&VLMs) inference: explicit controllable text generation. Multi-modal LLMs empower multi-modality understanding with the capability of semantic generation yet bring less explainability and heavier reliance on prompt contents due to their autoregressive generative nature. While manipulating prompt formats could improve outputs, designing specific and precise prompts per task can be challenging and ineffective. To tackle this issue, we introduce a novel inference method, Prompt Highlighter, which enables users to highlight specific prompt spans to interactively control the focus during generation. 
+              Motivated by the classifier-free diffusion guidance, we form regular and unconditional context pairs based on highlighted tokens, demonstrating that the autoregressive generation in models can be guided in a classifier-free way. Notably, we find that, during inference, guiding the models with highlighted tokens through the attention weights leads to more desired outputs. Our approach is compatible with current LLMs and VLMs, achieving impressive customized generation results without training. Experiments confirm its effectiveness in focusing on input contexts and generating reliable content. Without tuning on LLaVA-v1.5, our method secured 69.5 in the MMBench test and 1552.5 in MME-perception.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+      <section class="hero teaser">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-justified">
+            <div class="column is-four-fifths">
+              <br>
+              <img src="./static/images/pipeline.png" width="100%" />
+              <br />
+              <p style="font-size: small;">
+                An abstract pipeline of Prompt Highlighter. Users can control the focus of generation by marking out specific image regions or text spans. Then a token-level mask <b>m</b> is created to guide the language model's inference.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Extensions. -->
+      <br>
+      <br>
+      <h2 class="title is-5">Comparisons: Image Variation</h2>
+      <section class="hero is-light is-small">
+        <div class="hero-body">
+          <div class="container" style="text-align:center">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-exp1">
+                <img src="./static/images/comp_1.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp2">
+                <img src="./static/images/comp_2.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp3">
+                <img src="./static/images/comp_3.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp4">
+                <img src="./static/images/comp_4.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp5">
+                <img src="./static/images/comp_5.png" style="width:100%; " />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <div class="columns is-centered">
+        <div class="column is-full-width"> -->
+      <!-- <div class="content"> -->
+
+      <!-- <p>
+            Descriptions for extensions.
+          </p> -->
+
+      <!-- Adaptation to 2D Stylization. -->
+
+      <!-- <div class="column is-full-width"> -->
+      <div class="content has-text-justified">
+        <br>
+        <h2 class="title is-3">Extensions</h2>
+        <h3 class="title is-5">Free-form image-conditioned generation</h3>
+        <p>
+          In addition to its ability to generate images corresponding to the exemplar image and text
+          prompts, we have also discovered that RIVAL has a strong ability to transfer styles and semantic
+          concepts in the exemplar for a casual text-driven image generation.
+          With RIVAL, we can easily get a style-specific text-to-image generation. For instance, it can
+          produce a portrait painting of a robot adorned in a sailor uniform while faithfully preserving
+          the stylistic characteristics inherent in the provided oil painting.
+        </p>
+        <img src="./static/images/free-form.png" style="padding: 5%;text-align:center; background:#fafafa" />
+        <h3 class="title is-6">More examples (with the same prompt input and exemplar in the above image)</h3>
+
+        <div class="container is-max-desktop">
+          <section class="hero is-light is-small">
+            <div class="hero-body">
+              <div class="container" style="text-align:center">
+                <div id="results-carousel" class="carousel results-carousel">
+                  <div class="item item-exp1">
+                    <img src="./static/images/girl_1.png" style="width:100%; " />
+                  </div>
+                  <div class="item item-exp2">
+                    <img src="./static/images/girl_2.png" style="width:100%; " />
+                  </div>
+                  <div class="item item-exp3">
+                    <img src="./static/images/girl_3.png" style="width:100%; " />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- </div> -->
+      </div>
+      <!-- </div> -->
+      <!--/ Adaptation to 2D Stylization. -->
+
+
+      <!-- Appearance Editing. -->
+      <div class="column has-text-justified" style="margin-right: 0%;">
+        <br>
+        <h3 class="title is-5">Example-based inpainting</h3>
+        <p>
+          When abstracting RIVAL as a novel paradigm of image-based diffusion inference, we can extend this
+          framework to enable it to encompass other image editing tasks, such as inpainting. By incorporating
+          a coarse mask <b>M</b> into the generation chain, we obtain the inpainted image <b>G</b>.
+        </p>
+        <img src="./static/images/inpaint.png" style="text-align:center;" />
+      </div>
+      <!--/ Appearance Editing. -->
+
+      <!-- Controllability. -->
+      <div class="column has-text-justified" style="margin-right: 0%;">
+        <br>
+        <h3 class="title is-5">Integration with concept customization</h3>
+        <p>
+          In addition to its ability to generate image variations from a single source image using a text
+          prompt input for semantic alignment, RIVAL can be effectively combined with optimization-based
+          concept customization techniques, such as DreamBooth, to enable novel concept customization.
+        </p>
+        <img src="./static/images/dreambooth.png" style="text-align:center;" />
+      </div>
+      <div class="column has-text-justified" style="margin-left: 0%;">
+        <br>
+        <h3 class="title is-5">Compare with UnCLIP</h3>
+        <p>
+          Comparision and adaptation with UnCLIP methods. We <b style="color:#cba320">highlight texts</b> that
+          enhance the image understanding for each case. Our inference pipeline is adapted to the image
+          variation model depicted in the fourth column, in contrast to the variation achieved through vanilla
+          inference in the bottom left corner of each image.
+        </p>
+      </div>
+      <div class="container is-max-desktop">
+        <section class="hero is-light is-small">
+          <div class="hero-body">
+            <div class="container" style="text-align:center">
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-exp1">
+                  <img src="./static/images/unclip_1.png" style="width:100%; " />
+                </div>
+                <div class="item item-exp2">
+                  <img src="./static/images/unclip_2.png" style="width:100%; " />
+                </div>
+                <div class="item item-exp3">
+                  <img src="./static/images/unclip_3.png" style="width:100%; " />
+                </div>
+                <div class="item item-exp4">
+                  <img src="./static/images/unclip_4.png" style="width:100%; " />
+                </div>
+                <div class="item item-exp5">
+                  <img src="./static/images/unclip_5.png" style="width:100%; " />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <br>
+
+      <div class="column has-text-justified is-centered" style="text-align:center">
+        <br>
+        <h3 class="title is-4">Methods</h3>
+        <img src="./static/images/framework.png" style="width:100%;padding:7%" />
+        <p>
+          To address this distribution gap problem for generating image variations, we propose an inference pipeline
+          called Real-world Image Variation by Alignment (RIVAL). RIVAL is a tunning-free approach that reduces the
+          domain gap between the generated and real-world images by aligning the denoising chain with the real-image
+          inversion chain. Our method comprises two key components: (i) a cross-image self-attention injection that
+          enables cross-image feature interaction in the variation denoising chain, guided by the hidden states from the
+          inversion chain, and (ii) a step-wise latent normalization that aligns the latent distribution with the
+          inverted latent in early denoising steps. Notably, this modified inference process requires no training and is
+          suitable for arbitrary image input.
+        </p>
+      </div>
+
+      <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>@article{zhang2023realworld,
+  title={Real-World Image Variation by Aligning Diffusion Inversion Chain}, 
+  author={Yuechen Zhang and Jinbo Xing and Eric Lo and Jiaya Jia},
+  journal={arXiv preprint arXiv:2305.18729},
+  year={2023},
+}
+      </code></pre>
+        </div>
+      </section>
+
+
+      <footer class="footer">
+        <div class="container">
+          <div class="content has-text-centered">
+            <a class="icon-link" href="" disabled>
+              <i class="fas fa-file-pdf"></i>
+            </a>
+            <a class="icon-link external-link" href="https://rival-diff.github.io" disabled>
+              <i class="ai ai-arxiv"></i>
+            </a>
+            <a class="icon-link external-link" href="https://github.com/julianjuaner/RIVAL/" disabled>
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+                <p>
+                  This website is licensed under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                </p>
+                <p>
+                  Website template credit to <a href="https://nerfies.github.io/">Nerfies</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+
+</html>
