@@ -1,7 +1,21 @@
 body {
   font-family: 'Noto Serif', 'Noto Sans', sans-serif;
 }
+.video-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
 
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: -50px; /* Adjust this value to change the visible area of the video */
+  padding-bottom: 0%;
+  margin-bottom: -50px;
+}
 
 .footer .icon-link {
     font-size: 25px;
@@ -21,6 +35,39 @@ body {
 .teaser .hero-body {
   padding-top: 0;
   padding-bottom: 3rem;
+  margin-bottom: 0;
+}
+.selected {
+  border: 2px solid rgb(0, 255, 153); /* Adjust as needed */
+}
+.hero-body{
+  padding-bottom: 0%;
+}
+.section {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+#image-selection1 img {
+  width: 100px; /* Adjust as needed */
+  margin: 10px;
+}
+#image-selection2 img {
+  width: 100px; /* Adjust as needed */
+  margin: 10px;
+}
+
+#model-output1 {
+  margin-top: 20px;
+  font-size: 18px; /* Adjust as needed */
+  color: #333; /* Adjust as needed */
+  text-align: left;
+}
+
+#model-output2 {
+  margin-top: 20px;
+  font-size: 18px; /* Adjust as needed */
+  color: #333; /* Adjust as needed */
+  text-align: left;
 }
 
 .teaser {
