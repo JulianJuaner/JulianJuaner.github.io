@@ -319,93 +319,14 @@
         <!-- </div> -->
       </div>
       <!-- </div> -->
-      <!--/ Adaptation to 2D Stylization. -->
-
-
-      <!-- Appearance Editing. -->
-      <div class="column has-text-justified" style="margin-right: 0%;">
-        <br>
-        <h3 class="title is-5">Example-based inpainting</h3>
-        <p>
-          When abstracting RIVAL as a novel paradigm of image-based diffusion inference, we can extend this
-          framework to enable it to encompass other image editing tasks, such as inpainting. By incorporating
-          a coarse mask <b>M</b> into the generation chain, we obtain the inpainted image <b>G</b>.
-        </p>
-        <img src="./static/images/inpaint.png" style="text-align:center;" />
-      </div>
-      <!--/ Appearance Editing. -->
-
-      <!-- Controllability. -->
-      <div class="column has-text-justified" style="margin-right: 0%;">
-        <br>
-        <h3 class="title is-5">Integration with concept customization</h3>
-        <p>
-          In addition to its ability to generate image variations from a single source image using a text
-          prompt input for semantic alignment, RIVAL can be effectively combined with optimization-based
-          concept customization techniques, such as DreamBooth, to enable novel concept customization.
-        </p>
-        <img src="./static/images/dreambooth.png" style="text-align:center;" />
-      </div>
-      <div class="column has-text-justified" style="margin-left: 0%;">
-        <br>
-        <h3 class="title is-5">Compare with UnCLIP</h3>
-        <p>
-          Comparision and adaptation with UnCLIP methods. We <b style="color:#cba320">highlight texts</b> that
-          enhance the image understanding for each case. Our inference pipeline is adapted to the image
-          variation model depicted in the fourth column, in contrast to the variation achieved through vanilla
-          inference in the bottom left corner of each image.
-        </p>
-      </div>
-      <div class="container is-max-desktop">
-        <section class="hero is-light is-small">
-          <div class="hero-body">
-            <div class="container" style="text-align:center">
-              <div id="results-carousel" class="carousel results-carousel">
-                <div class="item item-exp1">
-                  <img src="./static/images/unclip_1.png" style="width:100%; " />
-                </div>
-                <div class="item item-exp2">
-                  <img src="./static/images/unclip_2.png" style="width:100%; " />
-                </div>
-                <div class="item item-exp3">
-                  <img src="./static/images/unclip_3.png" style="width:100%; " />
-                </div>
-                <div class="item item-exp4">
-                  <img src="./static/images/unclip_4.png" style="width:100%; " />
-                </div>
-                <div class="item item-exp5">
-                  <img src="./static/images/unclip_5.png" style="width:100%; " />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <br>
-
-      <div class="column has-text-justified is-centered" style="text-align:center">
-        <br>
-        <h3 class="title is-4">Methods</h3>
-        <img src="./static/images/framework.png" style="width:100%;padding:7%" />
-        <p>
-          To address this distribution gap problem for generating image variations, we propose an inference pipeline
-          called Real-world Image Variation by Alignment (RIVAL). RIVAL is a tunning-free approach that reduces the
-          domain gap between the generated and real-world images by aligning the denoising chain with the real-image
-          inversion chain. Our method comprises two key components: (i) a cross-image self-attention injection that
-          enables cross-image feature interaction in the variation denoising chain, guided by the hidden states from the
-          inversion chain, and (ii) a step-wise latent normalization that aligns the latent distribution with the
-          inverted latent in early denoising steps. Notably, this modified inference process requires no training and is
-          suitable for arbitrary image input.
-        </p>
-      </div>
 
       <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
           <h2 class="title">BibTeX</h2>
-          <pre><code>@article{zhang2023realworld,
-  title={Real-World Image Variation by Aligning Diffusion Inversion Chain}, 
-  author={Yuechen Zhang and Jinbo Xing and Eric Lo and Jiaya Jia},
-  journal={arXiv preprint arXiv:2305.18729},
+          <pre><code>@article{zhang2023prompt,
+  title={Prompt Highlighter: Interactive Control for Multi-Modal LLMs}, 
+  author={Yuechen Zhang and Shengju Qian and Bohao Peng and Shu Liu and Jiaya Jia},
+  journal={arXiv preprint arXiv:????},
   year={2023},
 }
       </code></pre>
@@ -416,15 +337,6 @@
       <footer class="footer">
         <div class="container">
           <div class="content has-text-centered">
-            <a class="icon-link" href="" disabled>
-              <i class="fas fa-file-pdf"></i>
-            </a>
-            <a class="icon-link external-link" href="https://rival-diff.github.io" disabled>
-              <i class="ai ai-arxiv"></i>
-            </a>
-            <a class="icon-link external-link" href="https://github.com/julianjuaner/RIVAL/" disabled>
-              <i class="fab fa-github"></i>
-            </a>
           </div>
           <div class="columns is-centered">
             <div class="column is-8">
