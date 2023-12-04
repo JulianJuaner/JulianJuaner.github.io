@@ -237,6 +237,7 @@
 
       <!-- Extensions. -->
       <br>
+      <span style='background-color: rgb(255, 240, 106);'>VANILLA INFERENCE</span>: The image features a man wearing a red and green soccer jersey, standing on a field and smiling. He appears to be a soccer player, possibly a professional athlete, as he is wearing a uniform and a wristband. The man is the main focus of the scene, and he is surrounded by several other people in the background, some of whom are also wearing uniforms. The atmosphere seems to be lively and energetic, likely related to a soccer game or practice session.
       <br>
       <h2 class="title is-5">Application 1: Partial Context Highlighter</h2>
       Click image to get customized text generation results.
@@ -245,80 +246,41 @@
           <div class="container" style='text-align:center'>
 
             <!-- Image selection -->
-              <div id="image-selection1" class="item item-exp1">
+              <div id="image-selection1" class="image-selection1" >
                 <!-- Add your images here -->
-                <img src="./static/images/cr7_nomask.png" onclick="showOutput(this, 'model-output1')" content="VANILLA INFERENCE: The image features a man wearing a red and green soccer jersey, standing on a field and smiling. He appears to be a soccer player, possibly a professional athlete, as he is wearing a uniform and a wristband. The man is the main focus of the scene, and he is surrounded by several other people in the background, some of whom are also wearing uniforms. The atmosphere seems to be lively and energetic, likely related to a soccer game or practice session.
+                <img src="./static/images/cr7_nomask.png" onclick="showOutput(this, 'model-output1')" content="<span style='background-color: rgb(255, 240, 106);'>VANILLA INFERENCE:</span> The image features a man wearing a red and green soccer jersey, standing on a field and smiling. He appears to be a soccer player, possibly a professional athlete, as he is wearing a uniform and a wristband. The man is the main focus of the scene, and he is surrounded by several other people in the background, some of whom are also wearing uniforms. The atmosphere seems to be lively and energetic, likely related to a soccer game or practice session.
                 " />
                 <img src="./static/images/cr7_mask_head.png" onclick="showOutput(this, 'model-output1')"
-                  content="HIGHLIGHT THE PLAYER'S FACE: <span style='background-color: rgb(249, 246, 217);'>Ronaldo, a smiling soccer player, is the main focus of the image.</span> He is wearing a red and green jersey and is happily posing for the camera. <span style='background-color: rgb(249, 246, 217);'>The smile on his face is contagious, and he appears to be enjoying the moment.</span>
+                  content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE PLAYER'S FACE:</span> <span style='background-color: rgb(249, 246, 217);'>Ronaldo, a smiling soccer player, is the main focus of the image.</span> He is wearing a red and green jersey and is happily posing for the camera. <span style='background-color: rgb(249, 246, 217);'>The smile on his face is contagious, and he appears to be enjoying the moment.</span>
                 In the background, there are several other people present, but they are not the main focus of the image. The primary focus remains on the happy soccer player, who is the center of attention in this scene." />
-                <img src="./static/images/cr7_mask_jersey.png" onclick="showOutput(this, 'model-output1')" content="HIGHLIGHT THE PLAYER'S JERSEY: The image features <span style='background-color: rgb(249, 246, 217);'>a soccer player wearing a red, green, and yellow jersey with the number seven on it</span>. The player is smiling and appears to be enjoying the game. <span style='background-color: rgb(249, 246, 217);'>He is wearing green and red stripes on his jersey, which are a part of his uniform.</span> The player is standing on a field, possibly during a match or practice session.
+                <img src="./static/images/cr7_mask_jersey.png" onclick="showOutput(this, 'model-output1')" content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE PLAYER'S JERSEY:</span> The image features <span style='background-color: rgb(249, 246, 217);'>a soccer player wearing a red, green, and yellow jersey with the number seven on it</span>. The player is smiling and appears to be enjoying the game. <span style='background-color: rgb(249, 246, 217);'>He is wearing green and red stripes on his jersey, which are a part of his uniform.</span> The player is standing on a field, possibly during a match or practice session.
                 In the background, there are several other people present, possibly teammates or opponents, but they are not the main focus of the image. The main focus is on the soccer player in the red, green, and yellow uniform.
                 " />
                 <p style="text-align: center">User: Describe this image.</p>
                 <!-- Model output -->
-                <div id="model-output1">
+                <div id="model-output1" class="model-output1">
                   <!-- The model output will be displayed here -->
                 </div>
               </div>
           </div>
           <br><br>
             <div class="container" style="text-align:center">
-              <div id="image-selection2">
+              <div id="image-selection2" class="image-selection2" >
                 <!-- Add your images here -->
-                <img src="./static/images/titanic_1.png" onclick="showOutput2(this, 'model-output2')" content="VANILLA INFERENCE: As the sun sets over the ocean, the couple on the deck of the ship is lost in each other's embrace. The man, with his arm around the woman, leans in to whisper sweet nothings in her ear. The woman, with her head resting on his chest, listens intently, feeling the warmth and love emanating from him.<br><br>Man: &quotI can't believe we're on this grand ship, sailing across the vast ocean. It's like we're in a fairy tale.&quot<br><br>Woman: &quotIt's truly magical. I feel so close to you right now, like nothing else matters in the world.&quot<br><br>Man: &quotI feel the same way. I'm so grateful to have you by my side on this journey. I promise to always cherish and protect you.&quot<br><br>Woman: &quotI know you will. I love you more than words can express.&quot<br><br>As they continue to embrace, the couple is filled with a sense of contentment and happiness, knowing that they have found a love that transcends time and space." />
-                <img src="./static/images/titanic_2.png" onclick="showOutput2(this, 'model-output2')"
-                  content="HIGHLIGHT THE COUPLE: As the sun sets over the ocean, <span style='background-color: rgb(249, 246, 217);'>the couple, Jack and Rose, stand on the deck of the Titanic, holding each other close</span>. Jack looks into Rose's eyes and says, <br><br>&quot Rose, I promise you that I will always be here for you, no matter what happens. We'll face any challenges together, and our love will be the strongest force that keeps us going.&quot<br><br>  Rose smiles and replies, <br><br>&quot Jack, I believe in us. We've been through so much already, and I know that we can overcome anything that comes our way. I love you, and I'm grateful to have you by my side.&quot <br><br>"/>
-                <img src="./static/images/titanic_3.png" onclick="showOutput2(this, 'model-output2')" content="HIGHLIGHT THE TITANIC SHIP: <span style='background-color: rgb(249, 246, 217);'>As the Titanic ship sails across the ocean, a couple stands on the deck</span>, gazing into each other's eyes. The man says, <br><br>&quot I'm so glad we're on this journey together. I<span style='background-color: rgb(249, 246, 217);'> promise to always protect and cherish you, no matter what challenges we may face.</span>&quot<br><br>  The woman responds, <br><br>&quot I feel the same way. I trust you with my life, and I know that we'll face whatever comes our way as a team.&quot<br><br>  As they embrace, the sun sets behind them, casting a warm glow on the scene, symbolizing the strength and love that binds them together.
+                <img class="image-selection2" src="./static/images/titanic_1.png" onclick="showOutput2(this, 'model-output2')" content="<span style='background-color: rgb(255, 240, 106);'>VANILLA INFERENCE:</span> As the sun sets over the ocean, the couple on the deck of the ship is lost in each other's embrace. The man, with his arm around the woman, leans in to whisper sweet nothings in her ear. The woman, with her head resting on his chest, listens intently, feeling the warmth and love emanating from him.<br><br>Man: &quotI can't believe we're on this grand ship, sailing across the vast ocean. It's like we're in a fairy tale.&quot<br><br>Woman: &quotIt's truly magical. I feel so close to you right now, like nothing else matters in the world.&quot<br><br>Man: &quotI feel the same way. I'm so grateful to have you by my side on this journey. I promise to always cherish and protect you.&quot<br><br>Woman: &quotI know you will. I love you more than words can express.&quot<br><br>As they continue to embrace, the couple is filled with a sense of contentment and happiness, knowing that they have found a love that transcends time and space." />
+                <img class="image-selection2" src="./static/images/titanic_2.png" onclick="showOutput2(this, 'model-output2')"
+                  content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE COUPLE:</span> As the sun sets over the ocean, <span style='background-color: rgb(249, 246, 217);'>the couple, Jack and Rose, stand on the deck of the Titanic, holding each other close</span>. Jack looks into Rose's eyes and says, <br><br>&quot Rose, I promise you that I will always be here for you, no matter what happens. We'll face any challenges together, and our love will be the strongest force that keeps us going.&quot<br><br>  Rose smiles and replies, <br><br>&quot Jack, I believe in us. We've been through so much already, and I know that we can overcome anything that comes our way. I love you, and I'm grateful to have you by my side.&quot <br><br>"/>
+                <img class="image-selection2" src="./static/images/titanic_3.png" onclick="showOutput2(this, 'model-output2')" content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE TITANIC SHIP:</span> <span style='background-color: rgb(249, 246, 217);'>As the Titanic ship sails across the ocean, a couple stands on the deck</span>, gazing into each other's eyes. The man says, <br><br>&quot I'm so glad we're on this journey together. I<span style='background-color: rgb(249, 246, 217);'> promise to always protect and cherish you, no matter what challenges we may face.</span>&quot<br><br>  The woman responds, <br><br>&quot I feel the same way. I trust you with my life, and I know that we'll face whatever comes our way as a team.&quot<br><br>  As they embrace, the sun sets behind them, casting a warm glow on the scene, symbolizing the strength and love that binds them together.
               " />
               <p style="text-align: center">User: Write a dialog based on this image.</p>
                 <!-- Model output -->
-                <div id="model-output2">
+                <div id="model-output2" class="model-output2">
                   <!-- The model output will be displayed here -->
                 </div>
               </div>
           </div>
         </div>
       </section>
-
-      <!-- <div class="column is-full-width"> -->
-      <div class="content has-text-justified">
-        <br>
-        <h2 class="title is-3">Extensions</h2>
-        <h3 class="title is-5">Free-form image-conditioned generation</h3>
-        <p>
-          In addition to its ability to generate images corresponding to the exemplar image and text
-          prompts, we have also discovered that RIVAL has a strong ability to transfer styles and semantic
-          concepts in the exemplar for a casual text-driven image generation.
-          With RIVAL, we can easily get a style-specific text-to-image generation. For instance, it can
-          produce a portrait painting of a robot adorned in a sailor uniform while faithfully preserving
-          the stylistic characteristics inherent in the provided oil painting.
-        </p>
-        <img src="./static/images/free-form.png" style="padding: 5%;text-align:center; background:#fafafa" />
-        <h3 class="title is-6">More examples (with the same prompt input and exemplar in the above image)</h3>
-
-        <div class="container is-max-desktop">
-          <section class="hero is-light is-small">
-            <div class="hero-body">
-              <div class="container" style="text-align:center">
-                <div id="results-carousel" class="carousel results-carousel">
-                  <div class="item item-exp1">
-                    <img src="./static/images/girl_1.png" style="width:100%; " />
-                  </div>
-                  <div class="item item-exp2">
-                    <img src="./static/images/girl_2.png" style="width:100%; " />
-                  </div>
-                  <div class="item item-exp3">
-                    <img src="./static/images/girl_3.png" style="width:100%; " />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        <!-- </div> -->
-      </div>
-      <!-- </div> -->
 
       <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
