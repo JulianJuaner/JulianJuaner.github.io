@@ -55,6 +55,10 @@ body {
   width: 100px; /* Adjust as needed */
   margin: 10px;
 }
+.image-selection3 img {
+  width: 100px; /* Adjust as needed */
+  margin: 10px;
+}
 
 .model-output1 {
   margin-top: 20px;
@@ -64,6 +68,19 @@ body {
 }
 
 .model-output2 {
+  margin-top: 20px;
+  font-size: 14px; /* Adjust as needed */
+  color: #333; /* Adjust as needed */
+  text-align: left;
+}
+
+.model-output3 {
+  margin-top: 20px;
+  font-size: 14px; /* Adjust as needed */
+  color: #333; /* Adjust as needed */
+  text-align: left;
+}
+.model-output4 {
   margin-top: 20px;
   font-size: 14px; /* Adjust as needed */
   color: #333; /* Adjust as needed */

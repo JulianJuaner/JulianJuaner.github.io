@@ -70,10 +70,64 @@
       // Display the model output
       outputDiv.innerHTML = modelOutput;
     }
+    var selectedImage3 = null;
+
+    function showOutput3(image, id) {
+      // Remove the selected class from the previously selected image, if any
+      if (selectedImage3) {
+        selectedImage3.classList.remove("selected");
+      }
+
+      // Add the selected class to the clicked image
+      image.classList.add("selected");
+      selectedImage3 = image;
+
+      // Get the model output div
+      var outputDiv = document.getElementById(id);
+
+      // Clear the current output
+      outputDiv.innerHTML = "";
+
+      // Get the model output for the selected image
+      var modelOutput = image.getAttribute("content");
+
+      // Display the model output
+      outputDiv.innerHTML = modelOutput;
+    }
+    var outputs = [
+    "A Midsummer Night's Dream is a comedy play written by William Shakespeare. The play is set in Athens and follows the events of a group of characters who become entangled in a series of romantic misunderstandings. The main plot revolves around the fairy king, Oberon, and his wife, Titania, who are involved in a dispute over a young human named Hermia.<br><br>The play opens with the character of Theseus, the Duke of Athens, preparing to marry Hippolyta, a former queen of the Amazons. Meanwhile, Hermia is in love with Lysander, but her father, Egeus, wants her to marry Demetrius. In an attempt to resolve the situation, Oberon uses his magic to make Demetrius fall in love with Helena, while Lysander and Hermia flee into the woods.<br><br>In the woods, the characters become involved in a series of comedic misunderstandings, including a group of amateur actors who are rehearsing a play. Eventually, Oberon uses his magic to resolve the conflicts and bring the characters together in a happy ending.<br><br>Throughout the play, Shakespeare uses a variety of literary devices, including puns, rhymes, and wordplay, to create a sense of humor and lightheartedness. The play also explores themes of love, desire, and the power of magic. Overall, A Midsummer Night's Dream is a timeless comedy that continues to delight audiences today.",
+    "A Midsummer Night's Dream is a comedy play written by William Shakespeare. The play is set in Athens and follows the events of a group of characters who become entangled in a series of romantic misunderstandings. The main plot revolves around the fairy king, Oberon, and his wife, Titania, who are involved in a dispute over a young human named Hermia.<br><br>The play opens with the character of Theseus, the Duke of Athens, preparing to marry Hippolyta, a former queen of the Amazons. Meanwhile, Hermia is in love with Lysander, but her father, Egeus, wants her to marry Demetrius. In an attempt to resolve the situation, Oberon uses his magic to make Demetrius fall in love with Helena, while Lysander and Hermia flee into the woods.<br><br>In the woods, the characters become involved in a series of comedic misunderstandings, including a group of amateur actors who are rehearsing a play. Eventually, Oberon uses his magic to resolve the conflicts and bring the characters together in a happy ending.<br><br>Throughout the play, Shakespeare uses a variety of literary devices, including puns, rhymes, and wordplay, to create a sense of humor and lightheartedness. The play also explores themes of love, desire, and the power of magic. Overall, A Midsummer Night's Dream is a timeless comedy that continues to delight audiences today.",
+    "A Midsummer Night's Dream is a comedy play written by William Shakespeare. The play is set in Athens and the surrounding woodlands and tells the story of two young lovers, Hermia and Lysander, who are trying to escape the arranged marriage that Hermia's father, Egeus, has planned for her.<br><br>In the woods, the couple meets a group of amateur actors who are rehearsing a play for the wedding of the Duke of Athens and his bride, Hippolyta. The actors, including the character of Bottom, become involved in the events of the play, and the story becomes increasingly chaotic and surreal.<br><br>The play features a number of characters, including fairies, who use their magic to interfere in the events of the play. In the end, the lovers are able to marry and the play concludes with a wedding celebration.<br><br>Overall, A Midsummer Night's Dream is a lighthearted and humorous play that explores themes of love, magic, and the ridiculousness of human behavior.",
+    "A Midsummer Night's Dream is a comedy play written by William Shakespeare. The play is set in Athens and the surrounding forest and tells the story of two young lovers, Hermia and Lysander, who are trying to escape the arranged marriage that Hermia's father, Egeus, has planned for her. In the forest, the couple meets a group of amateur actors who are rehearsing a play for the wedding of the Duke of Athens and his bride, Hippolyta. The play within a play is a comedic romp that involves mistaken identities, love triangles, and a fairy king and queen who use their magic to bring the lovers together in the end. The play ends with a resolution of all the conflicts and the wedding of the Duke and Hippolyta.",
+    "A Midsummer Night's Dream is a comedy play written by William Shakespeare. The play is set in Athens and the surrounding forest and tells the story of two young lovers, Hermia and Lysander, who are trying to escape the arranged marriage that Hermia's father has planned for her. In the forest, they meet a group of amateur actors who are rehearsing a play, and the events that unfold involve mistaken identities, love triangles, and a fairy king and queen who use their magic to resolve the conflicts and bring about a happy ending. The play is known for its whimsical, fantastical setting, its colorful cast of characters, and its themes of love, mischief, and the power of imagination.",
+    "A Mid-Summer Night's Dream is a comedy by William Shakespeare that follows the events surrounding the marriage of Theseus, the Duke of Athens, and Hippolyta, the Queen of the Amazons. The play begins with a group of amateur actors, who are rehearsing a play for the wedding celebration, and a dispute between the fairy king and queen, Oberon and Titania, who are arguing over a mischievous fairy named Puck. Puck mistakenly bewitches the wrong lovers, causing chaos and confusion in the forest. Eventually, with the help of Puck, the couples are reconciled and the wedding celebration can proceed. The play ends with a resolution of the conflicts and a wedding celebration.",
+    "A Mid-Summer Night's Dream is a comedy by Shakespeare that follows the events that unfold over a chaotic night in an enchanted forest where two young lovers, Hermia and Lysander, seek to marry against their wealthy parents' wishes. Meanwhile, a group of mischievous fairies and a troupe of amateur actors rehearse a play, leading to mistaken identities, confusion, and hilarious hijinks. The resolution comes when the fairy king and queen intervene and the lovers are ultimately united, and the play within a play is performed to celebrate the marriages.",
+    " A Mid-Summer Night's Dream is a comedy by Shakespeare that involves two young lovers, Hermia and Lysander, who flee into a forest to escape arranged marriages and find themselves in a world of mischievous fairies and a group of amateur actors who are rehearsing a play. Chaos ensues as the fairies use their magic to interfreampt the lovers and the actors, causing confusion and mistaken identities. Eventually, with the intervention of the fairy king and queen, the lovers are reunited and the wrong marriages are reversed. The play ends with a wedding celebration.",
+    "A Mid-Summer Night's Dream is a Shakespeare play about two young lovers, Hermia and Lysander, who flee into a forest to marry due to family conflicts. They are followed by a group of fairies who meddle with their lives and those of a group of amateur actors preparing for a play. Chaos ensues with mistaken identities, love potions, and reconculciliations, ultimately ending in the spirits intervening and everything being resolved through a series of marriages.",
+    "In A Mid-Summer Night's Dream is Shakespeare's romantic comedy that involves various interwoven love interliairs and mischievious fairies in a forest setting. Duke Theseus and Hippolyta, Hippielova discover the couples"
+    // Add more outputs as needed
+  ];
+  function updateOutput(value) {
+    // Get the output display element
+    var outputDisplay = document.getElementById("output-display");
+  
+    // Update the output display
+    outputDisplay.value = value;
+  
+    // Select an output from the list based on the slider value
+    // This assumes that the slider value is an index into the list of outputs
+    var selectedOutput = outputs[value - 1];  // Subtract 1 because array indices start at 0
+  
+    // Update the model output with the selected output
+    var modelOutput = document.getElementById("model-output3");
+    modelOutput.innerHTML = selectedOutput;
+  }
   </script>
+
 </head>
 
-<body onload="showOutput(document.querySelector('#image-selection1 img'), 'model-output1'); showOutput2(document.querySelector('#image-selection2 img'), 'model-output2')">
+<body
+  onload="showOutput(document.querySelector('image-selection1 img'), 'model-output1'); showOutput2(document.querySelector('image-selection2 img'), 'model-output2'); showOutput3(document.querySelector('image-selection3 img'), 'model-output4')">
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -238,49 +292,229 @@
       <!-- Extensions. -->
       <br>
       <br>
-      <h2 class="title is-5">Application 1: Partial Context Highlighter</h2>
+      <h2 class="title is-5">Application 1: Multi-Modal Partial Context Highlighter</h2>
       Click image to get customized text generation results.
       <section class="hero is-light is-small">
         <div class="hero-body">
           <div class="container" style='text-align:center'>
 
             <!-- Image selection -->
-              <div id="image-selection1" class="image-selection1" >
-                <!-- Add your images here -->
-                <img src="./static/images/cr7_nomask.png" onclick="showOutput(this, 'model-output1')" content="<span style='background-color: rgb(255, 240, 106);'>VANILLA INFERENCE:</span> The image features a man wearing a red and green soccer jersey, standing on a field and smiling. He appears to be a soccer player, possibly a professional athlete, as he is wearing a uniform and a wristband. The man is the main focus of the scene, and he is surrounded by several other people in the background, some of whom are also wearing uniforms. The atmosphere seems to be lively and energetic, likely related to a soccer game or practice session.
+            <div id="image-selection1" class="image-selection1">
+              <!-- Add your images here -->
+              <img src="./static/images/cr7_nomask.png" onclick="showOutput(this, 'model-output1')" content="<span style='background-color: rgb(255, 240, 106);'>VANILLA INFERENCE:</span> The image features a man wearing a red and green soccer jersey, standing on a field and smiling. He appears to be a soccer player, possibly a professional athlete, as he is wearing a uniform and a wristband. The man is the main focus of the scene, and he is surrounded by several other people in the background, some of whom are also wearing uniforms. The atmosphere seems to be lively and energetic, likely related to a soccer game or practice session.
                 " />
-                <img src="./static/images/cr7_mask_head.png" onclick="showOutput(this, 'model-output1')"
-                  content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE PLAYER'S FACE:</span> <span style='background-color: rgb(249, 246, 217);'>Ronaldo, a smiling soccer player, is the main focus of the image.</span> He is wearing a red and green jersey and is happily posing for the camera. <span style='background-color: rgb(249, 246, 217);'>The smile on his face is contagious, and he appears to be enjoying the moment.</span>
+              <img src="./static/images/cr7_mask_head.png" onclick="showOutput(this, 'model-output1')"
+                content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE PLAYER'S FACE:</span> <span style='background-color: rgb(249, 246, 217);'>Ronaldo, a smiling soccer player, is the main focus of the image.</span> He is wearing a red and green jersey and is happily posing for the camera. <span style='background-color: rgb(249, 246, 217);'>The smile on his face is contagious, and he appears to be enjoying the moment.</span>
                 In the background, there are several other people present, but they are not the main focus of the image. The primary focus remains on the happy soccer player, who is the center of attention in this scene." />
-                <img src="./static/images/cr7_mask_jersey.png" onclick="showOutput(this, 'model-output1')" content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE PLAYER'S JERSEY:</span> The image features <span style='background-color: rgb(249, 246, 217);'>a soccer player wearing a red, green, and yellow jersey with the number seven on it</span>. The player is smiling and appears to be enjoying the game. <span style='background-color: rgb(249, 246, 217);'>He is wearing green and red stripes on his jersey, which are a part of his uniform.</span> The player is standing on a field, possibly during a match or practice session.
+              <img src="./static/images/cr7_mask_jersey.png" onclick="showOutput(this, 'model-output1')" content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE PLAYER'S JERSEY:</span> The image features <span style='background-color: rgb(249, 246, 217);'>a soccer player wearing a red, green, and yellow jersey with the number seven on it</span>. The player is smiling and appears to be enjoying the game. <span style='background-color: rgb(249, 246, 217);'>He is wearing green and red stripes on his jersey, which are a part of his uniform.</span> The player is standing on a field, possibly during a match or practice session.
                 In the background, there are several other people present, possibly teammates or opponents, but they are not the main focus of the image. The main focus is on the soccer player in the red, green, and yellow uniform.
                 " />
-                <p style="text-align: center">User: Describe this image.</p>
-                <!-- Model output -->
-                <div id="model-output1" class="model-output1">
-                  <!-- The model output will be displayed here -->
-                </div>
+              <p style="text-align: center"><b>User: Describe this image.</b></p>
+              <!-- Model output -->
+              <div id="model-output1" class="model-output1">
+                <!-- The model output will be displayed here -->
               </div>
+            </div>
           </div>
           <br><br>
-            <div class="container" style="text-align:center">
-              <div id="image-selection2" class="image-selection2" >
-                <!-- Add your images here -->
-                <img class="image-selection2" src="./static/images/titanic_1.png" onclick="showOutput2(this, 'model-output2')" content="<span style='background-color: rgb(255, 240, 106);'>VANILLA INFERENCE:</span> As the sun sets over the ocean, the couple on the deck of the ship is lost in each other's embrace. The man, with his arm around the woman, leans in to whisper sweet nothings in her ear. The woman, with her head resting on his chest, listens intently, feeling the warmth and love emanating from him.<br><br>Man: &quotI can't believe we're on this grand ship, sailing across the vast ocean. It's like we're in a fairy tale.&quot<br><br>Woman: &quotIt's truly magical. I feel so close to you right now, like nothing else matters in the world.&quot<br><br>Man: &quotI feel the same way. I'm so grateful to have you by my side on this journey. I promise to always cherish and protect you.&quot<br><br>Woman: &quotI know you will. I love you more than words can express.&quot<br><br>As they continue to embrace, the couple is filled with a sense of contentment and happiness, knowing that they have found a love that transcends time and space." />
-                <img class="image-selection2" src="./static/images/titanic_2.png" onclick="showOutput2(this, 'model-output2')"
-                  content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE COUPLE:</span> As the sun sets over the ocean, <span style='background-color: rgb(249, 246, 217);'>the couple, Jack and Rose, stand on the deck of the Titanic, holding each other close</span>. Jack looks into Rose's eyes and says, <br><br>&quot Rose, I promise you that I will always be here for you, no matter what happens. We'll face any challenges together, and our love will be the strongest force that keeps us going.&quot<br><br>  Rose smiles and replies, <br><br>&quot Jack, I believe in us. We've been through so much already, and I know that we can overcome anything that comes our way. I love you, and I'm grateful to have you by my side.&quot <br><br>"/>
-                <img class="image-selection2" src="./static/images/titanic_3.png" onclick="showOutput2(this, 'model-output2')" content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE TITANIC SHIP:</span> <span style='background-color: rgb(249, 246, 217);'>As the Titanic ship sails across the ocean, a couple stands on the deck</span>, gazing into each other's eyes. The man says, <br><br>&quot I'm so glad we're on this journey together. I<span style='background-color: rgb(249, 246, 217);'> promise to always protect and cherish you, no matter what challenges we may face.</span>&quot<br><br>  The woman responds, <br><br>&quot I feel the same way. I trust you with my life, and I know that we'll face whatever comes our way as a team.&quot<br><br>  As they embrace, the sun sets behind them, casting a warm glow on the scene, symbolizing the strength and love that binds them together.
+          <div class="container" style="text-align:center">
+            <div id="image-selection2" class="image-selection2">
+              <!-- Add your images here -->
+              <img class="image-selection2" src="./static/images/titanic_1.png"
+                onclick="showOutput2(this, 'model-output2')"
+                content="<span style='background-color: rgb(255, 240, 106);'>VANILLA INFERENCE:</span> As the sun sets over the ocean, the couple on the deck of the ship is lost in each other's embrace. The man, with his arm around the woman, leans in to whisper sweet nothings in her ear. The woman, with her head resting on his chest, listens intently, feeling the warmth and love emanating from him.<br><br>Man: &quotI can't believe we're on this grand ship, sailing across the vast ocean. It's like we're in a fairy tale.&quot<br><br>Woman: &quotIt's truly magical. I feel so close to you right now, like nothing else matters in the world.&quot<br><br>Man: &quotI feel the same way. I'm so grateful to have you by my side on this journey. I promise to always cherish and protect you.&quot<br><br>Woman: &quotI know you will. I love you more than words can express.&quot<br><br>As they continue to embrace, the couple is filled with a sense of contentment and happiness, knowing that they have found a love that transcends time and space." />
+              <img class="image-selection2" src="./static/images/titanic_2.png"
+                onclick="showOutput2(this, 'model-output2')"
+                content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE COUPLE:</span> As the sun sets over the ocean, <span style='background-color: rgb(249, 246, 217);'>the couple, Jack and Rose, stand on the deck of the Titanic, holding each other close</span>. Jack looks into Rose's eyes and says, <br><br>&quot Rose, I promise you that I will always be here for you, no matter what happens. We'll face any challenges together, and our love will be the strongest force that keeps us going.&quot<br><br>  Rose smiles and replies, <br><br>&quot Jack, I believe in us. We've been through so much already, and I know that we can overcome anything that comes our way. I love you, and I'm grateful to have you by my side.&quot <br><br>" />
+              <img class="image-selection2" src="./static/images/titanic_3.png"
+                onclick="showOutput2(this, 'model-output2')" content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT THE TITANIC SHIP:</span> <span style='background-color: rgb(249, 246, 217);'>As the Titanic ship sails across the ocean, a couple stands on the deck</span>, gazing into each other's eyes. The man says, <br><br>&quot I'm so glad we're on this journey together. I<span style='background-color: rgb(249, 246, 217);'> promise to always protect and cherish you, no matter what challenges we may face.</span>&quot<br><br>  The woman responds, <br><br>&quot I feel the same way. I trust you with my life, and I know that we'll face whatever comes our way as a team.&quot<br><br>  As they embrace, the sun sets behind them, casting a warm glow on the scene, symbolizing the strength and love that binds them together.
               " />
-              <p style="text-align: center">User: Write a dialog based on this image.</p>
-                <!-- Model output -->
-                <div id="model-output2" class="model-output2">
-                  <!-- The model output will be displayed here -->
-                </div>
+              <p style="text-align: center"><b>User: Write a dialog based on this image.</b></p>
+              <!-- Model output -->
+              <div id="model-output2" class="model-output2">
+                <!-- The model output will be displayed here -->
               </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="container" style='text-align:center'>
+
+            <!-- Image selection -->
+            <div id="image-selection3" class="image-selection3">
+              <!-- Add your images here -->
+              <img class="image-selection3" src="./static/images/NA.png" onclick="showOutput3(this, 'model-output4')" content="<span style='background-color: rgb(255, 240, 106);'>VANILLA INFERENCE:</span> Sure, here is a detailed plan for eating healthy and losing weight:<br><br>1. Eat a variety of whole, unprocessed foods: Focus on eating a diet that consists of a variety of whole, unprocessed foods such as fruits, vegetables, whole grains, lean proteins, and healthy fats. Avoid processed and packaged foods that are high in added sugars, unhealthy fats, and sodium.<br>2. Keep track of your calorie intake: To lose weight, you need to be aware of the number of calories you are consuming. Keep a food diary or use a calorie tracking app to keep track of your daily intake. This will help you make sure you are staying within your calorie goals.<br>3. Eat plenty of fiber: Fiber is key for weight loss as it helps you feel full and satisfied, and also helps to regulate digestion. Aim for plenty of fiber-rich foods like fruits, vegetables, whole grains, and legumes.<br>4. Drink plenty of water: Drinking enough water is important for overall health and can also help with weight loss. Aim for at least 8 glasses of water a day.<br>5. Exercise regularly: Regular physical activity is an important part of a weight loss and overall healthy living. Aim for at least 30 minutes of moderate-intensity exercise per day, such as brisk walking, cycling or swimming.<br>6. Get enough sleep: Lack of sleep can lead to weight gain and make it harder to stick to a healthy diet and exercise plan. Aim for 7-8 hours of sleep per night.<br>7. Be mindful of portion sizes: Pay attention to portion sizes, even with healthy foods. Eating too much of even the best foods can still lead to weight gain.<br>8. Plan ahead: Plan your meals in advance and take healthy snacks with you to work or on the go to avoid reaching for unhealthy snacks.<br>9. Get professional help: If you need help with weight loss, consider consulting a healthcare professional or a registered dietitian for personalized advice and support.<br>10. Be patient and consistent: Remember that weight loss takes time and effort. Be patient and consistent with your healthy habits and celebrate your progress along the way.<br>
+                " />
+              <img class="image-selection3" src="./static/images/eat_healthy.png" onclick="showOutput3(this, 'model-output4')"
+                content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT &quotEAT HEALTHY&quot:</span> Here is a detailed plan to eat healthy and lose weight:<br><br>1. Consult with a healthcare professional: Before starting any weight loss plan, it’s important to consult with a healthcare professional, such as a registered dietitian or doctor, to determine a plan that is safe and appropriate for your individual needs and health status.<br>2. Set realistic goals: Set realistic and achievable weight loss goals and make sure to track your progress. Losing 1-2 pounds per week is a healthy and sustainable goal.<br><span style='background-color: rgb(249, 246, 217);'>3. Eat a balanced diet: Focus on eating a balanced diet that includes a variety of fruits, vegetables, whole grains, lean proteins, and healthy fats. Avoid processed and high-calorie foods.</span><br>4. Keep track of what you eat: Keep track of what you eat by using a food diary or a mobile app to track your daily food intake. This can help you stay on track and make changes to your diet as needed.<br>5. Drink plenty of water: Drink at least 8 glasses of water a day to stay hydrated and help with weight loss.<br>6. Exercise regularly: Regular physical activity is important for weight loss and overall health. Aim for at least 30 minutes of moderate-intensity exercise, such as brisk walking or cycling, most days of the week.<br>7. Get enough sleep: Getting enough sleep is important for overall health and can also help with weight loss. Aim for 7-8 hours of sleep per night.<br>8. Be mindful of portion sizes: Pay attention to portion sizes and control your portion sizes, especially when eating out or eating at home.<br><span style='background-color: rgb(249, 246, 217);'>9. Have healthy snacks: Have healthy snacks on hand such as fruits, vegetables, and nuts, instead of reaching for unhealthy snacks.<br></span>10. Stay active: Try to find ways to stay active throughout the day, such as taking the stairs instead of the elevator, or parking farther away from your destination.<br>11. Monitor your progress: Weigh yourself regularly, but don't weigh yourself too often. It's important to remember that weight loss is not always a linear process and it can be affected by many factors such as water weight, muscle gain, and other factors.<br>12. Be consistent: Consistency is key to weight loss. Try to stick to your plan as closely as possible and make changes gradually.<br><br>It's important to remember that weight loss is a journey and it's not always easy, but with a well-rounded plan and a positive attitude, you can achieve your goals.<br>" />
+              <img class="image-selection3" src="./static/images/lose_weight.png" onclick="showOutput3(this, 'model-output4')" content="<span style='background-color: rgb(255, 240, 106);'>HIGHLIGHT &quotLOSE WEIGHT&quot:</span> Sure, here is a detailed plan for eating healthy and losing weight:<br><br>1. Start by consulting with a healthcare professional: Before making any significant changes to your diet and exercise routine, it's important to consult with a doctor or a registered dietitian to ensure that any dietary changes are safe and appropriate for your individual health needs.<br>2. Plan your meals in advance: Plan out your meals for the week, making sure to include a variety of healthy, nutrient-dense foods such as lean proteins, whole grains, fruits, and vegetables.<br><span style='background-color: rgb(249, 246, 217);'>3. Focus on whole, unprocessed foods: Try to limit your consumption of processed and packaged foods</span>, which are often high in added sugars, sodium, and unhealthy fats. Instead, opt for whole, unprocessed foods such as whole grains, fruits, vegetables, lean proteins, and healthy fats.<br>4. Incorporate plenty of fiber: Fiber is key for maintaining a healthy digestive system and can also help you feel full and satisfied, making it easier to stick to a calorie-controlled diet. Aim for plenty of fiber-rich foods like fruits, vegetables, whole grains, and legumes.<br>5. Drink plenty of water: Staying hydrated is important for overall health and can also help you feel full, making it easier to stick to your calorie goals. Aim for at least 8 glasses of water a day.<br>6. Limit your portion sizes: Pay attention to portion sizes and control the amount of food you eat at each meal. Use smaller plates and bowls to help you control your portion sizes.<br><span style='background-color: rgb(249, 246, 217);'>7. Incorporate physical activity: Regular physical activity can help you burn calories and build muscle, which can boost your metabolism and help you lose weight.</span> Aim for at least 30 minutes of moderate-intensity exercise most days of the week.<br>8. Be mindful of your snacks: Snacking can be a great way to keep your energy up and keep your metabolism going throughout the day, but it's important to choose healthy snacks like fruits, vegetables, and nuts.<br>9. Keep track of your progress: Keep track of your food intake and physical activity to help you stay on track and make adjustments as needed.<br>10. Be patient: Losing weight and eating healthy is a process and it takes time. Be patient and don't be too hard on yourself if you don't see results right away. Remember to be consistent and stick to your plan.<br> "
+              />
+              <p style="text-align: center"><b>User: Please give me a detailed plan to eat healthy and to lose weight.</b></p>
+              <!-- Model output -->
+              <div id="model-output4" class="model-output4">
+                <!-- The model output will be displayed here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Extensions. -->
+      <br><br>
+      <h2 class="title is-5">Application 2: Control The Focus Degree.</h2>
+      Drag the slide bar to control the "compactness" of the generated text.
+  
+      <section class="hero is-light is-small">
+        <div class="hero-body">
+          <div class="container" style='text-align:center'>
+            <p style="text-align: center"><b>User: Write a summary of A Mid-Summer Nights' Dream, make it <span style='background-color: rgb(249, 246, 217);'>compact</span>.</b> </p>
+            <br>
+            <label for="output-control"><span style='background-color: rgb(249, 246, 217);'>Compactness</span></label>
+            <style>
+              input[type=range]::-webkit-slider-runnable-track {
+                background: linear-gradient(to right, white, orange);
+              }
+            
+              input[type=range]::-webkit-slider-thumb {
+                background: orange;
+                -webkit-appearance: none;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+              }
+            
+              input[type=range]::-moz-range-track {
+                background: linear-gradient(to right, white, orange);
+              }
+            
+              input[type=range]::-moz-range-thumb {
+                background: orange;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+              }
+            
+              input[type=range]::-ms-thumb {
+                background: orange;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+              }
+            
+              input[type=range]::-ms-fill-lower {
+                background: white;
+              }
+            
+              input[type=range]::-ms-fill-upper {
+                background: orange;
+              }
+
+            </style>
+            <input type="range" id="output-control" min="1" max="10" value="5" oninput="updateOutput(this.value)">
+            <output id="output-display"></output>
+            <br><br>
+            <div id="model-output3" class="model-output3" style="text-align:left">
+              <!-- The model output will be displayed here -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <br><br>
+      <h2 class="title is-5">Application 3: Faithful Descriptive Text Generation.</h2>
+      <span style='background-color: rgb(249, 246, 217);'>Highlighting all input contexts</span> to generate faithful and better-aligned text. We further present text-to-image generation results by DALLE-3 to show the effectiveness of our method.
+      <section class="hero is-light is-small">
+        <div class="hero-body">
+          <div class="container" style='text-align:center'>
+            <img src="./static/images/desc_0.png" width="100%" />
+          </div>
+        </div>
+      </section>
+      <br><br>
+      Observing highlighting image contexts can generate faithful text while eliminating model hallucination. Our training free inference pipeline also achieves a better result in common VL comprehensive benchmarks.
+      <style>
+        table {
+          margin-left: auto;
+          margin-right: auto;
+          border-collapse: collapse;
+          width: 80%;
+        }
+      
+        th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: center;
+          font-size: 14px;
+        }
+      
+        th {
+          background-color: #f2f2f2;
+        }
+      </style>
+      <br><br>
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>MME-perception</th>
+          <th>MMBench-dev</th>
+          <th>MMBench-test</th>
+        </tr>
+        <tr>
+          <td>baseline (LLaVAv1.5-13B)</td>
+          <td>1531.3</td>
+          <td>67.7</td>
+          <td>67.0</td>
+        </tr>
+        <tr>
+          <td>Prompt Highlighter</td>
+          <td>1552.5</td>
+          <td>69.7</td>
+          <td>69.5</td>
+        </tr>
+      </table>
+      <br><br>
+
+      <h2 class="title is-5">Application 4: Interactive Conversation</h2>
+      
+      Here we present an example of multi-round interactive conversation powered by Prompt Highlighter. We illustrate the multi-round interactive conversation pipeline on the top. We provide a comparison in a multi-round conversation between the vanilla inference (left) and Prompt Highlighter (right). In this example, the user highlights different contexts in two rounds.
+      <br>
+      <section class="hero is-light is-small">
+        <div class="hero-body">
+          <div class="container" style='text-align:center'>
+            <img src="./static/images/mr_conv.png" width="100%" />
           </div>
         </div>
       </section>
 
+      <br><br>
+      <h2 class="title is-5">More Showcases</h2>
+      <section class="hero is-light is-small">
+        <br>
+        <p style="text-align: center;">Interactive Text Generation with LLMs</p>
+        <div class="hero-body">
+          <div class="container" style='text-align:center'>
+            <img src="./static/images/txt.png" width="100%" />
+          </div>
+        </div>
+        <br><br>
+      </section>
+      <section class="hero is-light is-small">
+        <p style="text-align: center;">Interactive Text Generation with VLMs</p>
+        <div class="hero-body">
+          <div class="container" style='text-align:center'>
+            <img src="./static/images/img.png" width="100%" />
+          </div>
+        </div>
+        <br><br>
+      </section>
+      <section class="hero is-light is-small">
+        <p style="text-align: center;">Faithful Text Generation, then T2I Generation Results</p>  
+        <div class="hero-body">
+          <div class="container" style='text-align:center'>
+            <img src="./static/images/dalle3.png" width="100%" />
+          </div>
+        </div>
+        <br><br>
+      </section>
+
+      <br><br>
       <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
           <h2 class="title">BibTeX</h2>
@@ -293,7 +527,6 @@
       </code></pre>
         </div>
       </section>
-
 
       <footer class="footer">
         <div class="container">
