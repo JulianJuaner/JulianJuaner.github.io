@@ -17,7 +17,7 @@
 
         <!-- 1 INTRO -->
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
+          <tr style="width:70%">
             <td style="padding:1%;vertical-align:middle">
               <p style="text-align:center">
                 <name>ZHANG Yuechen, Julian</name>
@@ -67,6 +67,49 @@
           </tr>
           </tbody></table>
         <table style="width:100%;padding:3px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <!-- 2.9 Mini-Gemini -->
+          <tr class="single_element" style="width:70%">
+            <td style="padding:20px;vertical-align:middle;text-align:middle" onmouseout="minigemini_stop()" onmouseover="minigemini_start()">
+              <div class="one" style="display: inline;vertical-align:middle;">
+                <div class="two" id='minigemini' style="display: inline;vertical-align:middle;">
+                  <img src='images/minigemini.png' width-max="480" width="100%" vertical-align="middle">
+                </div>
+                  <img src='images/minigemini-default.png' width-max="480" width="100%" vertical-align="middle">
+              </div>
+              <script type="text/javascript">
+                function minigemini_start() {
+                  document.getElementById('minigemini').style.opacity = "1";
+                }
+
+                function minigemini_stop() {
+                  document.getElementById('minigemini').style.opacity = "0";
+                }
+                minigemini_stop()
+              </script>
+            </td>
+            <td style="padding:20px;vertical-align:middle">
+                <papertitle>Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models</papertitle>
+              <br>
+               Yanwei Li*, <a style="color:#ffac4d">Yuechen Zhang*</a>, Chengyao Wang*, Zhisheng Zhong, Yixin Chen, Ruihang Chu, Shaoteng Liu, Jiaya Jia
+              <br>
+              <p></p>
+              <em>Preprint</em>, 2024
+              <br>
+              <a href="https://arxiv.org/abs/2403.18814" target="blank_">arXiv</a> /
+              <a href="https://mini-gemini.github.io/" target="blank_">Project Page</a> / 
+              <a href="http://103.170.5.190:7860/" target="blank_">Demo</a> /
+              <a href="https://huggingface.co/collections/YanweiLi/mini-gemini-6603c50b9b43d044171d0854" target="blank_">Model</a> /
+              <a href="https://huggingface.co/collections/YanweiLi/mini-gemini-data-660463ea895a01d8f367624e" target="blank_">Data</a> /
+              <a href="https://github.com/dvlab-research/MiniGemini">Code </a> 
+              <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/dvlab-research/MiniGemini?style=social"> 
+            <p></p>
+            <p style="font-size:16px;"><em>
+              Control text generation by highlighting our prompt! Prompt Highlighter is a training-free inference pipeline, which facilitates token-level user interactions for customized generation. Our method is compatible for both LLMs and VLMs.
+              </em>
+              </p>
+            </td>
+          </tr>
+
           <!-- 2.8 Prompt Highlighter -->
           <tr class="single_element" style="width:70%">
             <td style="padding:20px;vertical-align:middle;text-align:middle" onmouseout="ph_stop()" onmouseover="ph_start()">
