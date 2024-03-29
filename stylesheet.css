@@ -121,6 +121,31 @@ name {
   -webkit-transition: opacity .2s ease-in-out;
 }
 
+/* 默认样式 */
+table {
+  width: 100%;
+}
+
+td {
+  padding: 1%;
+}
+
+
+/* 横屏样式 */
+@media screen and (orientation: landscape) {
+  td {
+    width: 33%;
+  }
+}
+
+/* 竖屏样式 */
+@media screen and (orientation: portrait) {
+  td {
+    width: 98%;
+    display: block;
+  }
+}
+
 .fade {
   transition: opacity .2s ease-in-out;
   -moz-transition: opacity .2s ease-in-out;
@@ -153,4 +178,13 @@ heading{
 
 .single_element:hover {
   background-color: #1c2b20;
+}
+
+
+
+.profile-image {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
 }
