@@ -80,12 +80,12 @@ th,
 tr,
 p,
 a {
-  font-family: 'Noto Serif', 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: 'Aptos', 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 17px
 }
 
 strong {
-  font-family: 'Noto Serif', 'Lato', Verdana, Helvetica, sans-serif;
+  font-family: 'Aptos', 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 17px;
 }
 
@@ -101,9 +101,9 @@ papertitle {
 }
 
 name {
-  font-family: 'Noto Serif', 'Lato', Verdana, Helvetica, sans-serif, ;
+  font-family: 'Aptos', 'Lato', Verdana, Helvetica, sans-serif, ;
   font-size: 32px;
-  color: hsl(153, 61%, 64%);
+  color: hsl(69, 100%, 91%);
 }
 
 .one {
@@ -153,23 +153,23 @@ td {
 }
 
 span.highlight {
-  background-color: #1c522b;
+  background-color: #899797;
 }
 
 body{
-  background-color: rgb(20, 25, 30);
+  background-color: rgb(34, 39, 44);
 }
 
 p,em,tr{
-  color: #fefefe;
+  color: #f0f0f0;
 }
 
 papertitle{
-  color: rgb(144, 245, 190);
+  color: rgb(185, 232, 255);
 }
 
 heading{
-  color: rgb(106, 219, 168);
+  color: rgb(185, 232, 255);
 }
 
 /* .single_element {
@@ -177,7 +177,7 @@ heading{
 } */
 
 .single_element:hover {
-  background-color: #1c2b20;
+  background-color: #151515;
 }
 
 
