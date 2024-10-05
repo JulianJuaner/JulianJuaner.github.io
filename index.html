@@ -68,6 +68,47 @@
           </tr>
           </tbody></table>
         <table style="width:100%;padding:3px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <!-- 2.10 ControlNeXt -->
+          <tr class="single_element" style="width:70%">
+            <td style="padding:20px;vertical-align:middle;text-align:middle" onmouseout="controlnext_stop()" onmouseover="controlnext_start()">
+              <div class="one" style="display: inline;vertical-align:middle;">
+                <div class="two" id='controlnext' style="display: inline;vertical-align:middle;">
+                  <img src='images/controlnext.png' width-max="480" width="100%" vertical-align="middle">
+                </div>
+                  <img src='images/controlnext-default.gif' width-max="480" width="100%" vertical-align="middle">
+              </div>
+              <script type="text/javascript">
+                function controlnext_start() {
+                  document.getElementById('controlnext').style.opacity = "1";
+                }
+
+                function controlnext_stop() {
+                  document.getElementById('controlnext').style.opacity = "0";
+                }
+                controlnext_stop()
+              </script>
+            </td>
+            <td style="padding:20px;vertical-align:middle">
+                <papertitle>ControlNeXt: Powerful and Efficient Control for Image and Video Generation</papertitle>
+              <br>
+               Bohao Peng, Jian Wang, <a style="color:#ffac4d">Yuechen Zhang</a>, Wenbo Li, Ming-Chang Yang, Jiaya Jia
+              <br>
+              <p></p>
+              <em>Preprint</em>, 2024
+              <br>
+              <a href="https://arxiv.org/abs/2408.06070" target="blank_">arXiv</a> /
+              <a href="https://pbihao.github.io/projects/controlnext/index.html" target="blank_">Project Page</a> / 
+              <a href="https://huggingface.co/spaces/Eugeoter/ControlNeXt" target="blank_">Demo</a> /
+              <a href="https://github.com/dvlab-research/ControlNeXt">Code </a> 
+              <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/dvlab-research/ControlNeXt?style=social"> 
+            <p></p>
+            <p style="font-size:16px;"><em>
+              This work proposes a light-weight controllable module for various base models (SD1.5, SDXL, SD3, SVD) and tasks (image / video generation with various conditions).
+              </em>
+              </p>
+            </td>
+          </tr>
+
           <!-- 2.9 Mini-Gemini -->
           <tr class="single_element" style="width:70%">
             <td style="padding:20px;vertical-align:middle;text-align:middle" onmouseout="minigemini_stop()" onmouseover="minigemini_start()">
