@@ -1,6 +1,6 @@
-# padding image to 16:9
 import cv2
 import numpy as np
+import imageio
 
 def padding_16_9(img):
     h, w, _ = img.shape
@@ -10,29 +10,25 @@ def padding_16_9(img):
     else:
         pad = int((w - h * 16 / 9) / 2)
         img = cv2.copyMakeBorder(img, pad, pad, 0, 0, cv2.BORDER_CONSTANT, value=[255, 255, 255])
-    print(img.shape)
     return img
-
-img = cv2.imread('/Users/julianjuaner/Documents/GitHub/JulianJuaner.github.io/images/magicmirror.png')
-pad_img = padding_16_9(img)
-
-cv2.imwrite('/Users/julianjuaner/Documents/GitHub/JulianJuaner.github.io/images/magicmirror_16_9.png', pad_img)
-
-# padding gif to 16:9
-import imageio
-import os
 
 def padding_gif_16_9(gif):
     pad_gif = []
     for img in gif:
-        print(img.shape)
+        if len(img.shape) == 2:
+            img = np.stack((img,)*3, axis=-1)
         pad_img = padding_16_9(img)
         pad_gif.append(pad_img)
     return pad_gif
 
-# gif = imageio.mimread('/Users/julianjuaner/Documents/GitHub/JulianJuaner.github.io/images/magicmirror-default.gif')
-# pad_gif = padding_gif_16_9(gif)
+input_path = '/Users/julianjuaner/Documents/GitHub/JulianJuaner.github.io/images/magicmirror.gif'
+output_path = '/Users/julianjuaner/Documents/GitHub/JulianJuaner.github.io/images/magicmirror-default_16_9_6fps.gif'
 
-# # save
-# path = '/Users/julianjuaner/Documents/GitHub/JulianJuaner.github.io/images/magicmirror-default_16_9.gif'
-# imageio.mimsave(path, pad_gif)
+# 读取gif
+gif = imageio.mimread(input_path, memtest=False)
+
+# padding
+pad_gif = padding_gif_16_9(gif)
+
+# 保存时设置duration来控制帧率（1/fps为每帧的持续时间，单位为秒）
+imageio.mimsave(output_path, pad_gif, duration=1/25)  # 6fps
