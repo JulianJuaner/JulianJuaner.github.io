@@ -134,7 +134,7 @@ td {
 /* 横屏样式 */
 @media screen and (orientation: landscape) {
   td {
-    width: 33%;
+    width: 40%;
   }
 }
 
@@ -181,6 +181,9 @@ heading{
 }
 
 
+img, video {
+    border-radius: 15px;
+}
 
 .profile-image {
   width: 100%;
