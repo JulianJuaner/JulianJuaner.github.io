@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Magic Mirror: ID-Preserved Video Generation in Video Diffusion Transformers</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet">
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="./static/css/bulma.min.css">
+<link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+<link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+<link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="./static/css/index.css">
+<link rel="icon" href="./static/icon.svg">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/bulma-slider.min.js"></script>
+<script src="./static/js/index.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍥</text></svg>">
+<title>ControlNeXt</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+	<button style="position: fixed;right: 15px;top:  50%;height: 100px;width: 140px; font-size: 20px;" type="button"><a href="#top">Back to top</a></button> 
+
+  <div class="content">
+    <div id="paper-info" class="paper-info">
+        <h1>Magic Mirror: ID-Preserved Video Generation in Video Diffusion Transformers</h1>
+        <div class="authors">
+            <p>
+                <span class="author"><a href="https://julianjuaner.github.io/" target="_blank">Yuechen Zhang*<sup>1</sup></a></span>, 
+                <span class="author"><a href="" target="_blank">Yaoyang Liu*<sup>2</sup></a></span>, 
+                <span class="author"><a href="" target="_blank">Bin Xia<sup>1</sup></a></span>, 
+                <span class="author"><a href="https://pbihao.github.io" target="_blank">Bohao Peng<sup>1</sup></a></span>, 
+                <span class="author"><a href="" target="_blank"> Zexin Yan<sup>4</sup></a></span>, 
+                <span class="author"><a href="" target="_blank">Eric Lo<sup>1</sup></a></span>, 
+                <span class="author"><a href="https://jiaya.me/" target="_blank">Jiaya Jia<sup>1,2,3</sup></a></span>
+            </p>
+            <p>
+                <span class="affiliation"><sup>1</sup> CUHK</span>, 
+                <span class="affiliation"><sup>2</sup> HKUST</span>,
+                <span class="affiliation"><sup>2</sup> SmartMore</span>,
+                <span class="affiliation"><sup>2</sup> CMU</span>
+            </p>
+        </div>
+        <div class="links">
+            <p><a href="https://arxiv.org/abs/2408.06070" target="_blank">Paper (Arxiv)</a></p>
+            <p><a href="https://github.com/dvlab-research/MagicMirror/" target="_blank">GitHub</a></p>
+        </div>
+        <div class="page-container", style="padding-top: 100px;">
+          <div></div>
+
+          <!-- <p align="center">&nbsp;</p> -->
+          <a href="#top"></a>
+          <ul>
+            <li><a href="#teaser">Teaser video</a></li>
+            <li><a href="#our_results_container">More showcases of Magic-Mirror</a></li>
+            <li><a href="#comparison_with_baseline_container">Comparisons with baseline methods</a></li>
+            <!-- <li><a href="#applications_container">Applications</a></li> -->
+            <!-- <li><a href="#sparse_container">Sparse-sketch-guided generation</a></li> -->
+            <li><a href="#ablation_container">Ablation study</a></li>
+            <li><a href="#limitations_container">Limitations</a></li>
+          </ul>
+        
+          <!------------------ BEGIN SECTION ------------------>
+          <!-- <p>&nbsp;</p> -->
+          <hr>
+          <h2 style="margin-top: 0em;" id="teaser" align="left"><a name="image-results" id="image-results"></a>Teaser video</h2>
+            
+          <table  width="1024" align="center">
+            <tbody>
+              <tr>
+                <th style="font-size: 16px">Reference ID Image</th>
+                <th style="font-size: 16px">Magic Mirror Generated Video <br/>(Hover to see text prompts)</th>
+                <th style="font-size: 16px">Magic Mirror Generated Video <br/>(Hover to see text prompts)</b></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/1_teaser/teaser_1.png" alt=""/></th>
+                <th><div class="video-cell">
+                  <video  width="384" src="./assets/1_teaser/teaser_1_1.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">Dressed in a lab coat and safety goggles, the curious boy conducts a science experiment in a school laboratory. His excited smile and careful movements demonstrate his enthusiasm for learning as he measures chemicals for a reaction.</div>
+                </div></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_1_2.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">The musical boy, seated at a grand piano, concentrates intently on sheet music during a recital. His nimble fingers and serious expression reveal his dedication to mastering the instrument as proud family members watch from the audience.</div>
+                </div></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/1_teaser/teaser_2.png" alt=""/></th>
+                <th><div class="video-cell">
+                  <video width="384" src="./assets/1_teaser/teaser_2_1.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay" style="font-size: 10pt;">In a cozy, warmly lit kitchen, a woman with curly hair and a floral apron carefully drizzles golden honey over freshly baked cinnamon rolls, their aroma filling the air. The rolls, perfectly spiraled and glistening with a light glaze, sit invitingly on a rustic wooden board. As she pours the honey, it cascades in slow motion, catching the light and creating a mesmerizing effect. Her hands, steady and graceful, add a touch of artistry to the scene. The kitchen, adorned with vintage utensils and potted herbs, enhances the comforting, homely atmosphere, making the moment feel both intimate and indulgent.</div>
+                </div></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_2_2.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay" style="font-size: 10pt; text-align: left">A focused young woman student sits at a tidy desk in her cozy bedroom, surrounded by colorful stationery and a laptop displaying a virtual classroom. She wears a comfortable sweater, her hair neatly tied back, and her expression is one of concentration as she listens intently to her teacher. The room is softly lit, with a small plant and a motivational poster on the wall, creating an inviting learning environment. Occasionally, she takes notes in a vibrant notebook, her pen moving swiftly across the pages. Her eyes occasionally glance at the screen, reflecting her engagement and eagerness to learn in this digital setting.</div>
+                </div></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/1_teaser/teaser_3.png" alt=""/></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_3_1.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">In a dimly lit theater, a man discreetly sits in the back row, wearing a dark hoodie and jeans, his face partially obscured by shadows. He holds a small camcorder, its lens glinting faintly in the flickering light from the screen. The theater is sparsely populated, with a few patrons scattered throughout, their attention absorbed by the movie. The man's posture is tense yet focused, as he carefully adjusts the camcorder, ensuring a steady capture of the film. The ambient glow from the screen casts a soft light on his determined expression, highlighting his intent to record the cinematic experience unfolding before him.</div>
+                </div></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_3_2.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">A diligent man, clad in a wide-brimmed straw hat and a plaid shirt, kneels in a vast, sunlit field, surrounded by rows of lush green onion plants. The sun casts a warm glow, highlighting the earthy tones of the soil and the vibrant green of the onion tops. With skilled hands, the worker gently pulls an onion from the ground, its roots trailing soil, and places it into a woven basket nearby. The scene captures the essence of rural life, with distant rolling hills and a clear blue sky framing the background, emphasizing the harmony between nature and human labor.</div>
+                </div></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/1_teaser/teaser_4.png" alt=""/></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_4_1.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">A bearded man with a thoughtful expression stands in a cozy, dimly lit room filled with vintage decor, wearing a plaid shirt and jeans. He carefully selects a vinyl record from a wooden shelf lined with albums, the warm glow of a nearby lamp casting soft shadows. As he gently places the record onto the turntable, his fingers move with precision and care, reflecting his appreciation for music. The room is filled with the soft crackle of the needle touching the vinyl, and he closes his eyes momentarily, savoring the nostalgic sound. The ambiance is intimate, with the gentle hum of the record player and the soft lighting creating a serene atmosphere.</div>
+                </div></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_4_2.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">A focused man stands in the dugout, gripping his baseball bat with determination, wearing a classic white jersey with blue pinstripes and a matching cap. The sunlight casts dramatic shadows across his face, highlighting his intense gaze as he prepares for the game. His hands, wrapped in black batting gloves, firmly hold the bat, showcasing his readiness and anticipation. The background reveals the bustling stadium, with blurred fans and vibrant green field, creating an atmosphere of excitement and competition. As he adjusts his stance, the player's concentration and passion for the sport are palpable, embodying the spirit of baseball.</div>
+                </div></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/1_teaser/teaser_5.png" alt=""/></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_5_1.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">An extreme close-up of the young woman reveals every detail of her face, her shoulder-length black hair falling softly around her delicate features. The beige sweater's collar frames her neck as she remains by the window. The warm light highlights her micro-expressions - the gentle movement of her eyelashes, the slight shifts in her jaw, while her dark eyes seem to process deep thoughts.</div>
+                </div></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_5_2.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">A serene woman img with delicate features, wearing a flowing white blouse, sits at her kitchen counter bathed in morning light. Her face is clearly visible as she mindfully slices fresh fruit, arranging colorful pieces of mango, strawberries, and kiwi on a white ceramic plate. Soft sunlight streams through sheer curtains, highlighting her gentle expressions as she works. Her movements are precise and graceful as she creates an artistic breakfast composition, her long fingers placing each piece with intention.</div>
+                </div></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/1_teaser/teaser_6.png" alt=""/></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_6_1.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">In a cozy kitchen, the versatile woman, now in a chef's jacket, expertly plates a gourmet dish. Her meticulous attention to detail and satisfied smile showcase her culinary skills as she prepares for an important dinner service.</div>
+                </div></th>
+                <th><div class="video-cell"><video  width="384" src="./assets/1_teaser/teaser_6_2.mp4" autoplay loop controls muted></video>
+                  <div class="prompt-overlay">The creative woman, wearing a paint-splattered apron, stands before a large canvas in an art studio. Her focused expression and steady hand reveal her artistic passion as she adds intricate details to a colorful abstract painting.</div>
+                </div></th>
+              </tr>
+              
+                <tr> <td><br /></td> </tr> 
+            </tbody>
+          </table>
+        
+        
+        
+        
+          <!------------------ BEGIN SECTION ------------------>
+          <p>&nbsp;</p>
+          <hr>
+          <h2 style="margin-top: 0em;" id="our_results_container" align="left"><a name="image-results" id="image-results"></a>Showcases produced by Magic Mirror</h2>
+            
+          <table  width="1024" align="center">
+            <tbody>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/1.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/1_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/1_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/2.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/2_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/2_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/3.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/3_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/3_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/4.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/4_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/4_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/5.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/5_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/5_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/6.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/6_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/6_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/7.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/7_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/7_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/8.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/8_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/8_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/9.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/9_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/9_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+              <tr>
+                <th><img class="reference_id" src="./assets/2_showcase/11.png" alt=""/></th>
+                <th><video  width="384" src="./assets/2_showcase/11_1.mp4" autoplay loop controls muted/></th>
+                <th><video  width="384" src="./assets/2_showcase/11_2.mp4" autoplay loop controls muted/></th>
+              </tr>
+                <tr> <td><br /></td> </tr> 
+            </tbody>
+          </table>
+        
+        
+            <!------------------ BEGIN SECTION ------------------>
+            <p>&nbsp;</p>
+            <hr>
+                
+            <h2 id="comparison_with_baseline_container" align="left"><a name="image-results" id="image-results"></a>Comparisons with baseline methods</h2>
+            <table  width="1024" align="center">
+              <tbody>
+        
+                    <tr>
+                      <th colspan="3" style="text-align: left;">A seasoned male police officer, wearing a crisp navy uniform adorned with badges, stands beside his patrol car, holding a radio to his mouth. His expression is focused and serious, reflecting the gravity of his communication. The scene is set in an urban environment, with the city skyline visible in the background, and the flashing lights of the patrol car casting a rhythmic glow. As he speaks into the radio, his other hand rests on his utility belt, showcasing his readiness and professionalism. The ambient sounds of distant traffic and the occasional chirp of the radio punctuate the scene, emphasizing the officer's role in maintaining order.
+                        <br/><br/><br/>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th><img class="reference_id" src="./assets/3_compare/1.png" alt=""/></th>
+                      <th style="background-color: #000;"><video  width="384" src="./assets/3_compare/1_dc.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/1_ez.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                      <th style="font-size: 16px">DynamiCrafter<br/><br/><br/></th>
+                      <th style="font-size: 16px">EasyAnimate-I2V<br/><br/><br/></th>
+                    </tr>
+                    <tr>
+                      <th><video  width="384" src="./assets/3_compare/1_cog.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/1_id.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/1_mm.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">CogVideoX-I2V<br/><br/><br/></th>
+                      <th style="font-size: 16px">ID-Animator<br/><br/><br/></th>
+                      <th style="font-size: 16px">Magic Mirror (Ours)<br/><br/><br/></th>
+                    </tr>
+        
+                    <tr>
+                      <th colspan="3" style="text-align: left;">An elderly man, with a determined expression, stands in a sunlit gym, wearing a gray tank top and black shorts, his muscles taut as he grips a heavy kettlebell. The room is filled with natural light streaming through large windows, casting shadows on the polished wooden floor. His face shows concentration and strength, highlighting his commitment to fitness. As he lifts the kettlebell with steady hands, the camera captures the sweat glistening on his brow, emphasizing his effort and resilience. The background features neatly arranged gym equipment, adding to the atmosphere of dedication and perseverance.
+                        <br/><br/><br/>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th><img class="reference_id" src="./assets/3_compare/2.png" alt=""/></th>
+                      <th style="background-color: #000;"><video  width="384" src="./assets/3_compare/2_dc.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/2_ez.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                      <th style="font-size: 16px">DynamiCrafter<br/><br/><br/></th>
+                      <th style="font-size: 16px">EasyAnimate-I2V<br/><br/><br/></th>
+                    </tr>
+                    <tr>
+                      <th><video  width="384" src="./assets/3_compare/2_cog.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/2_id.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/2_mm.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">CogVideoX-I2V<br/><br/><br/></th>
+                      <th style="font-size: 16px">ID-Animator<br/><br/><br/></th>
+                      <th style="font-size: 16px">Magic Mirror (Ours)<br/><br/><br/></th>
+                    </tr>
+        
+                    <tr>
+                      <th colspan="3" style="text-align: left;">A bearded man in his thirties, wearing a plaid shirt and jeans, sits at a rustic wooden bar, surrounded by an array of beer taps and vintage brewery decor. He carefully lifts a frosty pint glass filled with amber beer, examining its color and clarity against the warm, ambient lighting. He takes a slow, appreciative sip, his eyes closing momentarily as he savors the complex flavors. The camera captures the subtle smile of satisfaction on his face, highlighting the rich foam on his upper lip. The background hum of soft chatter and clinking glasses adds to the cozy, inviting atmosphere of the pub.
+                        <br/><br/><br/>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th><img class="reference_id" src="./assets/3_compare/3.png" alt=""/></th>
+                      <th style="background-color: #000;"><video  width="384" src="./assets/3_compare/3_dc.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/3_ez.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                      <th style="font-size: 16px">DynamiCrafter<br/><br/><br/></th>
+                      <th style="font-size: 16px">EasyAnimate-I2V<br/><br/><br/></th>
+                    </tr>
+                    <tr>
+                      <th><video  width="384" src="./assets/3_compare/3_cog.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/3_id.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/3_mm.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">CogVideoX-I2V<br/><br/><br/></th>
+                      <th style="font-size: 16px">ID-Animator<br/><br/><br/></th>
+                      <th style="font-size: 16px">Magic Mirror (Ours)<br/><br/><br/></th>
+                    </tr>
+        
+                    <tr>
+                      <th colspan="3" style="text-align: left;">A serene woman, dressed in a cozy oversized sweater and jeans, kneels on a lush green meadow, gently petting a friendly golden retriever. The dog's tail wags enthusiastically, its fur gleaming in the soft sunlight. Her face lights up with a warm smile as her hand moves tenderly over the dog's head and back. In the background, a picturesque landscape of rolling hills and blooming wildflowers enhances the tranquil scene. The golden retriever, with its tongue lolling out and eyes full of affection, leans into her touch, creating a heartwarming moment of connection and joy.
+                        <br/><br/><br/>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th><img class="reference_id" src="./assets/3_compare/4.png" alt=""/></th>
+                      <th style="background-color: #000;"><video  width="384" src="./assets/3_compare/4_dc.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/4_ez.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                      <th style="font-size: 16px">DynamiCrafter<br/><br/><br/></th>
+                      <th style="font-size: 16px">EasyAnimate-I2V<br/><br/><br/></th>
+                    </tr>
+                    <tr>
+                      <th><video  width="384" src="./assets/3_compare/4_cog.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/4_id.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/4_mm.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">CogVideoX-I2V<br/><br/><br/></th>
+                      <th style="font-size: 16px">ID-Animator<br/><br/><br/></th>
+                      <th style="font-size: 16px">Magic Mirror (Ours)<br/><br/><br/></th>
+                    </tr>
+        
+                    <tr>
+                      <th colspan="3" style="text-align: left;">A focused man in a contemporary gym performs a leg exercise, clad in a fitted black tank top and gray athletic shorts. The scene conveys the intensity of his workout, with sweat glistening on his brow and muscles visibly engaged. Positioned on a sleek leg press machine, he pushes against the resistance with determination. The ambient lighting accentuates his form, while the background showcases neatly arranged weights and exercise equipment. His expression reflects concentration and resolve, embodying the dedication and effort of his fitness journey..
+                        <br/><br/><br/>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th><img class="reference_id" src="./assets/3_compare/5.png" alt=""/></th>
+                      <th style="background-color: #000;"><video  width="384" src="./assets/3_compare/5_dc.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/5_ez.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                      <th style="font-size: 16px">DynamiCrafter<br/><br/><br/></th>
+                      <th style="font-size: 16px">EasyAnimate-I2V<br/><br/><br/></th>
+                    </tr>
+                    <tr>
+                      <th><video  width="384" src="./assets/3_compare/5_cog.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/5_id.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/5_mm.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">CogVideoX-I2V<br/><br/><br/></th>
+                      <th style="font-size: 16px">ID-Animator<br/><br/><br/></th>
+                      <th style="font-size: 16px">Magic Mirror (Ours)<br/><br/><br/></th>
+                    </tr>
+        
+                    <tr>
+                      <th colspan="3" style="text-align: left;">A serene woman, dressed in a flowing white blouse and light blue jeans, stands at a rustic wooden table in a sunlit room filled with greenery. She carefully selects vibrant blooms from a wicker basket, including roses, lilies, and daisies, and begins arranging them in a crystal vase. Sunlight filters through the window, casting a warm glow on her focused expression. As she works, her hands move gracefully, adjusting stems and leaves to create a harmonious bouquet. The scene transitions to a close-up of her hands tying a delicate ribbon around the vase, completing the arrangement with a touch of elegance. The final shot captures her stepping back to admire her creation, a satisfied smile on her face, with the room's natural beauty enhancing the tranquil atmosphere.
+                        <br/><br/><br/>
+                      </th>
+                    </tr>
+                    <tr>
+                      <th><img class="reference_id" src="./assets/3_compare/6.png" alt=""/></th>
+                      <th style="background-color: #000;"><video  width="384" src="./assets/3_compare/6_dc.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/6_ez.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                      <th style="font-size: 16px">DynamiCrafter<br/><br/><br/></th>
+                      <th style="font-size: 16px">EasyAnimate-I2V<br/><br/><br/></th>
+                    </tr>
+                    <tr>
+                      <th><video  width="384" src="./assets/3_compare/6_cog.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/6_id.mp4" autoplay loop controls muted/></th>
+                      <th><video  width="384" src="./assets/3_compare/6_mm.mp4" autoplay loop controls muted/></th>
+                    </tr>
+                    <tr>
+                      <th style="font-size: 16px">CogVideoX-I2V<br/><br/><br/></th>
+                      <th style="font-size: 16px">ID-Animator<br/><br/><br/></th>
+                      <th style="font-size: 16px">Magic Mirror (Ours)<br/><br/><br/></th>
+                    </tr>
+                 
+                  
+        <th></th>
+        <th></th>
+        </tr>
+        
+                  <tr> <td><br /></td> </tr> 
+              </tbody>
+            </table>
+        
+            <!------------------ BEGIN SECTION ------------------>
+            <p>&nbsp;</p>
+            <hr>
+                
+            <h2 id="applications_container" align="left"><a name="image-results" id="image-results"></a>Applications</h2>
+            <p align="left">
+                Personalized Videos with Style-Specific Prompts
+            </p>
+            <table  width="1024" align="center">
+              <tbody>
+                <tr>
+                  <th style="font-size: 16px">ID Reference</th>
+                  <th style="font-size: 16px">Prompt / Style</th>
+                  <th style="font-size: 16px">Video result</th>
+                </tr>
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/1.png" alt=""/></th>
+                  <th style="font-size: 16px; padding: 30px; width: 384px">“Art nouveau, organic curves, floral patterns style, a male police officer talking on the radio”
+                  </th>
+                  <th><video  width="384" src="./assets/4_application/1_1.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/2.png" alt=""/></th>
+                  <th style="font-size: 16px; padding: 30px; width: 384px"  width="384" >“Ukiyo-e japanese woodblock print style, young woman activist posing with flag.”
+                  </th>
+                  <th><video  width="384" src="./assets/4_application/2_1.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/3.png" alt=""/></th>
+                  <th style="font-size: 16px; padding: 30px; width: 384px">“Low poly 3D, geometric reduction, faceted style, a "woman" washing the dishes”
+                  </th>
+                  <th><video  width="384" src="./assets/4_application/3_1.mp4" autoplay loop controls muted/></th>
+                </tr>
+        
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/5++.png" alt=""/></th>
+                  <th style="font-size: 16px; padding: 30px; width: 384px">“Low poly 3D, geometric reduction, faceted style, a male police officer talking on the radio”
+                  </th>
+                  <th><video  width="384" src="./assets/4_application/5++.mp4" autoplay loop controls muted/></th>
+                </tr>
+        
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/4.png" alt=""/></th>
+                  <th style="font-size: 16px; padding: 30px; width: 384px">“Pixel art, 8-bit graphics, retro gaming style, a woman is filling eyebrows”
+                  </th>
+                  <th><video  width="384" src="./assets/4_application/4_1.mp4" autoplay loop controls muted/></th>
+                </tr>
+        
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/5.jpg" alt=""/></th>
+                  <th style="font-size: 16px; padding: 30px; width: 384px">“Synthwave retro, 80s style, sunset colors style, an elderly woman is reading book”
+                  </th>
+                  <th><video  width="384" src="./assets/4_application/5_1.mp4" autoplay loop controls muted/></th>
+                </tr>
+        
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/5+.png" alt=""/></th>
+                  <th style="font-size: 16px; padding: 30px; width: 384px">“Electronic glitch art, neon, cyberpunk aesthetic style, a girl is looking around.”
+                  </th>
+                  <th><video  width="384" src="./assets/4_application/5+_1.mp4" autoplay loop controls muted/></th>
+                </tr>
+              
+                  <tr> <td><br /></td> </tr> 
+              </tbody>
+            </table>
+          
+            <p align="left">
+              Multi-shot Video Generation with One Character
+            </p>
+            <table  width="1024" align="center">
+              <tbody>
+                <tr>
+                  <th colspan="3" style="text-align: left;"><p>A serene woman with delicate features wearing a flowing white blouse:</p>
+                    <ul style="list-style-type: disc; margin-left: 20px;">
+                      <li>practices gentle yoga stretches...</li>
+                      <li>sits at her kitchen counter bathed in morning light...</li>
+                      <li>is working at her writing desk near a window...</li>
+                      <li>starts painting her artwork...</li>
+                      <li>is preparing for the lunch...</li>
+                    </ul>
+                    <br/><br/><br/>
+                  </th>
+                </tr>
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/6.png" alt=""/></th>
+                  <th><video  width="384" src="./assets/4_application/6_1.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="384" src="./assets/4_application/6_2.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 1<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 2<br/><br/><br/></th>
+                </tr>
+                <tr>
+                  <th><video  width="384" src="./assets/4_application/6_3.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="384" src="./assets/4_application/6_4.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="384" src="./assets/4_application/6_5.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th style="font-size: 16px">Shot 3<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 4<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 5<br/><br/><br/></th>
+                </tr>
+        
+                <tr>
+                  <th colspan="3" style="text-align: left;"><p>A beard man with yellow T-shirt: working on a wooden table in his workshop</p>
+                    <br/><br/><br/>
+                  </th>
+                </tr>
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/8.png" alt=""/></th>
+                  <th><video  width="384" src="./assets/4_application/8_1.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="384" src="./assets/4_application/8_2.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 1<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 2<br/><br/><br/></th>
+                </tr>
+                <tr>
+                  <th><video  width="384" src="./assets/4_application/8_3.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="384" src="./assets/4_application/8_4.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="384" src="./assets/4_application/8_5.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th style="font-size: 16px">Shot 3<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 4<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 5<br/><br/><br/></th>
+                </tr>
+        
+                <tr>
+                  <th colspan="3" style="text-align: left;"><p>The young woman with the black shoulder-length hair is captured, wearing her beige knit sweater: shots with different aspects</p>
+                    <br/><br/><br/>
+                  </th>
+                </tr>
+                <tr>
+                  <th><img class="reference_id" src="./assets/4_application/7.png" alt=""/></th>
+                  <th><video  width="384" src="./assets/4_application/7_1.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="384" src="./assets/4_application/7_2.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 1<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 2<br/><br/><br/></th>
+                </tr>
+                <tr>
+                  <th><video  width="384" src="./assets/4_application/7_3.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="384" src="./assets/4_application/7_4.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="384" src="./assets/4_application/7_5.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th style="font-size: 16px">Shot 3<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 4<br/><br/><br/></th>
+                  <th style="font-size: 16px">Shot 5<br/><br/><br/></th>
+                </tr>
+                  <tr> <td><br /></td> </tr> 
+              </tbody>
+            </table>
+        
+            <!------------------ END   SECTION ------------------> 
+        
+            <!------------------ BEGIN SECTION ------------------>
+            <p>&nbsp;</p>
+            <hr>
+                
+            <h2 id="ablation_container" align="left"><a name="image-results" id="image-results"></a>Ablation study</h2>
+            <p align="left">
+                Module-wise Ablations. 
+            </p>
+            <table  width="1024" align="center">
+              <tbody>
+                <tr>
+                  <th><img class="reference_id_small" src="./assets/5_ablation/2.png" alt=""/></th>
+                  <th><video  width="300" src="./assets/5_ablation/2_1.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="300" src="./assets/5_ablation/2_2.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="300" src="./assets/5_ablation/2_3.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th style="font-size: 16px">ID Reference<br/><br/><br/></th>
+                  <th style="font-size: 16px">w/o facial embedding<br/><br/><br/></th>
+                  <th style="font-size: 16px">w/o adaptive condition<br/><br/><br/></th>
+                  <th style="font-size: 16px">Full Model<br/><br/><br/></th>
+                </tr>
+                  <tr> <td><br /></td> </tr> 
+              </tbody>
+            </table>
+        
+        
+            <p align="left">
+              Ablation on Training Stages
+            </p>
+            <table  width="1024" align="center">
+              <tbody>
+                <tr>
+                  <th><img class="reference_id_small" src="./assets/5_ablation/1.png" alt=""/></th>
+                  <th><video  width="300" src="./assets/5_ablation/1_1.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="300" src="./assets/5_ablation/1_2.mp4" autoplay loop controls muted/></th>
+                  <th><video  width="300" src="./assets/5_ablation/1_3.mp4" autoplay loop controls muted/></th>
+                </tr>
+                <tr>
+                  <th style="font-size: 16px">ID Reference</th>
+                  <th style="font-size: 16px">image pre-training only</th>
+                  <th style="font-size: 16px">video fine-tuning only</th>
+                  <th style="font-size: 16px">Full Model</th>
+                </tr>
+                  <tr> <td><br /></td> </tr> 
+              </tbody>
+            </table>
+        
+        
+            <!------------------ END   SECTION ------------------> 
+        
+        
+        
+            <!------------------ BEGIN SECTION ------------------>
+            <p>&nbsp;</p>
+            <hr>
+                
+            <h2 id="limitations_container" align="left"><a name="image-results" id="image-results"></a>Limitations</h2>
+        
+            <p align="left">
+              Our method has limitations, including the inability to handle multi-person videos and process fine-grained features. For example, it sometimes fails to accurately capture details like eye color (case 1). Additionally, since its basic generation capability is bound to the base model, it may produce artifacts when dealing with complex physical motions (case 2).
+            </p>
+            <table  width="1024" align="center">
+              <tbody>
+                <tr>
+                  <th style="font-size: 16px">Reference ID</th>
+                  <th style="font-size: 16px">Our failcase</th>
+                  <th style="font-size: 16px">Reference ID</th>
+                  <th style="font-size: 16px">Our failcase</th>
+                </tr>
+                <tr>
+                  <th><img class="reference_id_scale" src="./assets/6_limitation/1.png" alt=""/></th>
+                  <th><video  width="340" src="./assets/6_limitation/1_1.mp4" autoplay loop controls muted/></th>
+                  <th><img class="reference_id_small" src="./assets/6_limitation/2.png" alt=""/></th>
+                  <th><video  width="340" src="./assets/6_limitation/2_1.mp4" autoplay loop controls muted/></th>
+                </tr>
+        
+                  <tr> <td><br /></td> </tr> 
+              </tbody>
+            </table>
+            <!------------------ END   SECTION ------------------> 
+        
+        
+        </div>
+    
+
+</div>
+
+
+
+<script>
+  const videoContainer = document.querySelector('.video-container');
+  const video = document.querySelector('video');
+  const hoverImage = document.querySelector('.hover-image');
+  const caption = document.querySelector('.caption');
+
+  videoContainer.addEventListener('mouseenter', () => {
+      video.pause();
+      hoverImage.style.display = 'block';
+      caption.style.display = 'block';
+  });
+
+  videoContainer.addEventListener('mouseleave', () => {
+      video.play();
+      hoverImage.style.display = 'none';
+      caption.style.display = 'none';
+  });
+
+
+  // for nerfies template
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-PYVRSFMDRL');
+
+
+
+
+
+  // for carousel
+  window.addEventListener('DOMContentLoaded', (event) => {
+        const videoWrappers = document.querySelectorAll('.video-wrapper');
+      
+        videoWrappers.forEach(wrapper => {
+          const defaultVideo = wrapper.querySelector('.default-video');
+          const aspectRatio = defaultVideo.videoWidth / defaultVideo.videoHeight;
+          const height = wrapper.offsetWidth / aspectRatio;
+      
+          wrapper.style.height = `${height}px`;
+      
+          wrapper.addEventListener('mouseenter', () => {
+            defaultVideo.pause();
+            hoverVideo.play();
+          });
+      
+          wrapper.addEventListener('mouseleave', () => {
+            defaultVideo.play();
+            hoverVideo.pause();
+          });
+        });
+      }); 
+      $(document).ready(function() {
+        var carouselItems = $('.carousel .item');
+        var numItems = carouselItems.length;
+        var numVideos = 5;
+        var currentIndex = 0;
+    
+        $('.carousel').on('click', function() {
+          currentIndex++;
+          if (currentIndex + numVideos <= numItems) {
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          } else {
+            currentIndex = 0;
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          }
+        });
+    
+        carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+      });
+</script>
+</body>
+</html>
