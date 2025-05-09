@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪞</text></svg>">
+    <title>User Study Template</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="mobile-warning">
+        For the best experience, it's better to use a desktop computer to view this website.
+        <br>
+        <button onclick="dismissWarning()">Continue</button>
+    </div>
+    
+    <div class="content">
+        <div id="paper-info" class="paper-info">
+            <h1>User Study on Efficient Video Generation Methods</h1>
+           
+        
+        <section id="teaser" class="gallery-section">
+            <h3>For each pair of videos, please choose one of the options <b>A. Left Video B. Same C. Right Video</b> for each question. We evaluate the <b>visual quality (temporal consistency, aesthetic quality)</b> and <b>semantic quality (prompt consistency)</b> of the generated video. Finally, please provide your <b>overall quality choice</b> based on your preference.</h3>
+            <h3>感谢你参与本次测评！对于每对视频，请在每个问题中选择一个选项 A. 左侧视频 B. 相同 C. 右侧视频。我们评估生成视频的**视觉质量**（时间一致性、美学质量）和**语义质量**（提示一致性）。以及最后根据你的偏好给出**总体质量**选择。</h3>
+            <h3>1. A young man at his 20s is sitting on a piece of cloud in the sky, reading a book.</h3>
+            <h3>一个二十多岁的年轻人坐在天空中的一朵云上，正在读一本书。</h3>
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/left_videos/1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/1__.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+            
+            <h3>2. A large orange octopus is seen resting on the bottom of the ocean floor, blending in with the sandy and rocky terrain. Its tentacles are spread out around its body, and its eyes are closed. The octopus is unaware of a king crab that is crawling towards it from behind a rock, its claws raised and ready to attack. The crab is brown and spiny, with long legs and antennae. The scene is captured from a wide angle, showing the vastness and depth of the ocean. The water is clear and blue, with rays of sunlight filtering through. The shot is sharp and crisp, with a high dynamic range. The octopus and the crab are in focus, while the background is slightly blurred, creating a depth of field effect.</h3>
+            <h3>一只大型橙色章鱼正安静地栖息在海底，和沙石地形融为一体。它的触手环绕在身体周围，眼睛闭着。章鱼并不知道一只国王蟹正从一块岩石后面爬向它，蟹钳抬起，准备攻击。蟹是棕色且多刺的，拥有长腿和触角。这个场景是从一个广角拍摄的，展现了海洋的广阔和深邃。水面清澈湛蓝，阳光透过水面洒下。画面清晰锐利，动态范围高。章鱼和螃蟹处于焦点之中，而背景则略微模糊，营造出景深效果。</h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+            
+            <h3>3. Photorealistic closeup video of two pirate ships battling each other as they sail inside a cup of coffee.</h3>
+            <h3>超写实的特写视频，两艘海盗船在一杯咖啡里相互交战航行。</h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/3.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/3.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <h3>4. A movie trailer featuring the adventures of the 30 year old space man wearing a red wool knitted motorcycle helmet, blue sky, salt desert, cinematic style, shot on 35mm film, vivid colors.</h3>
+            <h3>一个电影预告片，讲述一位30岁太空人的冒险故事，他戴着红色毛线编织的摩托车头盔，蓝天，盐沙漠，电影风格，35毫米胶片拍摄，色彩鲜艳。
+            </h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <h3>5. A drone camera circles around a beautiful historic church built on a rocky outcropping along the Amalfi Coast, the view showcases historic and magnificent architectural details and tiered pathways and patios, waves are seen crashing against the rocks below as the view overlooks the horizon of the coastal waters and hilly landscapes of the Amalfi Coast Italy, several distant people are seen walking and enjoying vistas on patios of the dramatic ocean views, the warm glow of the afternoon sun creates a magical and romantic feeling to the scene, the view is stunning captured with beautiful photography.</h3>
+            <h3>无人机相机环绕一座建在阿马尔菲海岸岩石突出部分上的美丽历史教堂，景色展示了历史和宏伟的建筑细节以及层叠的小径和露台，可以看到波浪拍打下方的岩石，视野俯瞰阿马尔菲海岸意大利的海岸水域和丘陵景观的地平线，可以看到几个远处的人在散步并在露台上欣赏壮观的海景，午后阳光的温暖光芒给场景创造了一种神奇而浪漫的感觉，景色令人惊叹，用美丽的摄影捕捉。</h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/5.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/5.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <h3>6. The camera follows behind a white vintage SUV with a black roof rack as it speeds up a steep dirt road surrounded by pine trees on a steep mountain slope, dust kicks up from it's tires, the sunlight shines on the SUV as it speeds along the dirt road, casting a warm glow over the scene. The dirt road curves gently into the distance, with no other cars or vehicles in sight. The trees on either side of the road are redwoods, with patches of greenery scattered throughout. The car is seen from the rear following the curve with ease, making it seem as if it is on a rugged drive through the rugged terrain. The dirt road itself is surrounded by steep hills and mountains, with a clear blue sky above with wispy clouds.
+            </h3>
+            <h3>相机跟随一辆黑色车顶行李架的白色老式SUV，车辆加速行驶在陡峭的山坡上被松树环绕的泥路上，车轮扬起灰尘，阳光照在SUV上，它沿着泥路疾驰，场景笼罩在温暖的光芒中。泥路在远处轻轻弯曲，看不到其他车辆。道路两旁的树是红杉，散布着绿色植被。汽车从后方看到，轻松跟随弯道，使它看起来像是在崎岖地形中驰骋。泥路本身被陡峭的山丘和山脉环绕，上方是点缀着薄云的清澈蓝天。
+            </h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/6_.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <h3>7. Animated scene features a close-up of a short fluffy monster kneeling beside a melting red candle. The art style is 3D and realistic, with a focus on lighting and texture. The mood of the painting is one of wonder and curiosity, as the monster gazes at the flame with wide eyes and open mouth. Its pose and expression convey a sense of innocence and playfulness, as if it is exploring the world around it for the first time. The use of warm colors and dramatic lighting further enhances the cozy atmosphere of the image.
+            </h3>
+            <h3>动画场景特写一只毛茸茸的矮小怪物跪在融化的红色蜡烛旁边。艺术风格是3D和写实的，注重光影和质感。画作的情绪是惊奇和好奇，怪物睁大眼睛和张开嘴看着火焰。它的姿势和表情传达出一种纯真和顽皮，仿佛它是第一次探索周围的世界。温暖的色彩和戏剧性的光线进一步增强了图像的舒适氛围。
+            </h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/7.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/7.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <h3>8. A petri dish with a bamboo forest growing within it that has tiny red pandas running around.
+            </h3>
+            <h3>一个培养皿里生长着竹林，有小红熊猫在其中奔跑。
+            </h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/8.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/8.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <h3>9. Historical footage of California during the gold rush.
+            </h3>
+            <h3>加利福尼亚淘金热时期的历史影像。
+            </h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/9.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/9.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <h3>10. 3D animation of a small, round, fluffy creature with big, expressive eyes explores a vibrant, enchanted forest. The creature, a whimsical blend of a rabbit and a squirrel, has soft blue fur and a bushy, striped tail. It hops along a sparkling stream, its eyes wide with wonder. The forest is alive with magical elements: flowers that glow and change colors, trees with leaves in shades of purple and silver, and small floating lights that resemble fireflies. The creature stops to interact playfully with a group of tiny, fairy-like beings dancing around a mushroom ring. The creature looks up in awe at a large, glowing tree that seems to be the heart of the forest.
+
+            </h3>
+            <h3>3D动画中一个小巧、圆润、毛茸茸的生物，有着大而富有表现力的眼睛，探索着一个充满活力的魔法森林。这个生物是兔子和松鼠的奇幻混合体，有柔软的蓝色毛皮和蓬松的条纹尾巴。它沿着闪闪发光的小溪蹦跳，眼睛因惊奇而睁大。森林充满魔法元素：会发光和变色的花朵，紫色和银色叶子的树木，以及像萤火虫一样的小浮动光点。这个生物停下来与一群围绕蘑菇环跳舞的小精灵般的生物嬉戏。生物仰望一棵似乎是森林中心的巨大发光树木，充满敬畏。
+            </h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/10.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/10.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <h3>11. A close up view of a glass sphere that has a zen garden within it. There is a small dwarf in the sphere who is raking the zen garden and creating patterns in the sand.
+
+            </h3>
+            <h3>一个玻璃球的特写视角，里面有一个禅宗花园。球内有一个小矮人正在耙禅宗花园并在沙中创造图案。
+            </h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/11.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/11.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <h3>12. The camera rotates around a large stack of vintage televisions all showing different programs -- 1950s sci-fi movies, horror movies, news, static, a 1970s sitcom, etc, set inside a large New York museum gallery.
+            </h3>
+            <h3>相机围绕一大堆老式电视机旋转，这些电视机播放着不同的节目——1950年代科幻电影、恐怖电影、新闻、雪花屏、1970年代情景喜剧等，设置在纽约大型博物馆展厅内。
+            </h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/left_videos/12.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/right_videos/12.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+        
+        </section>
+
+        
+
+    </div>
+
+   <!-- Modal for image enlargement -->
+<!-- Modal for image enlargement -->
+    <!-- Modal for image enlargement -->
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content-container">
+        <div class="modal-content" id="modal-img"></div>
+    </div>
+    <div id="caption"></div>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+      
+    <div id="resolution" class="resolution"></div>
+    <div class="thumbnails">
+        <!-- Thumbnails will be generated dynamically by JavaScript -->
+    </div>
+</div>
+
+    
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>
