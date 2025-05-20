@@ -607,45 +607,203 @@
         </section>
         <section id="ablations" class="gallery-section">
             <h2>Ablation Study</h2>
-            <div class="gallery-48">
-                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+            <h3>1. Effect of different text-attention amplification bias values that affect field of views
+            </h3>
+            <div class="gallery-60">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 12; grid-row: span 8;">
                     <video class="gallery-video" loop muted autoplay>   
-                        <source src="./assets/compare_4_methods/hy_6.mp4" type="video/mp4">
+                        <source src="./assets/ablations/rho_neg.mp4" type="video/mp4">
                     </video>
-                    <div class="resolution">HunyuanVideo / 1625s</div>
+                    <div class="resolution">negative bias</div>
                 </div>
-                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 12; grid-row: span 8;">
                     <video class="gallery-video" loop muted autoplay>   
-                        <source src="./assets/compare_4_methods/tea_6.mp4" type="video/mp4">
+                        <source src="./assets/ablations/rho_0.mp4" type="video/mp4">
                     </video>
-                    <div class="resolution">TeaCache-fast / 708s</div>
+                    <div class="resolution">zero bias</div>
                 </div>
-                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 12; grid-row: span 8;">
                     <video class="gallery-video" loop muted autoplay>   
-                        <source src="./assets/compare_4_methods/svg_6.mp4" type="video/mp4">
+                        <source src="./assets/ablations/rho_1.mp4" type="video/mp4">
                     </video>
-                    <div class="resolution">SVG / 908s</div>
+                    <div class="resolution">low bias</div>
                 </div>
-                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 12; grid-row: span 8;">
                     <video class="gallery-video" loop muted autoplay>   
-                        <source src="./assets/compare_4_methods/base_6.mp4" type="video/mp4">
+                        <source src="./assets/ablations/rho_2.mp4" type="video/mp4">
                     </video>
-                    <div class="resolution">Jenga-Base / 347s</div>
+                    <div class="resolution">mid bias</div>
                 </div>
-                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 12; grid-row: span 8;">
                     <video class="gallery-video" loop muted autoplay>   
-                        <source src="./assets/compare_4_methods/turbo_6.mp4" type="video/mp4">
+                        <source src="./assets/ablations/rho_3.mp4" type="video/mp4">
                     </video>
-                    <div class="resolution">Jenga-Turbo / 225s</div>
+                    <div class="resolution">high bias</div>
                 </div>
-                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
                     <video class="gallery-video" loop muted autoplay>   
-                        <source src="./assets/compare_4_methods/3stage_6.mp4" type="video/mp4">
+                        <source src="./assets/ablations/wo_bias.mp4" type="video/mp4">
                     </video>
-                    <div class="resolution">Jenga-3stage / 157s</div>
+                    <div class="resolution">w/o bias: abnormal FOV (360P first stage)</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">original 1 stage (720P first stage)</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">bias with 2 stages (540P first stage)</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">bias with 3 stages (360P first stage)</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/ablations/wo_bias_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">w/o bias: abnormal FOV (360P first stage)</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">original 1 stage (720P first stage)</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">bias with 2 stages (540P first stage)</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">bias with 3 stages (360P first stage)</div>
                 </div>
             </div>
+            <h3>2. Effectiveness of the Adjacency Mask
+            </h3>
+            <div class="gallery-60">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/ablations/wo_adja_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">w/o adjacency mask</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/ablations/w_adja_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">with adjacency mask</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/ablations/wo_adja_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">w/o adjacency mask</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/ablations/w_adja_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">with adjacency mask</div>
+                </div>
+            </div>
+
         </section> 
+        <section id="limitations" class="gallery-section">
+            <h2>Limitation Analysis</h2>
+            <h3>Please hover on the video to see the text prompt</h3>
+            <h3>Main failure case: latent misalignment when resizing</h3>
+            <div class="gallery-60">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/failcases/161_content.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">A. hand has wrong content</div>
+                    <div class="prompt-overlay">
+                        A person is clapping
+                    </div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/failcases/161_clapping.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">A. with enhanced prompt</div>
+                    <div class="prompt-overlay">
+                        A person in a vibrant red sweater stands in a warmly lit room, their face beaming with joy. They begin clapping enthusiastically, their hands moving rhythmically, creating a sense of celebration. The camera captures their expressive eyes and wide smile, highlighting their genuine happiness. As they continue clapping, the background reveals a cozy living space with soft lighting, adding to the intimate and cheerful atmosphere. The sound of their claps resonates, filling the room with a sense of accomplishment and shared joy.
+                    </div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/failcases/466_static.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">B. boundary misalignment</div>
+                    <div class="prompt-overlay">
+                        A red chair
+                    </div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/failcases/466_prompt.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">B. with enhanced prompt</div>
+                    <div class="prompt-overlay">
+                        A striking red chair sits alone in the center of a minimalist room, its vibrant color contrasting sharply with the white walls and polished wooden floor. The chair, with its sleek, modern design and plush cushioning, invites viewers to imagine the comfort it offers. Sunlight streams through a nearby window, casting soft shadows and highlighting the chair's rich hue. As the camera slowly circles around, the chair's elegant curves and fine craftsmanship become more apparent. The scene transitions to a close-up, revealing the intricate stitching on the fabric and the subtle texture that adds depth to its appearance.
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <h3>Alternative Solution: <span class="prompt-highlight">Use enhanced prompts / Generate contents with complex scene & textures</span></h3>
+            <h4>Based on enhanced prompts, we can eliminate the quality degradation of the generated video, with a much smaller inital resolution (360P).</h4>
+            <div class="gallery-60">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/failcases/0719_dynamic.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">dynamic scene</div>
+                    <div class="prompt-overlay">
+                        Balloon full of water exploding in extreme slow motion.
+                    </div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/failcases/0758_texture.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">contents with detailed textures</div>
+                    <div class="prompt-overlay">
+                        A happy fuzzy panda playing guitar nearby a campfire, snow mountain in the background.
+                    </div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/failcases/0000_prompt_static.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">static scene with enhanced prompt</div>
+                    <div class="prompt-overlay">
+                        In a still frame, a weathered stop sign stands prominently at a quiet intersection, its red paint slightly faded and edges rusted, evoking a sense of time passed. The sign is set against a backdrop of a serene suburban street, lined with tall, leafy trees whose branches gently sway in the breeze. The sky above is a soft gradient of twilight hues, transitioning from deep blue to a warm orange, suggesting the end of a peaceful day. The surrounding area is calm, with neatly trimmed lawns and quaint houses, their windows glowing softly with indoor lights, adding to the tranquil atmosphere.
+                    </div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 15; grid-row: span 12;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/failcases/0797_prompt.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">complex scene with enhanced prompt</div>
+                    <div class="prompt-overlay">
+                        A bright, spacious classroom filled with natural light streaming through large windows, casting a warm glow on the wooden desks arranged in neat rows. The walls are adorned with colorful educational posters and a large world map, creating an inviting and stimulating environment. In the front, a cheerful teacher stands by a whiteboard, writing an engaging lesson with vibrant markers. Students of diverse backgrounds sit attentively, their faces reflecting curiosity and eagerness to learn. Some are raising their hands, eager to participate, while others are engrossed in their textbooks....
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </div>
 
