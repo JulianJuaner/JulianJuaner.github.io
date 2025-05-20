@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧱</text></svg>">
+    <title>Magic Mirror</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="mobile-warning">
+        For the best experience, it's better to use a desktop computer to view this website.
+        <br>
+        <button onclick="dismissWarning()">Continue</button>
+    </div>
+    
+    <div class="sidebar">
+        <h2 class="sidebar-title">Jenga 🧱</h2>
+        
+            <ul>
+                <li><a href="#teaser" class="nav-link"><i class="fas fa-video"></i> Teaser Video </a></li>
+                <li><a href="#showcases" class="nav-link"><i class="fas fa-video"></i> More Showcases </a></li>
+                <li><a href="#compare" class="nav-link"><i class="fas fa-trophy"></i> Comparisons </a></li>
+                <li><a href="#discuss" class="nav-link"><i class="fas fa-comments"></i> Ablations & Limitations </a></li>
+            </ul>
+        
+    </div>
+    <div class="content">
+        <div id="paper-info" class="paper-info">
+            <h1>Training-Free Efficient Video Generation via Dynamic Token Carving</h1>
+            <h2> Supplementary Materials</h2>
+           
+        
+        <section id="teaser" class="gallery-section">
+            <h2>Teaser video </h2>
+            <h3>Hover on the video to see corresponding text prompts</h3>
+            <div class="gallery-60">
+                <div class="gallery-item" style=" --aspect-ratio: 3 / 4;  grid-column: span 14; grid-row: span 18;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/teaser_videos/A.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay">A cat is wagging its tail.</div>
+                    <div class="resolution">HunyuanVideo-I2V / 338s / 4.43×</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 3 / 4;  grid-column: span 14; grid-row: span 18;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/teaser_videos/B.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay">An Asian man with short hair in black tactical uniform and white clothes waves a firework stick.</div>
+                    <div class="resolution">HunyuanVideo-I2V / 338s / 4.43×</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/teaser_videos/C.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay">Several giant wooly mammoths approach treading through a snowy meadow, their long wooly fur lightly blows in the wind as they walk, snow covered trees and dramatic snow capped mountains in the distance, mid afternoon light with wispy clouds and a sun high in the distance creates a warm glow, the low camera view is stunning capturing the large furry mammal with beautiful photography, depth of field.</div>
+                    <div class="resolution">HunyuanVideo / 225s / 7.72×</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/teaser_videos/D.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay">The camera follows behind a white vintage SUV with a black roof rack as it speeds up a steep dirt road surrounded by pine trees on a steep mountain slope, dust kicks up from it's tires, the sunlight shines on the SUV as it speeds along the dirt road, casting a warm glow over the scene. The dirt road curves gently into the distance, with no other cars or vehicles in sight. The trees on either side of the road are redwoods, with patches of greenery scattered throughout. The car is seen from the rear following the curve with ease, making it seem as if it is on a rugged drive through the rugged terrain. The dirt road itself is surrounded by steep hills and mountains, with a clear blue sky above with wispy clouds.</div>
+                    <div class="resolution">HunyuanVideo-8GPU / 39s / 41.57×</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/teaser_videos/E.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay">A stylish woman walks down a Tokyo street filled with warm glowing neon and animated city signage. She wears a black leather jacket, a long red dress, and black boots, and carries a black purse. She wears sunglasses and red lipstick. She walks confidently and casually. The street is damp and reflective, creating a mirror effect of the colorful lights. Many pedestrians walk about.</div>
+                    <div class="resolution">AccVideo / 76s / 2.12×</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/teaser_videos/F.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay">A cat is running.</div>
+                    <div class="resolution">Wan2.1-1.3B / 24s / 4.79×</div>
+                </div>
+                
+            </div>  
+        
+            </section>
+
+        <section id="showcases" class="gallery-section">
+            <h2>More Showcases</h2>
+            <h3>Hover on the video to see corresponding text prompts</h3>
+            <div class="gallery-48">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/i2v_1036.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay">A woman with green hair smiling for the camera</div>
+                    <div class="resolution">Jenga+HunyuanI2V / 338s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/i2v_1073.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga+HunyuanI2V / 338s</div>
+                    <div class="prompt-overlay">A close up of leaves with water droplets on them</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/i2v_3_1024.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga+HunyuanI2V / 338s</div>
+                    <div class="prompt-overlay">A woman smiles while holding a yellow flower</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/i2v_4_1019.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga+HunyuanI2V / 338s</div>
+                    <div class="prompt-overlay">A woman in a wetsuit is swimming in the ocean</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/flash_263.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3Stage / 157s</div>
+                    <div class="prompt-overlay">A young man with long, flowing hair sits on a rustic wooden stool in a cozy, dimly lit room, strumming an acoustic guitar. He wears a vintage denim jacket over a white t-shirt and faded jeans, his fingers skillfully moving across the strings. The warm glow of a nearby lamp casts soft shadows, highlighting his focused expression. As he plays, the camera captures close-ups of his hands, revealing intricate fingerpicking techniques. The room is adorned with musical memorabilia, including vinyl records and posters, creating an intimate, nostalgic atmosphere. His soulful performance resonates, filling the space with melodic harmony.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/flash_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3Stage / 157s</div>
+                    <div class="prompt-overlay">This close-up shot of a Victoria crowned pigeon showcases its striking blue plumage and red chest. Its crest is made of delicate, lacy feathers, while its eye is a striking red color. The bird's head is tilted slightly to the side, giving the impression of it looking regal and majestic. The background is blurred, drawing attention to the bird's striking appearance.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/flash_738.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3Stage / 157s</div>
+                    <div class="prompt-overlay">In a charming Parisian caf\u00e9, a panda sits at a quaint wooden table, sipping coffee from a delicate porcelain cup. The panda, wearing a stylish beret and a striped scarf, gazes out the window at the bustling Paris streets, where the Eiffel Tower is visible in the distance. The caf\u00e9's interior is adorned with vintage posters and warm lighting, creating a cozy ambiance. The panda's gentle movements and serene expression reflect a moment of pure contentment, as the aroma of freshly brewed coffee fills the air, blending with the soft murmur of conversations and the clinking of cups.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/flash_805.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3Stage / 157s</div>
+                    <div class="prompt-overlay">A serene suburban driveway stretches out, lined with vibrant autumn trees shedding their golden leaves. The scene begins with a close-up of the driveway's smooth, dark asphalt, glistening from a recent rain. As the camera pans out, a charming brick house with ivy climbing its walls comes into view, framed by meticulously trimmed hedges. A classic red bicycle leans against a white picket fence, adding a nostalgic touch. The driveway is bordered by colorful flower beds, with butterflies fluttering around. In the distance, a family car slowly pulls in, its headlights cutting through the early evening mist, creating a warm, inviting atmosphere.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/flash_867.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3Stage / 157s</div>
+                    <div class="prompt-overlay">A vibrant red fire hydrant stands prominently to the right of a weathered stop sign, both set against a backdrop of a quiet suburban street. The hydrant, with its glossy paint and metallic sheen, contrasts sharply with the slightly rusted, faded stop sign. The scene is framed by a row of neatly trimmed hedges and a distant view of charming houses with white picket fences. The sky above is a clear blue, with a few fluffy clouds drifting lazily. The sunlight casts gentle shadows, highlighting the textures of the hydrant and the sign, creating a picturesque and serene neighborhood moment.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/turbo_213.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                    <div class="prompt-overlay">A meticulous individual stands in a cozy, sunlit room, wearing a crisp white shirt and dark jeans, carefully ironing a freshly laundered blue dress shirt on a sleek, modern ironing board. The steam rises gently from the iron, creating a soft, hazy effect in the warm light. The room is adorned with potted plants and a large window that lets in natural light, casting a serene glow. The person\u2019s focused expression and precise movements reflect their dedication to the task. As they glide the iron smoothly over the fabric, the wrinkles disappear, leaving the shirt perfectly pressed and ready to wear.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/turbo_332.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                    <div class="prompt-overlay">A sleek, black motorcycle with chrome accents stands proudly on a winding mountain road, its polished surface gleaming under the midday sun. The camera zooms in to capture the intricate details of the engine, the leather seat, and the handlebars, showcasing the craftsmanship. The scene shifts to the motorcycle speeding along the road, the rider in a black leather jacket and helmet, leaning into a curve with the majestic mountains and a clear blue sky in the background. The roar of the engine echoes through the serene landscape, emphasizing the power and freedom of the ride. Finally, the motorcycle comes to a stop at a scenic overlook, the rider dismounting to take in the breathtaking view, the machine standing as a symbol of adventure and exploration.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/turbo_359.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                    <div class="prompt-overlay">A skilled skier, clad in a vibrant red jacket, black pants, and a matching helmet, glides effortlessly down a pristine, snow-covered mountain slope. The sun shines brightly, casting a golden glow on the untouched snow, while evergreen trees line the edges of the trail. The skier carves graceful arcs in the snow, sending up sprays of powder with each turn. In the background, majestic, snow-capped peaks rise against a clear blue sky, creating a breathtaking alpine panorama. The skier's movements are fluid and precise, embodying the thrill and freedom of the sport in this winter wonderland.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/turbo_544.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                    <div class="prompt-overlay">Gwen Stacy, in her iconic Spider-Gwen suit with a white hood and pink accents, sits cross-legged on a rooftop under a twilight sky, engrossed in a thick, leather-bound book. The cityscape behind her is bathed in the soft glow of streetlights and the distant hum of traffic. Her expressive eyes, framed by her mask, move intently across the pages, occasionally glancing up as if lost in thought. The animated style captures the fluidity of her movements, from the gentle flipping of pages to the subtle shifts in her posture. The scene transitions to a close-up of her face, revealing a serene smile as she finds solace in the story, with the vibrant colors and dynamic lines of the animation bringing her character to life.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/turbo_623.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                    <div class="prompt-overlay">A joyful Corgi with a fluffy coat and perky ears bounds through a sunlit park, the golden hues of sunset casting a warm glow on the scene. In super slow motion, the Corgi's playful leaps and bounds are captured in exquisite detail, each movement highlighting its exuberance and energy. The dog's tongue lolls out in pure delight as it chases after a fluttering leaf, its paws kicking up tiny tufts of grass. The background features tall trees with leaves gently swaying in the evening breeze, and the sky is painted in shades of orange and pink, enhancing the serene yet lively atmosphere.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/turbo_752.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                    <div class="prompt-overlay">A fluffy orange tabby cat with white paws and a bushy tail sits on a polished wooden floor, eagerly eating from a ceramic bowl decorated with fish patterns. The camera captures the cat's delicate whiskers twitching and its ears perked up, fully immersed in its meal. The sunlight streaming through a nearby window casts a warm glow on the scene, highlighting the cat's soft fur and the gentle clinking sound of kibble against the bowl. The background features a cozy kitchen setting with rustic cabinets and a potted plant, adding to the homey atmosphere.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/acc_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga+AccVideo / 76s</div>
+                    <div class="prompt-overlay">Several giant wooly mammoths approach treading through a snowy meadow, their long wooly fur lightly blows in the wind as they walk, snow covered trees and dramatic snow capped mountains in the distance, mid afternoon light with wispy clouds and a sun high in the distance creates a warm glow, the low camera view is stunning capturing the large furry mammal with beautiful photography, depth of field.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/acc_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga+AccVideo / 76s</div>
+                    <div class="prompt-overlay">A movie trailer featuring the adventures of the 30 year old space man wearing a red wool knitted motorcycle helmet, blue sky, salt desert, cinematic style, shot on 35mm film, vivid colors.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/acc_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga+AccVideo / 76s</div>
+                    <div class="prompt-overlay">A close up view of a glass sphere that has a zen garden within it. There is a small dwarf in the sphere who is raking the zen garden and creating patterns in the sand.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/wan_737.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga+Wan2.1-1.3B / 24s</div>
+                    <div class="prompt-overlay">A Mars rover moving on Mars.</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/wan_712.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga+Wan2.1-1.3B / 24s</div>
+                    <div class="prompt-overlay">Campfire at night in a snowy forest with starry sky in the background..</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/more_res/wan_698.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga+Wan2.1-1.3B / 24s</div>
+                    <div class="prompt-overlay">A cat wearing sunglasses and working as a lifeguard at a pool.</div>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="compare" class="gallery-section">
+            <h2>Comparisons</h2>
+            <h3 style="text-align: center; color: #1c170e; font-weight: bolder;">Simple Guess Game: Guess which of the following three pairs of video generation processes takes less time? (hover on the video to see the result)</h3>
+
+            <h3 class="prompt">
+                <span class="prompt-highlight">Animated scene features a close-up of a short fluffy monster kneeling beside a melting red candle.</span>
+                The art style is 3D and realistic, with a focus on lighting and texture. The mood of the painting is one of wonder and curiosity, as the monster gazes at the flame with wide eyes and open mouth. Its pose and expression convey a sense of innocence and playfulness, as if it is exploring the world around it for the first time. The use of warm colors and dramatic lighting further enhances the cozy atmosphere of the image.
+            </h3>
+
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/compare_leftright/left_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay-large">This video is generated by HunyuanVideo (1625s, 27min 5s)</div>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/compare_leftright/right_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay-large">This video is generated by Jenga-Base (347s, 5min 47s, 4.68× faster)</div>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+            <br/>
+
+            <h3 class="prompt">3D animation of <span class="prompt-highlight">a small, round, fluffy creature with big, expressive eyes explores a vibrant, enchanted forest. The creature, a whimsical blend of a rabbit and a squirrel, has soft blue fur and a bushy, striped tail.</span> It hops along a sparkling stream, its eyes wide with wonder. The forest is alive with magical elements: flowers that glow and change colors, trees with leaves in shades of purple and silver, and small floating lights that resemble fireflies. The creature stops to interact playfully with a group of tiny, fairy-like beings dancing around a mushroom ring. The creature looks up in awe at a large, glowing tree that seems to be the heart of the forest.
+            </h3>
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/compare_leftright/left_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay-large">This video is generated by SVG (908s, 15min 8s)</div>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/compare_leftright/right_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay-large">This video is generated by Jenga-Turbo (225s, 3min 45s, 4.03× faster)</div>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+            <br/>
+
+            <h3 class="prompt">A close up view of a glass sphere that has a zen garden within it. There is a small dwarf in the sphere who is raking the zen garden and creating patterns in the sand.
+            </h3>
+
+            <div class="gallery-32">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/compare_leftright/left_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay-large">This video is generated by Jenga-Turbo (225s, 3min 45s, 3.12× faster)</div>
+                    <div class="resolution">Left Video</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>
+                        <source src="./assets/compare_leftright/right_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="prompt-overlay-large">This video is generated by TeaCache-fast (708s, 11min 48s)</div>
+                    <div class="resolution">Right Video</div>
+                </div>
+            </div>
+
+            <br/>
+
+            <h2>More Compared Cases</h2>
+            <h3 class="prompt">The camera follows behind a white vintage SUV with a black roof rack as it speeds up a steep dirt road surrounded by pine trees on a steep mountain slope, dust kicks up from it's tires, the sunlight shines on the SUV as it speeds along the dirt road, casting a warm glow over the scene. The dirt road curves gently into the distance, with no other cars or vehicles in sight. The trees on either side of the road are redwoods, with patches of greenery scattered throughout. The car is seen from the rear following the curve with ease, making it seem as if it is on a rugged drive through the rugged terrain. The dirt road itself is surrounded by steep hills and mountains, with a clear blue sky above with wispy clouds.</h3>
+
+            <div class="gallery-48">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/hy_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">HunyuanVideo / 1625s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/tea_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">TeaCache-fast / 708s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/svg_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">SVG / 908s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Base / 347s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_1.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3stage / 157s</div>
+                </div>
+            </div>
+            <br/>
+
+            <h3 class="prompt">A drone camera circles around a beautiful historic church built on a rocky outcropping along the Amalfi Coast, the view showcases historic and magnificent architectural details and tiered pathways and patios, waves are seen crashing against the rocks below as the view overlooks the horizon of the coastal waters and hilly landscapes of the Amalfi Coast Italy, several distant people are seen walking and enjoying vistas on patios of the dramatic ocean views, the warm glow of the afternoon sun creates a magical and romantic feeling to the scene, the view is stunning captured with beautiful photography.</h3>
+
+            <div class="gallery-48">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/hy_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">HunyuanVideo / 1625s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/tea_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">TeaCache-fast / 708s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/svg_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">SVG / 908s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Base / 347s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_2.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3stage / 157s</div>
+                </div>
+            </div>
+            <br/>
+
+            <h3 class="prompt">A large orange octopus is seen resting on the bottom of the ocean floor, blending in with the sandy and rocky terrain. Its tentacles are spread out around its body, and its eyes are closed. The octopus is unaware of a king crab that is crawling towards it from behind a rock, its claws raised and ready to attack. The crab is brown and spiny, with long legs and antennae. The scene is captured from a wide angle, showing the vastness and depth of the ocean. The water is clear and blue, with rays of sunlight filtering through. The shot is sharp and crisp, with a high dynamic range. The octopus and the crab are in focus, while the background is slightly blurred, creating a depth of field effect.</h3>
+
+            <div class="gallery-48">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/hy_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">HunyuanVideo / 1625s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/tea_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">TeaCache-fast / 708s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/svg_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">SVG / 908s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Base / 347s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_3.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3stage / 157s</div>
+                </div>
+            </div>
+            <br/>
+
+            <h3 class="prompt">A young man at his 20s is sitting on a piece of cloud in the sky, reading a book.</h3>
+
+            <div class="gallery-48">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/hy_4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">HunyuanVideo / 1625s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/tea_4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">TeaCache-fast / 708s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/svg_4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">SVG / 908s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Base / 347s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_4.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3stage / 157s</div>
+                </div>
+            </div>
+            <br/>
+
+            <h3 class="prompt">Photorealistic closeup video of <span class="prompt-highlight">two pirate ships</span> battling each other as they sail inside a cup of coffee.</h3>
+
+            <div class="gallery-48">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/hy_5.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">HunyuanVideo / 1625s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/tea_5.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">TeaCache-fast / 708s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/svg_5.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">SVG / 908s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_5.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Base / 347s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_5.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_5.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3stage / 157s</div>
+                </div>
+            </div>
+            <br/>
+
+            <h3 class="prompt">Historical footage of California during the gold rush.</h3>
+
+            <div class="gallery-48">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/hy_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">HunyuanVideo / 1625s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/tea_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">TeaCache-fast / 708s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/svg_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">SVG / 908s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Base / 347s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3stage / 157s</div>
+                </div>
+            </div>
+            <br/>
+
+            <h3 class="prompt">A movie trailer featuring the adventures of the 30 year old space man wearing a red <span class="prompt-highlight">knitted motorcycle helmet</span>, blue sky, salt desert, cinematic style, shot on 35mm film, vivid colors.</h3>
+
+            <div class="gallery-48">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/hy_7.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">HunyuanVideo / 1625s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/tea_7.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">TeaCache-fast / 708s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/svg_7.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">SVG / 908s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_7.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Base / 347s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_7.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_7.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3stage / 157s</div>
+                </div>
+            </div>
+            <br/>
+
+        </section>
+        <section id="ablations" class="gallery-section">
+            <h2>Ablation Study</h2>
+            <div class="gallery-48">
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/hy_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">HunyuanVideo / 1625s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/tea_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">TeaCache-fast / 708s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/svg_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">SVG / 908s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/base_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Base / 347s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/turbo_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-Turbo / 225s</div>
+                </div>
+                <div class="gallery-item" style=" --aspect-ratio: 16 / 9;  grid-column: span 16; grid-row: span 9;">
+                    <video class="gallery-video" loop muted autoplay>   
+                        <source src="./assets/compare_4_methods/3stage_6.mp4" type="video/mp4">
+                    </video>
+                    <div class="resolution">Jenga-3stage / 157s</div>
+                </div>
+            </div>
+        </section> 
+
+    </div>
+
+   <!-- Modal for image enlargement -->
+
+    
+    
+
+    <script src="./script.js"></script>
+</body>
+</html>
