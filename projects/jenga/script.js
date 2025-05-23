@@ -1,21 +1,21 @@
-// 获取模态框元素
+// Get modal element
 var modal = document.getElementById("modal");
 
-// 获取模态框内容元素
+// Get modal content elements
 var modalImg = document.getElementById("modal-img");
 var captionText = document.getElementById("caption");
 var resolutionText = document.getElementById("resolution");
 var watermark = document.querySelector(".watermark");
 
-// 获取所有图片和缩略图容器
+// Get all images and thumbnails container
 var images = document.querySelectorAll('.gallery-item img');
 var thumbnailsContainer = document.querySelector('.thumbnails');
 var currentIndex = 0;
-var scale = 1; // 初始缩放比例
+var scale = 1; // Initial zoom ratio
 var isDragging = false;
 var startX, startY, scrollLeft, scrollTop;
 
-// 为每张图片创建缩略图并添加点击事件
+// Create a thumbnail for each image and add click event
 images.forEach((img, index) => {
     var thumbnail = img.cloneNode(true);
     thumbnail.classList.remove('gallery-image');
@@ -31,32 +31,32 @@ images.forEach((img, index) => {
     }
 });
 
-// 打开模态框
+// Open modal
 function openModal(index) {
     currentIndex = index;
-    scale = 1; // 重置缩放比例
+    scale = 1; // Reset zoom ratio
     modal.style.display = "block";
     updateModalContent();
 }
 
-// 关闭模态框
+// Close modal
 function closeModal() {
     modal.style.display = "none";
 }
 
-// 更新模态框内容
+// Update modal content
 function updateModalContent() {
     var img = images[currentIndex];
     modalImg.style.backgroundImage = `url(${img.src})`;
     modalImg.style.transform = `scale(${scale})`;
-    modalImg.style.width = '100%'; // 适应模态框的宽度
-    modalImg.style.height = '100%'; // 保持宽高比
+    modalImg.style.width = '100%'; // Fit modal width
+    modalImg.style.height = '100%'; // Maintain aspect ratio
     captionText.innerHTML = img.alt;
-    watermark.style.display = "block"; // 显示水印
+    watermark.style.display = "block"; // Show watermark
     updateThumbnails();
 }
 
-// 更新缩略图高亮
+// Update thumbnail highlight
 function updateThumbnails() {
     var thumbnails = document.querySelectorAll('.thumbnail');
     thumbnails.forEach((thumbnail, index) => {
@@ -69,14 +69,14 @@ function updateThumbnails() {
     });
 }
 
-// 获取关闭按钮并添加点击事件
+// Get close button and add click event
 var span = document.getElementsByClassName("close")[0];
 span.onclick = function () {
     closeModal();
-    watermark.style.display = "none"; // 关闭模态框时隐藏水印
+    watermark.style.display = "none"; // Hide watermark when closing modal
 }
 
-// 切换图片的前后控件
+// Controls for switching images
 function plusSlides(n) {
     currentIndex += n;
     if (currentIndex >= images.length) {
@@ -98,7 +98,7 @@ next.onclick = function () {
     plusSlides(1);
 }
 
-// 添加键盘导航功能
+// Add keyboard navigation
 document.addEventListener('keydown', function(event) {
     if (modal.style.display === 'block') {
         if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
@@ -107,7 +107,7 @@ document.addEventListener('keydown', function(event) {
             plusSlides(1);
         } else if (event.key === 'Escape') {
             closeModal();
-            watermark.style.display = "none"; // 关闭模态框时隐藏水印
+            watermark.style.display = "none"; // Hide watermark when closing modal
         }
     }
 });
@@ -127,8 +127,8 @@ modalImg.addEventListener('mousemove', function(e) {
     e.preventDefault();
     const x = e.pageX - modalImg.offsetLeft;
     const y = e.pageY - modalImg.offsetTop;
-    const walkX = (x - startX) * 2; // 调整图片移动速度
-    const walkY = (y - startY) * 2; // 调整图片移动速度
+    const walkX = (x - startX) * 2; // Adjust image move speed
+    const walkY = (y - startY) * 2; // Adjust image move speed
     modalImg.scrollLeft = scrollLeft - walkX;
     modalImg.scrollTop = scrollTop - walkY;
 });
@@ -136,7 +136,7 @@ modalImg.addEventListener('mousemove', function(e) {
 
 
 
-// 高亮侧边栏的活动部分
+// Highlight the active part of the sidebar
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('.gallery-section, .paper-info, .paper-citation, .contact-us');
 
@@ -159,7 +159,7 @@ window.addEventListener('scroll', () => {
         }
     });
 
-    // 如果页面滚动到顶部，移除所有激活状态
+    // Remove all active states if the page is scrolled to the top
     if (window.pageYOffset === 0) {
         navLinks.forEach(link => {
             link.classList.remove('active');
@@ -167,7 +167,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 更新滚动时的缩略图高亮
+// Update thumbnail highlight on scroll
 window.addEventListener('scroll', () => {
     let currentIndex = -1;
     images.forEach((img, index) => {
@@ -204,4 +204,4 @@ function dismissWarning() {
 
 if (isMobileDevice() || isWeChat()) {
     document.getElementById('mobile-warning').style.display = 'block';
-}S
+}

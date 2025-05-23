@@ -1,8 +1,8 @@
-/* 引入 Google Fonts */
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
-/* 设置全局样式 */
+/* Set global styles */
 body {
     font-family:  'Noto Serif JP', serif;
     margin: 0;
@@ -15,65 +15,7 @@ body {
     font-family: 'Noto Serif JP', serif;
 }
 
-/* 侧边栏样式
-.sidebar {
-    width: 200px;
-    background-color: #ffffff;
-    color: #333;
-    padding: 20px;
-    position: fixed;
-    height: 100vh;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border-right: 1px solid #ddd;
-}
-
-.sidebar-title {
-    font-size: 1.8em;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #007acc;
-    text-align: center;
-    font-family: 'Noto Serif JP', serif;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-}
-
-.sidebar ul li {
-    margin: 10px 0;
-}
-
-.sidebar ul li a {
-    color: #333;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: color 0.3s, background-color 0.3s;
-    font-family: 'Noto Serif JP', serif;
-}
-
-.sidebar ul li a i {
-    margin-right: 10px;
-}
-
-.sidebar ul li a:hover,
-.sidebar ul li a.active {
-    color: #fff;
-    background-color: #007acc;
-} */
-
-/* 侧边栏样式 */
+/* Sidebar styles */
 .sidebar {
     width: 200px;
     background-color: #f5f1eb;
@@ -86,37 +28,37 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     border-right: 1px solid #ddd;
-    transition: transform 0.3s ease; /* 添加动画效果 */
-    z-index: 1000; /* 确保侧边栏在内容之上 */
+    transition: transform 0.3s ease; /* Add animation effect */
+    z-index: 1000; /* Ensure sidebar is above content */
 }
 
-/* 内容区域样式 */
+/* Content area styles */
 .content {
-    margin-left: 220px; /* 保证内容区域在侧边栏旁边 */
+    margin-left: 220px; /* Ensure content area is next to sidebar */
     padding: 20px;
     flex: 1;
-    width: calc(100% - 220px); /* 填满剩余宽度 */
-    box-sizing: border-box; /* 包括 padding 在内计算宽度 */
+    width: calc(100% - 220px); /* Fill remaining width */
+    box-sizing: border-box; /* Calculate width including padding */
     transition: margin-left 0.3s ease, width 0.3s ease;
 
-    justify-content: center; /* 水平居中 */
-    align-items: center; /* 垂直居中 */
-    text-align: center; /* 如果有文本内容，使文本也居中 */
+    justify-content: center; /* Horizontal center */
+    align-items: center; /* Vertical center */
+    text-align: center; /* If there's text content, center the text */
 }
 
-/* 移动设备上的隐藏效果 */
+/* Hide on mobile devices */
 @media screen and (max-width: 768px) {
     .sidebar {
-        transform: translateX(-100%); /* 移动侧边栏到屏幕外 */
+        transform: translateX(-100%); /* Move sidebar out of screen */
     }
 
     .content {
-        margin-left: 0; /* 取消左侧边距 */
-        width: 100%; /* 填满屏幕宽度 */
+        margin-left: 0; /* Remove left margin */
+        width: 100%; /* Fill screen width */
     }
 }
 
-/* 侧边栏标题样式 */
+/* Sidebar title styles */
 .sidebar-title {
     font-size: 1.8em;
     font-weight: 700;
@@ -126,7 +68,7 @@ body {
     font-family: 'Noto Serif JP', serif;
 }
 
-/* 列表样式 */
+/* List styles */
 .sidebar ul {
     list-style-type: none;
     padding: 0;
@@ -161,7 +103,6 @@ body {
     background-color: #a55f2d;
 }
 
-
 .paper-info,
 .paper-citation,
 .contact-us {
@@ -190,7 +131,7 @@ body {
   
 .prompt-highlight {
     font-weight: bold;
-    color: #b94a48; /* 你可以换成你喜欢的颜色 */
+    color: #b94a48; /* You can change this to your preferred color */
 }
 
 .prompt-overlay {
@@ -293,18 +234,17 @@ font-size: 12pt;
 }
 
 .gallery-section {
-    margin-bottom: 40px; /* 增加底部间距 */
-    margin-top: 40px; /* 增加顶部间距 */
+    margin-bottom: 40px; /* Increase bottom spacing */
+    margin-top: 40px; /* Increase top spacing */
 }
 
-
 .gallery-section h2 {
-    font-size: 2em; /* 调整标题字体大小 */
+    font-size: 2em; /* Adjust title font size */
     font-weight: 800;
     margin-bottom: 20px;
     font-family: 'Noto Serif JP', serif;
     color: #640f25;
-    text-align: center; /* 文字居中 */
+    text-align: center; /* Center text */
 }
 
 .gallery-section h3.prompt {
@@ -505,7 +445,6 @@ pre {
     transition: transform 0.3s ease-in-out;
 }
 
-
 .gallery-item:hover .overlay-image {
     transform: scale(1.1);
     opacity: 0.7;
@@ -560,7 +499,7 @@ pre {
     font-family: 'Noto Serif JP', serif;
 }
 
-/* 为不同类定义不同的背景颜色 */
+/* Different background colors for different classes */
 .resolution-svd {
     background-color: rgba(87, 51, 15, 0.7);
 }
@@ -573,7 +512,7 @@ pre {
     background-color: rgba(17, 65, 68, 0.7);
 }
 
-/* 在移动设备上隐藏 */
+/* Hide on mobile devices */
 @media screen and (max-width: 768px) {
     .resolution,
     .resolution-svd,
@@ -615,7 +554,7 @@ pre {
     justify-content: center;
     align-items: center;
     height: 100%;
-    width: calc(100% - 100px); /* 留出空间给缩略图 */
+    width: calc(100% - 100px); /* Leave space for thumbnail */
     overflow: auto;
     position: relative;
 }
@@ -624,16 +563,16 @@ pre {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    transition: transform 0.3s ease; /* 添加平滑的缩放动画 */
-    cursor: grab; /* 添加抓手光标 */
-    width: auto; /* 确保初始宽度 */
-    height: auto; /* 确保初始高度 */
+    transition: transform 0.3s ease; /* Add smooth zoom animation */
+    cursor: grab; /* Add grab cursor */
+    width: auto; /* Ensure initial width */
+    height: auto; /* Ensure initial height */
     max-width: 100%;
     max-height: 100%;
 }
 
 .modal-content:active {
-    cursor: grabbing; /* 添加拖动光标 */
+    cursor: grabbing; /* Add drag cursor */
 }
 
 .close {
@@ -681,7 +620,6 @@ pre {
 .thumbnail-active {
     border: 2px solid #007acc;
 }
-
 
 #mobile-warning {
     display: none;
