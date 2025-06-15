@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>RIVAL: Real-World Image Variation by Aligning Diffusion Inversion Chain</title>
+  <link href="https://fonts.googleapis.com/css?family=Noto Serif" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/bulma-slider.min.css"> -->
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <!-- <script src="./static/js/bulma-slider.min.js"></script> -->
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">RIVAL: Real-World Image Variation by Aligning Diffusion Inversion
+              Chain
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://julianjuaner.github.io/" target="_blank">Yuechen Zhang</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://doubiiu.github.io/" target="_blank">Jinbo Xing</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://appsrv.cse.cuhk.edu.hk/~ericlo/" target="_blank">Eric Lo</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://jiaya.me/" target="_blank">Jiaya Jia</a><sup>1,2</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>The Chinese University of Hong Kong,</span>
+              <span class="author-block"><sup>2</sup>SmartMore</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2305.18729.pdf" class="button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Arxiv Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2305.18729" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/julianjuaner/RIVAL/"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <section class="hero is-light is-small">
+
+        <div class="hero-body">
+          Without any tunning steps, RIVAL can generate its inconsistent real-image variations while preserving its
+          low-level characteristics.</b>
+          <div class="container" style="text-align:center">
+            <br>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-exp1">
+                <img src="./static/images/example1.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp2">
+                <img src="./static/images/example2.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp3">
+                <img src="./static/images/example3.png" style="width:100%; " />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent diffusion model advancements have enabled high-fidelity images to be generated using text prompts.
+              However, a domain gap exists between generated images and real-world images, which poses a challenge in
+              generating high-quality variations of real-world images. Our investigation uncovers that this domain gap
+              originates from a latents' distribution gap in different diffusion processes. To address this issue, we
+              propose a novel inference pipeline called <b>R</b>eal <b>I</b>mage <b>V</b>ariation by <b>AL</b>ignment
+              (RIVAL) that utilizes diffusion models to generate image variations from a single image exemplar. Our
+              pipeline enhances the generation quality of image variations by aligning the image generation process to
+              the source image's inversion chain.
+              Specifically, we demonstrate that step-wise latent distribution alignment is essential for generating
+              high-quality variations.
+              To attain this, we design a cross-image self-attention injection for feature interaction and a step-wise
+              distribution normalization to align the latent features. Incorporating these alignment processes into a
+              diffusion model allows RIVAL to generate high-quality image variations without further parameter
+              optimization. Our experimental results demonstrate that our proposed approach outperforms existing methods
+              with respect to semantic-condition similarity and perceptual quality. Furthermore, this generalized
+              inference pipeline can be easily applied to other diffusion-based generation tasks, such as
+              image-conditioned text-to-image generation and example-based image inpainting.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+      <section class="hero teaser">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-justified">
+            <div class="column is-four-fifths">
+              <br>
+              <img src="./static/images/problem.png" width="100%" />
+              <br />
+              <br />
+              <h2 class="subtitle">
+                Motivation
+              </h2>
+              Our motivation is based on the following observations: <br />
+              <li> Vanilla generation process: sample latent from standard Gaussian distribution, follow the <b
+                  style="color: #00AA99">denoising chain</b> to get image
+                <br />
+              <li> Diffusion models has a strong ability to invert a real-world image into latent space, then
+                reconstruct it using the <b style="color: #cba320">inversion denoising chain</b>.
+                <br />
+              <li> The inversion space cannot guarantee as the standard Gaussian, leading to a distribution gap in
+                latent during denoising steps.
+                <br />
+              <li> Distribution Gap causes the domain gap in generated images.
+                <br />
+                Solution: Align two denoising chains to reduce the distribution gap.
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- <section class="section">
+        <div class="container is-max-desktop"> -->
+
+      <!-- Comparisons. -->
+
+      <!--/ Comparisons. -->
+
+      <!-- Extensions. -->
+      <br>
+      <br>
+      <h2 class="title is-5">Comparisons: Image Variation</h2>
+      <section class="hero is-light is-small">
+        <div class="hero-body">
+          <div class="container" style="text-align:center">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-exp1">
+                <img src="./static/images/comp_1.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp2">
+                <img src="./static/images/comp_2.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp3">
+                <img src="./static/images/comp_3.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp4">
+                <img src="./static/images/comp_4.png" style="width:100%; " />
+              </div>
+              <div class="item item-exp5">
+                <img src="./static/images/comp_5.png" style="width:100%; " />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <div class="columns is-centered">
+        <div class="column is-full-width"> -->
+      <!-- <div class="content"> -->
+
+      <!-- <p>
+            Descriptions for extensions.
+          </p> -->
+
+      <!-- Adaptation to 2D Stylization. -->
+
+      <!-- <div class="column is-full-width"> -->
+      <div class="content has-text-justified">
+        <br>
+        <h2 class="title is-3">Extensions</h2>
+        <h3 class="title is-5">Free-form image-conditioned generation</h3>
+        <p>
+          In addition to its ability to generate images corresponding to the exemplar image and text
+          prompts, we have also discovered that RIVAL has a strong ability to transfer styles and semantic
+          concepts in the exemplar for a casual text-driven image generation.
+          With RIVAL, we can easily get a style-specific text-to-image generation. For instance, it can
+          produce a portrait painting of a robot adorned in a sailor uniform while faithfully preserving
+          the stylistic characteristics inherent in the provided oil painting.
+        </p>
+        <img src="./static/images/free-form.png" style="padding: 5%;text-align:center; background:#fafafa" />
+        <h3 class="title is-6">More examples (with the same prompt input and exemplar in the above image)</h3>
+
+        <div class="container is-max-desktop">
+          <section class="hero is-light is-small">
+            <div class="hero-body">
+              <div class="container" style="text-align:center">
+                <div id="results-carousel" class="carousel results-carousel">
+                  <div class="item item-exp1">
+                    <img src="./static/images/girl_1.png" style="width:100%; " />
+                  </div>
+                  <div class="item item-exp2">
+                    <img src="./static/images/girl_2.png" style="width:100%; " />
+                  </div>
+                  <div class="item item-exp3">
+                    <img src="./static/images/girl_3.png" style="width:100%; " />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- </div> -->
+      </div>
+      <!-- </div> -->
+      <!--/ Adaptation to 2D Stylization. -->
+
+
+      <!-- Appearance Editing. -->
+      <div class="column has-text-justified" style="margin-right: 0%;">
+        <br>
+        <h3 class="title is-5">Example-based inpainting</h3>
+        <p>
+          When abstracting RIVAL as a novel paradigm of image-based diffusion inference, we can extend this
+          framework to enable it to encompass other image editing tasks, such as inpainting. By incorporating
+          a coarse mask <b>M</b> into the generation chain, we obtain the inpainted image <b>G</b>.
+        </p>
+        <img src="./static/images/inpaint.png" style="text-align:center;" />
+      </div>
+      <!--/ Appearance Editing. -->
+
+      <!-- Controllability. -->
+      <div class="column has-text-justified" style="margin-right: 0%;">
+        <br>
+        <h3 class="title is-5">Integration with concept customization</h3>
+        <p>
+          In addition to its ability to generate image variations from a single source image using a text
+          prompt input for semantic alignment, RIVAL can be effectively combined with optimization-based
+          concept customization techniques, such as DreamBooth, to enable novel concept customization.
+        </p>
+        <img src="./static/images/dreambooth.png" style="text-align:center;" />
+      </div>
+      <!--/ Controllability. -->
+
+      <!-- Multi-Reference. -->
+
+      <!--/ Multi-Reference. -->
+
+      <!-- </div> -->
+      <!-- </div>
+      </div> -->
+
+      <!--/ Extensions. -->
+
+      <!-- </div>
+      </section> -->
+      <div class="column has-text-justified" style="margin-left: 0%;">
+        <br>
+        <h3 class="title is-5">Compare with UnCLIP</h3>
+        <p>
+          Comparision and adaptation with UnCLIP methods. We <b style="color:#cba320">highlight texts</b> that
+          enhance the image understanding for each case. Our inference pipeline is adapted to the image
+          variation model depicted in the fourth column, in contrast to the variation achieved through vanilla
+          inference in the bottom left corner of each image.
+        </p>
+      </div>
+      <div class="container is-max-desktop">
+        <section class="hero is-light is-small">
+          <div class="hero-body">
+            <div class="container" style="text-align:center">
+              <div id="results-carousel" class="carousel results-carousel">
+                <div class="item item-exp1">
+                  <img src="./static/images/unclip_1.png" style="width:100%; " />
+                </div>
+                <div class="item item-exp2">
+                  <img src="./static/images/unclip_2.png" style="width:100%; " />
+                </div>
+                <div class="item item-exp3">
+                  <img src="./static/images/unclip_3.png" style="width:100%; " />
+                </div>
+                <div class="item item-exp4">
+                  <img src="./static/images/unclip_4.png" style="width:100%; " />
+                </div>
+                <div class="item item-exp5">
+                  <img src="./static/images/unclip_5.png" style="width:100%; " />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <br>
+
+      <div class="column has-text-justified is-centered" style="text-align:center">
+        <br>
+        <h3 class="title is-4">Methods</h3>
+        <img src="./static/images/framework.png" style="width:100%;padding:7%" />
+        <p>
+          To address this distribution gap problem for generating image variations, we propose an inference pipeline
+          called Real-world Image Variation by Alignment (RIVAL). RIVAL is a tunning-free approach that reduces the
+          domain gap between the generated and real-world images by aligning the denoising chain with the real-image
+          inversion chain. Our method comprises two key components: (i) a cross-image self-attention injection that
+          enables cross-image feature interaction in the variation denoising chain, guided by the hidden states from the
+          inversion chain, and (ii) a step-wise latent normalization that aligns the latent distribution with the
+          inverted latent in early denoising steps. Notably, this modified inference process requires no training and is
+          suitable for arbitrary image input.
+        </p>
+      </div>
+
+      <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>@article{zhang2023realworld,
+  title={Real-World Image Variation by Aligning Diffusion Inversion Chain}, 
+  author={Yuechen Zhang and Jinbo Xing and Eric Lo and Jiaya Jia},
+  journal={arXiv preprint arXiv:2305.18729},
+  year={2023},
+}
+      </code></pre>
+        </div>
+      </section>
+
+
+      <footer class="footer">
+        <div class="container">
+          <div class="content has-text-centered">
+            <a class="icon-link" href="" disabled>
+              <i class="fas fa-file-pdf"></i>
+            </a>
+            <a class="icon-link external-link" href="https://rival-diff.github.io" disabled>
+              <i class="ai ai-arxiv"></i>
+            </a>
+            <a class="icon-link external-link" href="https://github.com/julianjuaner/RIVAL/" disabled>
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+                <p>
+                  This website is licensed under a <a rel="license"
+                    href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                    Commons Attribution-ShareAlike 4.0 International License</a>.
+                </p>
+                <p>
+                  Website template credit to <a href="https://nerfies.github.io/">Nerfies</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+
+</html>
