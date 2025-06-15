@@ -239,6 +239,9 @@ h1, h2, h3, h4, h5, h6 {
 .works-section {
   width: 100%;
   padding: 60px 0px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
   background-color: #fcfcfc;
 }
 
@@ -255,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 0px;
   justify-content: center;
@@ -399,6 +402,12 @@ h1, h2, h3, h4, h5, h6 {
     padding: 24px 10px;
     gap: 18px;
   }
+  .header-links {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 12px;
+  }
   .image-container {
     width: 100%;
     min-width: 0;
@@ -409,9 +418,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
-  .works-section {
-    padding: 40px 4vw;
-  }
   .section-title {
     font-size: 2rem;
   }
@@ -422,11 +428,15 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 12px;
   }
   .work-item {
-    padding: 16px 2vw;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 0;
     gap: 18px;
   }
   .image-container {
     height: 180px;
+    min-width: 0;
+    max-width: 100%;
   }
 }
 
@@ -739,7 +749,10 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .works-section {
-    padding: 40px 20px;
+    padding: 40px 0px;
+  }
+  .bigcard{
+    margin: 30px;
   }
   
   .bigcard-content {
