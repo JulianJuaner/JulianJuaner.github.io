@@ -168,7 +168,8 @@ h1, h2, h3, h4, h5, h6 {
 
   .header-image {
     margin-left: 0;
-    max-width: 300px;
+    max-width: 500px;
+    padding-bottom: 100px;
   }
 
   .header-title {
