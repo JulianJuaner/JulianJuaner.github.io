@@ -2,7 +2,7 @@
 :root {
   --primary-color: #e36a25;
   --text-color: #1E1F24;
-  --background-color: #FFF9F0;
+  --background-color: #d3d3d3;
   --secondary-color: #f5f5f5;
   --card-bg: #FFFFFF;
   --card-shadow: rgba(0, 0, 0, 0.05);
@@ -258,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: #fcfcfc;
+  background-color: hsl(0, 0%, 97%);
 }
 
 .section-title {
