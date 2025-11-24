@@ -30,13 +30,14 @@ h1, h2, h3, h4, h5, h6 {
 .header-container {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   margin-top: 60px;
+  padding: 40px 0;
 }
 
 .header-background {
@@ -45,9 +46,26 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #FFF9F0 0%, #FFE4C4 100%);
+  background-image: url('images/bkg.png');
+  background-color: #FFE4C4;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
   z-index: 1;
 }
+
+/* 可选：如果需要更柔和的混合效果，可以使用伪元素叠加
+.header-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 228, 196, 0.4);
+  z-index: 1;
+} */
 
 .header-content {
   position: relative;
@@ -58,6 +76,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
+  flex: 1;
+  min-height: 0;
 }
 
 .header-text {
@@ -131,8 +151,15 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
 }
 
+.image-center {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  margin: 0 auto;
+  display: block;
+}
 .header-image img {
-  width: 80%;
+  width: 100%;
   height: auto;
   border-radius: 24px;
   margin: 0 auto;
@@ -154,12 +181,129 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: auto;
 }
 
+.header-research-interests {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 10px 0px 10px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.research-interests-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(30, 31, 36, 0.85);
+  margin: 0;
+  font-style: italic;
+}
+
+.research-interests-text strong {
+  color: "#000000";
+  font-weight: 600;
+  font-style: normal;
+}
+
+.header-bottom-image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px 20px 40px;
+  margin-bottom: 20px;
+}
+
+.header-bottom-image .image-center {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 24px;
+  margin: 0 auto;
+}
+
+/* 横屏时显示横版图片，竖屏时显示竖版图片 */
+.header-bottom-image .image-landscape {
+  display: block;
+}
+
+.header-bottom-image .image-portrait {
+  display: none !important;
+}
+
+/* 竖屏时显示竖版图片 */
+@media (orientation: portrait) {
+  .header-container {
+    min-height: auto;
+    padding: 20px 20px 40px 20px;
+  }
+
+  .header-content {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .header-research-interests {
+    padding: 0 20px 20px 20px;
+    margin-bottom: 20px;
+  }
+
+  .header-bottom-image {
+    padding: 0 20px 20px 20px;
+  }
+
+  .header-bottom-image .image-landscape {
+    display: none !important;
+  }
+  
+  .header-bottom-image .image-portrait {
+    display: block !important;
+  }
+}
+
+/* 使用宽高比作为备用判断方式（当高度大于宽度时） */
+@media (max-aspect-ratio: 1/1) {
+  .header-container {
+    min-height: auto;
+    padding: 20px 20px 40px 20px;
+  }
+
+  .header-content {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .header-research-interests {
+    padding: 0 20px 20px 20px;
+    margin-bottom: 20px;
+  }
+
+  .header-bottom-image {
+    padding: 0 20px 20px 20px;
+  }
+
+  .header-bottom-image .image-landscape {
+    display: none !important;
+  }
+  
+  .header-bottom-image .image-portrait {
+    display: block !important;
+  }
+}
+
 /* 响应式设计 */
 @media (max-width: 1024px) {
+  .header-container {
+    min-height: auto;
+    padding: 20px 20px;
+  }
+
   .header-content {
     flex-direction: column;
     text-align: center;
     padding: 40px 20px;
+    flex: 0 0 auto;
+    margin-bottom: 20px;
   }
 
   .header-text {
@@ -169,7 +313,21 @@ h1, h2, h3, h4, h5, h6 {
   .header-image {
     margin-left: 0;
     max-width: 500px;
-    padding-bottom: 100px;
+    padding-bottom: 20px;
+  }
+
+  .header-research-interests {
+    padding: 0 20px 15px 20px;
+    margin-bottom: 15px;
+  }
+
+  .research-interests-text {
+    font-size: 1rem;
+  }
+
+  .header-bottom-image {
+    padding: 0 20px 20px 20px;
+    margin-bottom: 20px;
   }
 
   .header-title {
@@ -183,8 +341,28 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   .header-container {
-    height: auto;
     min-height: auto;
+    padding: 15px 15px 30px 15px;
+  }
+
+  .header-content {
+    padding: 20px 15px;
+    margin-bottom: 15px;
+  }
+
+  .header-research-interests {
+    padding: 0 15px 10px 15px;
+    margin-bottom: 10px;
+  }
+
+  .research-interests-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .header-bottom-image {
+    padding: 0 15px 15px 15px;
+    margin-bottom: 15px;
   }
 
   .header-title {
@@ -888,6 +1066,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .publication-links a:hover {
   color: #4a2b4a;
+}
+
+.github-stars {
+  color: #6b3b6b;
+  font-size: 0.85rem;
+  margin-left: 4px;
+  display: none;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
