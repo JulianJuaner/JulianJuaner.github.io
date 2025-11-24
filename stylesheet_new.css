@@ -187,7 +187,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 1200px;
   padding: 0 10px 0px 10px;
-  margin-top: 10px;
+  margin-top: auto;
   text-align: center;
 }
 
