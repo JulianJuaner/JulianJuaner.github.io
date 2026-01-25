@@ -27,32 +27,61 @@
 
   <!-- 头部区域 -->
   <div id="about" class="header-container">
-    <div class="header-background"></div>
-    <div class="header-content">
-      <div class="header-text">
-        <h1 class="header-title">ZHANG Yuechen</h1>
-        <p class="header-subtitle">Ph.D. Student @ CUHK</p>
-        <p class="header-description">
-          Hi! I am a fourth-year Ph.D. student at <a href="https://www.cuhk.edu.hk/english/index.html">CUHK</a>, 
-          advised by <a href="https://jiaya.me">Prof. Jiaya Jia</a>. I finished my bachelor's degree at <a href="https://www.cuhk.edu.hk/english/index.html">CUHK</a> in 2021.
-          <br><br>
-          I am interested in <strong>autoregressive, interactive, and efficient video generation and intelligence</strong>.
-          I am also interested in <strong>special and interesting visual effects and applications</strong> in generation tasks.
-        <br><br>
-          I will graduate in Dec 2025 and is open for job opportunities (给孩子一个好工作吧). Drop me an Email if you are recruiting!
-        </p>
-        <div class="header-links">
-          <a href="mailto:zhangyc@link.cuhk.edu.hk" class="header-link">Email</a>
-          <a href="https://scholar.google.com/citations?user=8OijNgkAAAAJ&hl" class="header-link">Google Scholar</a>
-          <a href="https://github.com/JulianJuaner" class="header-link">Github</a>
+    <button class="header-motion-toggle" type="button" aria-pressed="true">Motion On</button>
+    <div class="header-pattern header-pattern-base" aria-hidden="true"></div>
+    <div class="header-content-stack">
+      <div class="header-content header-content-base">
+        <div class="header-text">
+          <h1 class="header-title">ZHANG Yuechen</h1>
+          <p class="header-description">
+            Hi! I am a Research Scientist in Multi-Modal at <a href="https://mimo.xiaomi.com/">Xiaomi MiMo</a>.
+            <br><br>
+            I graduated from <a href="https://www.cuhk.edu.hk/english/index.html">CUHK</a> in 2025, advised by <a href="https://jiaya.me">Prof. Jiaya Jia</a>.
+            Before that, I received my bachelor's degree from <a href="https://www.cuhk.edu.hk/english/index.html">CUHK</a> in 2021.
+            I focus on <strong>autoregressive, interactive, and efficient video generation and intelligence</strong>.
+            I also enjoy exploring <strong>special and interesting visual effects and applications</strong> in generation tasks.
+          </p>
+          <div class="header-links">
+            <a href="mailto:zhangyc@link.cuhk.edu.hk" class="header-link">Email</a>
+            <a href="https://scholar.google.com/citations?user=8OijNgkAAAAJ&hl" class="header-link">Google Scholar</a>
+            <a href="https://github.com/JulianJuaner" class="header-link">Github</a>
+          </div>
+        </div>
+        <div class="header-image" aria-hidden="true">
+          <br>
+          <img src="images/IMG_2755_2.png" alt="">
+          <br>
+          <img src="images/interests_2.png" alt="">
         </div>
       </div>
-      <div class="header-image">
-        <br>
-        <img src="images/IMG_2755_2.png" alt="ZHANG Yuechen">
-        <br>
-        <img src="images/interests_2.png" alt="research interests">
+    </div>
+    <div class="header-mask-layer" aria-hidden="true">
+      <div class="header-pattern"></div>
+      <div class="header-content header-content-masked">
+        <div class="header-text">
+          <h1 class="header-title">Hi！我是张岳晨</h1>
+          <p class="header-description">
+            你好！我目前是 <a href="https://mimo.xiaomi.com/">小米 MiMo (LLM-Core)</a> 的多模态 Research Scientist。
+            <br><br>
+            我于 2025 年毕业于 <a href="https://www.cuhk.edu.hk/english/index.html">香港中文大学</a>，导师为 <a href="https://jiaya.me">贾佳亚教授</a>。
+            在此之前，我于 2021 年获得 <a href="https://www.cuhk.edu.hk/english/index.html">香港中文大学</a> 的计算机科学学士学位。
+            研究方向聚焦 <strong>自回归、交互式、高效的视频生成与智能</strong>。
+            也喜欢探索生成任务中的 <strong>特殊且有趣的视觉效果与应用</strong>。
+          </p>
+          <div class="header-links">
+            <a href="mailto:zhangyc@link.cuhk.edu.hk" class="header-link">邮箱</a>
+            <a href="https://scholar.google.com/citations?user=8OijNgkAAAAJ&hl" class="header-link">谷歌学术</a>
+            <a href="https://github.com/JulianJuaner" class="header-link">代码</a>
+          </div>
+        </div>
+        <div class="header-image">
+          <br>
+          <img src="images/IMG_2755_2.png" alt="ZHANG Yuechen">
+          <br>
+          <img src="images/interests_2.png" alt="research interests">
+        </div>
       </div>
+    </div>
     </div>
     <!-- <div class="header-research-interests">
       <p class="research-interests-text">
@@ -65,7 +94,6 @@
       <img class="image-center image-portrait" src="image_ver.png" alt="ZHANG Yuechen">
     </div> -->
   </div>
-  
   <!-- Representative Works 部分 -->
   <section id="representative" class="works-section">
     <h2 class="section-title">Representative Research Works</h2>
@@ -658,6 +686,183 @@
     </section>
 
     <script>
+      const headerContainer = document.querySelector('.header-container');
+      if (headerContainer) {
+        const headerMaskLayer = headerContainer.querySelector('.header-mask-layer');
+        const headerPatterns = Array.from(headerContainer.querySelectorAll('.header-pattern'));
+        const motionToggle = headerContainer.querySelector('.header-motion-toggle');
+        let targetX = 50;
+        let targetY = 50;
+        let currentX = 50;
+        let currentY = 50;
+        let trailX = 50;
+        let trailY = 50;
+        let targetPatternX = 0;
+        let targetPatternY = 0;
+        let currentPatternX = 0;
+        let currentPatternY = 0;
+        let rafId = null;
+        let isDragging = false;
+        let maskRadius = 500;
+        let motionEnabled = true;
+
+        const updateMaskRadius = () => {
+          const raw = getComputedStyle(headerContainer).getPropertyValue('--spot-size');
+          const parsed = Number.parseFloat(raw);
+          maskRadius = Number.isFinite(parsed) ? parsed : 500;
+        };
+
+        const buildCapsulePath = (x1, y1, x2, y2, r) => {
+          const dx = x2 - x1;
+          const dy = y2 - y1;
+          const dist = Math.hypot(dx, dy);
+          if (dist < 1) {
+            const startX = x1 + r;
+            return `M ${startX} ${y1} A ${r} ${r} 0 1 0 ${x1 - r} ${y1} A ${r} ${r} 0 1 0 ${startX} ${y1} Z`;
+          }
+          const angle = Math.atan2(dy, dx);
+          const offsetX = Math.sin(angle) * r;
+          const offsetY = -Math.cos(angle) * r;
+          const p1aX = x1 + offsetX;
+          const p1aY = y1 + offsetY;
+          const p1bX = x1 - offsetX;
+          const p1bY = y1 - offsetY;
+          const p2aX = x2 + offsetX;
+          const p2aY = y2 + offsetY;
+          const p2bX = x2 - offsetX;
+          const p2bY = y2 - offsetY;
+          return [
+            `M ${p1aX} ${p1aY}`,
+            `L ${p2aX} ${p2aY}`,
+            `A ${r} ${r} 0 0 1 ${p2bX} ${p2bY}`,
+            `L ${p1bX} ${p1bY}`,
+            `A ${r} ${r} 0 0 1 ${p1aX} ${p1aY}`,
+            'Z'
+          ].join(' ');
+        };
+
+        const buildPattern = (patternElement) => {
+          if (!patternElement) {
+            return;
+          }
+          const rows = 16;
+          const cols = 30;
+          const text = 'YUECHEN';
+          const fragment = document.createDocumentFragment();
+          for (let i = 0; i < rows; i += 1) {
+            const row = document.createElement('div');
+            row.className = 'header-pattern-row';
+            for (let j = 0; j < cols; j += 1) {
+              const span = document.createElement('span');
+              span.className = 'header-pattern-text';
+              span.textContent = text;
+              row.appendChild(span);
+            }
+            fragment.appendChild(row);
+          }
+          patternElement.innerHTML = '';
+          patternElement.appendChild(fragment);
+        };
+
+        const animateSpotlight = () => {
+          if (!motionEnabled) {
+            rafId = null;
+            return;
+          }
+          currentX += (targetX - currentX) * 0.18;
+          currentY += (targetY - currentY) * 0.18;
+          trailX += (currentX - trailX) * 0.08;
+          trailY += (currentY - trailY) * 0.08;
+          currentPatternX += (targetPatternX - currentPatternX) * 0.12;
+          currentPatternY += (targetPatternY - currentPatternY) * 0.12;
+          const bounds = headerContainer.getBoundingClientRect();
+          const currentPxX = (currentX / 100) * bounds.width;
+          const currentPxY = (currentY / 100) * bounds.height;
+          const trailPxX = (trailX / 100) * bounds.width;
+          const trailPxY = (trailY / 100) * bounds.height;
+          if (headerMaskLayer) {
+            const path = buildCapsulePath(currentPxX, currentPxY, trailPxX, trailPxY, maskRadius);
+            headerMaskLayer.style.clipPath = `path('${path}')`;
+            headerMaskLayer.style.webkitClipPath = `path('${path}')`;
+          }
+          headerPatterns.forEach((patternElement) => {
+            patternElement.style.setProperty('--pattern-x', `${currentPatternX}px`);
+            patternElement.style.setProperty('--pattern-y', `${currentPatternY}px`);
+          });
+          rafId = requestAnimationFrame(animateSpotlight);
+        };
+
+        const updateTarget = (event) => {
+          if (!motionEnabled) {
+            return;
+          }
+          const bounds = headerContainer.getBoundingClientRect();
+          targetX = ((event.clientX - bounds.left) / bounds.width) * 100;
+          targetY = ((event.clientY - bounds.top) / bounds.height) * 100;
+          if (!isDragging) {
+            const relativeX = (event.clientX - bounds.left - bounds.width / 2) / bounds.width;
+            const relativeY = (event.clientY - bounds.top - bounds.height / 2) / bounds.height;
+            targetPatternX = relativeX * 80;
+            targetPatternY = relativeY * 60;
+          } else {
+            targetPatternX += event.movementX;
+            targetPatternY += event.movementY;
+          }
+          headerContainer.classList.add('header-spotlight-active');
+          if (!rafId) {
+            rafId = requestAnimationFrame(animateSpotlight);
+          }
+        };
+
+        const stopSpotlight = () => {
+          headerContainer.classList.remove('header-spotlight-active');
+          if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+          }
+        };
+
+        const setMotionEnabled = (enabled) => {
+          motionEnabled = enabled;
+          headerContainer.classList.toggle('header-motion-off', !enabled);
+          if (motionToggle) {
+            motionToggle.setAttribute('aria-pressed', String(enabled));
+            motionToggle.textContent = enabled ? 'Motion On' : 'Motion Off';
+          }
+          if (!enabled) {
+            stopSpotlight();
+            if (headerMaskLayer) {
+              headerMaskLayer.style.clipPath = '';
+              headerMaskLayer.style.webkitClipPath = '';
+            }
+          }
+        };
+
+        const startDrag = () => {
+          isDragging = true;
+          headerContainer.classList.add('header-pattern-dragging');
+        };
+
+        const endDrag = () => {
+          isDragging = false;
+          headerContainer.classList.remove('header-pattern-dragging');
+        };
+
+        updateMaskRadius();
+        headerPatterns.forEach((patternElement) => buildPattern(patternElement));
+        headerContainer.addEventListener('mousemove', updateTarget);
+        headerContainer.addEventListener('mouseenter', updateTarget);
+        headerContainer.addEventListener('mouseleave', stopSpotlight);
+        headerContainer.addEventListener('mousedown', startDrag);
+        window.addEventListener('mouseup', endDrag);
+        window.addEventListener('resize', updateMaskRadius);
+        if (motionToggle) {
+          motionToggle.addEventListener('click', () => {
+            setMotionEnabled(!motionEnabled);
+          });
+        }
+      }
+
       // 格式化star数量（例如：1234 -> "1.2k"）
       function formatStars(count) {
         if (count >= 1000) {
