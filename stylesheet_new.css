@@ -450,6 +450,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 20px 20px 40px 20px;
   }
 
+  .header-motion-controls,
+  .header-motion-hint {
+    display: none !important;
+  }
+
   .header-content {
     padding: 0 20px;
     margin-bottom: 20px;
@@ -478,6 +483,11 @@ h1, h2, h3, h4, h5, h6 {
   .header-container {
     min-height: auto;
     padding: 20px 20px 40px 20px;
+  }
+
+  .header-motion-controls,
+  .header-motion-hint {
+    display: none !important;
   }
 
   .header-content {
