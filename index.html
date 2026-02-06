@@ -27,7 +27,10 @@
 
   <!-- 头部区域 -->
   <div id="about" class="header-container">
-    <button class="header-motion-toggle" type="button" aria-pressed="true">Motion On</button>
+    <span class="header-motion-hint header-motion-hint-top">Double-click to toggle motion / 双击切换动效</span>
+    <div class="header-motion-controls">
+      <button class="header-motion-toggle" type="button" aria-pressed="true">Motion On</button>
+    </div>
     <div class="header-pattern header-pattern-base" aria-hidden="true"></div>
     <div class="header-content-stack">
       <div class="header-content header-content-base">
@@ -49,9 +52,9 @@
         </div>
         <div class="header-image" aria-hidden="true">
           <br>
-          <img src="images/IMG_2755_2.png" alt="">
+          <img src="images/IMG_2755_2_dark.png" alt="">
           <br>
-          <img src="images/interests_2.png" alt="">
+          <img src="images/interests_2_dark.png" alt="">
         </div>
       </div>
     </div>
@@ -61,7 +64,7 @@
         <div class="header-text">
           <h1 class="header-title">Hi！我是张岳晨</h1>
           <p class="header-description">
-            你好！我目前是 <a href="https://mimo.xiaomi.com/">小米 MiMo (LLM-Core)</a> 的多模态 Research Scientist。
+            你好！我目前是 <a href="https://mimo.xiaomi.com/">小米 MiMo (LLM-Core)</a> 的多模态算法研究员。
             <br><br>
             我于 2025 年毕业于 <a href="https://www.cuhk.edu.hk/english/index.html">香港中文大学</a>，导师为 <a href="https://jiaya.me">贾佳亚教授</a>。
             在此之前，我于 2021 年获得 <a href="https://www.cuhk.edu.hk/english/index.html">香港中文大学</a> 的计算机科学学士学位。
@@ -83,6 +86,7 @@
       </div>
     </div>
     </div>
+    <span class="header-motion-hint header-motion-hint-bottom">Double-click to toggle motion / 双击切换动效</span>
     <!-- <div class="header-research-interests">
       <p class="research-interests-text">
         I am interested in <strong>autoregressive, interactive, and efficient video generation and intelligence</strong>. <br>
@@ -705,6 +709,9 @@
         let isDragging = false;
         let maskRadius = 500;
         let motionEnabled = true;
+        let isCircleAnimating = false;
+
+        const isPortrait = () => window.innerHeight > window.innerWidth;
 
         const updateMaskRadius = () => {
           const raw = getComputedStyle(headerContainer).getPropertyValue('--spot-size');
@@ -822,18 +829,84 @@
           }
         };
 
-        const setMotionEnabled = (enabled) => {
+        const setMotionEnabled = (enabled, centerPercent) => {
+          if (isCircleAnimating) return;
           motionEnabled = enabled;
-          headerContainer.classList.toggle('header-motion-off', !enabled);
+          if (enabled) {
+            headerContainer.classList.remove('header-motion-off');
+          }
           if (motionToggle) {
             motionToggle.setAttribute('aria-pressed', String(enabled));
             motionToggle.textContent = enabled ? 'Motion On' : 'Motion Off';
           }
+          const bounds = headerContainer.getBoundingClientRect();
+          // Close: always use current spotlight position so circle shrinks in place (no teleport)
+          const closeX = currentX;
+          const closeY = currentY;
+          // Open: use click position; will sync spotlight state to this position when animation ends
+          const openX = centerPercent ? centerPercent.x : 50;
+          const openY = centerPercent ? centerPercent.y : 50;
           if (!enabled) {
-            stopSpotlight();
             if (headerMaskLayer) {
-              headerMaskLayer.style.clipPath = '';
-              headerMaskLayer.style.webkitClipPath = '';
+              isCircleAnimating = true;
+              headerMaskLayer.classList.add('header-mask-layer--circle');
+              headerMaskLayer.style.opacity = '1';
+              headerMaskLayer.style.clipPath = `circle(${maskRadius}px at ${closeX}% ${closeY}%)`;
+              headerMaskLayer.style.webkitClipPath = headerMaskLayer.style.clipPath;
+              stopSpotlight();
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  headerMaskLayer.style.clipPath = `circle(0 at ${closeX}% ${closeY}%)`;
+                  headerMaskLayer.style.webkitClipPath = headerMaskLayer.style.clipPath;
+                  const onCloseEnd = () => {
+                    headerMaskLayer.removeEventListener('transitionend', onCloseEnd);
+                    headerMaskLayer.classList.add('header-mask-layer--closing');
+                    headerContainer.classList.add('header-motion-off');
+                    headerMaskLayer.style.opacity = '0';
+                    requestAnimationFrame(() => {
+                      headerMaskLayer.classList.remove('header-mask-layer--circle', 'header-mask-layer--closing');
+                      headerMaskLayer.style.opacity = '';
+                      isCircleAnimating = false;
+                    });
+                  };
+                  headerMaskLayer.addEventListener('transitionend', onCloseEnd);
+                });
+              });
+            } else {
+              stopSpotlight();
+              headerContainer.classList.add('header-motion-off');
+            }
+          } else {
+            if (headerMaskLayer) {
+              isCircleAnimating = true;
+              headerMaskLayer.classList.add('header-mask-layer--circle');
+              headerMaskLayer.style.opacity = '1';
+              headerMaskLayer.style.clipPath = `circle(0 at ${openX}% ${openY}%)`;
+              headerMaskLayer.style.webkitClipPath = headerMaskLayer.style.clipPath;
+              requestAnimationFrame(() => {
+                headerMaskLayer.style.clipPath = `circle(${maskRadius}px at ${openX}% ${openY}%)`;
+                headerMaskLayer.style.webkitClipPath = headerMaskLayer.style.clipPath;
+                const onOpenEnd = () => {
+                  headerMaskLayer.removeEventListener('transitionend', onOpenEnd);
+                  headerMaskLayer.classList.remove('header-mask-layer--circle');
+                  headerMaskLayer.style.opacity = '';
+                  const cx = (openX / 100) * bounds.width;
+                  const cy = (openY / 100) * bounds.height;
+                  headerMaskLayer.style.clipPath = `path('${buildCapsulePath(cx, cy, cx, cy, maskRadius)}')`;
+                  headerMaskLayer.style.webkitClipPath = headerMaskLayer.style.clipPath;
+                  // Sync spotlight state to circle center so no jump when handing off to mouse follow
+                  currentX = openX;
+                  currentY = openY;
+                  targetX = openX;
+                  targetY = openY;
+                  trailX = openX;
+                  trailY = openY;
+                  headerContainer.classList.add('header-spotlight-active');
+                  if (!rafId) rafId = requestAnimationFrame(animateSpotlight);
+                  isCircleAnimating = false;
+                };
+                headerMaskLayer.addEventListener('transitionend', onOpenEnd);
+              });
             }
           }
         };
@@ -857,9 +930,26 @@
         window.addEventListener('mouseup', endDrag);
         window.addEventListener('resize', updateMaskRadius);
         if (motionToggle) {
-          motionToggle.addEventListener('click', () => {
-            setMotionEnabled(!motionEnabled);
+          motionToggle.addEventListener('click', (e) => {
+            const bounds = headerContainer.getBoundingClientRect();
+            const center = {
+              x: ((e.clientX - bounds.left) / bounds.width) * 100,
+              y: ((e.clientY - bounds.top) / bounds.height) * 100
+            };
+            setMotionEnabled(!motionEnabled, center);
           });
+        }
+        headerContainer.addEventListener('dblclick', (e) => {
+          if (e.target.closest('.header-motion-controls')) return;
+          const bounds = headerContainer.getBoundingClientRect();
+          const center = {
+            x: ((e.clientX - bounds.left) / bounds.width) * 100,
+            y: ((e.clientY - bounds.top) / bounds.height) * 100
+          };
+          setMotionEnabled(!motionEnabled, center);
+        });
+        if (isPortrait()) {
+          setMotionEnabled(false);
         }
       }
 

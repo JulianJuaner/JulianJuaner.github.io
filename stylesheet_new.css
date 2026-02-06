@@ -40,10 +40,12 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
   margin-top: 60px;
   padding: 40px 0;
-  background: #000;
+  background: #000000;
   --spot-x: 50%;
   --spot-y: 50%;
   --spot-size: 350px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .header-mask-layer {
@@ -58,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   background-image: url('images/bkg.png');
-  background-color: #000;
+  background-color: #000000;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -122,11 +124,26 @@ h1, h2, h3, h4, h5, h6 {
   pointer-events: none;
 }
 
-.header-motion-toggle {
+/* Circle mask open/close animation */
+.header-mask-layer.header-mask-layer--circle {
+  transition: clip-path 0.35s ease-out;
+  -webkit-transition: -webkit-clip-path 0.35s ease-out;
+}
+
+/* Disable opacity transition when hiding mask at end of close (avoids flash) */
+.header-mask-layer.header-mask-layer--closing {
+  transition: none;
+  -webkit-transition: none;
+}
+
+.header-motion-controls {
   position: absolute;
   top: 18px;
   right: 18px;
   z-index: 5;
+}
+
+.header-motion-toggle {
   padding: 8px 14px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -140,6 +157,35 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-motion-toggle:hover {
   background: rgba(0, 0, 0, 0.7);
+}
+
+.header-motion-hint {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 12px;
+  background: #000000;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.02em;
+  user-select: none;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.header-motion-hint-top {
+  top: 18px;
+}
+
+.header-motion-hint-bottom {
+  bottom: 18px;
+}
+
+/* When mask/spotlight is active: yellow background, black text */
+.header-container.header-spotlight-active .header-motion-hint {
+  background: #f5e642;
+  color: #000000;
 }
 
 .header-container .header-text {
@@ -294,8 +340,9 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
 }
 
+/* Default layer (dark version) is visible; masked layer images show only when spotlight is active */
 .header-content-base .header-image {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(0);
 }
 
@@ -327,6 +374,23 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Landscape: scale header photos (2755 and interests) 1.3x, shift right */
+@media (orientation: landscape) {
+  .header-container .header-image {
+    margin-left: 130px;
+  }
+  .header-container .header-image img {
+    transform: scale(1.3);
+    transform-origin: center center;
+  }
+  .header-container .header-image img:last-of-type {
+    margin-top: 48px;
+  }
+  .header-container .header-image img:hover {
+    transform: scale(1.326);
+  }
 }
 
 .header-research-interests {
