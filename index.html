@@ -1032,19 +1032,20 @@
         let dragged = false;
         let justDragged = false;
 
+        // Fixed card widths — never read from DOM to avoid transition timing issues
+        const CARD_W = 480;
+        const CARD_EXPANDED_W = 1060;
+
         function getCardWidth() {
-          const collapsed = Array.from(cards).find((c) => !c.classList.contains('is-expanded'));
-          return collapsed ? collapsed.offsetWidth : 540;
+          return CARD_W;
         }
 
-        // Circular distance from current to card i, in range [-total/2, total/2)
         function circDist(i) {
           let d = ((i - current) % total + total) % total;
           if (d > total / 2) d -= total;
           return d;
         }
 
-        // Visual order: cards sorted by circular distance, left-to-right
         function getVisualOrder() {
           const half = Math.floor(total / 2);
           const order = [];
@@ -1061,6 +1062,7 @@
           });
         }
 
+        // Use fixed widths: current card = expanded, others = collapsed
         function getBaseOffsetPx() {
           const containerWidth = stage.offsetWidth;
           if (!containerWidth) return 0;
@@ -1070,16 +1072,14 @@
           let currentWidth = 0;
           for (let pos = 0; pos < visualOrder.length; pos++) {
             const idx = visualOrder[pos];
-            const w = cards[idx].offsetWidth;
+            const w = (idx === current) ? CARD_EXPANDED_W : CARD_W;
             if (idx === current) {
               currentLeft = leftEdge;
               currentWidth = w;
             }
             leftEdge += w + gap;
           }
-          const centerX = containerWidth / 2;
-          const cardCenterX = currentLeft + currentWidth / 2;
-          return Math.round(centerX - cardCenterX);
+          return containerWidth / 2 - (currentLeft + currentWidth / 2);
         }
 
         function applyTrackTransform(offsetPx) {
@@ -1115,8 +1115,8 @@
           });
         }
 
-        // Find the translateX that centers a given card index in the current visual layout
-        function getOffsetForCard(targetIdx) {
+        // Calculate offset to center a specific card, with a custom expanded card
+        function calcOffset(centerIdx, expandedIdx) {
           const containerWidth = stage.offsetWidth;
           if (!containerWidth) return 0;
           const visualOrder = getVisualOrder();
@@ -1125,54 +1125,40 @@
           let targetWidth = 0;
           for (let pos = 0; pos < visualOrder.length; pos++) {
             const idx = visualOrder[pos];
-            const w = cards[idx].offsetWidth;
-            if (idx === targetIdx) {
+            const w = (idx === expandedIdx) ? CARD_EXPANDED_W : CARD_W;
+            if (idx === centerIdx) {
               targetLeft = leftEdge;
               targetWidth = w;
             }
             leftEdge += w + gap;
           }
-          return Math.round(containerWidth / 2 - (targetLeft + targetWidth / 2));
+          return containerWidth / 2 - (targetLeft + targetWidth / 2);
         }
 
-        // Reposition track without changing expand state
-        function repositionTrack(optionalDragPx) {
-          applyVisualOrder();
-          void track.offsetHeight;
-          const baseOffset = getBaseOffsetPx();
-          const dragPx = optionalDragPx != null ? optionalDragPx : 0;
-          applyTrackTransform(baseOffset + dragPx);
-          updateCardClasses();
-        }
-
-        function updateCarousel(optionalDragPx) {
+        function updateCarousel() {
           syncExpandToCurrent();
-          repositionTrack(optionalDragPx);
+          applyVisualOrder();
+          applyTrackTransform(getBaseOffsetPx());
+          updateCardClasses();
         }
 
         function go(step) {
           const oldCurrent = current;
           current = (current + step + total) % total;
 
-          // 1. Apply new expand state and visual order
+          // 1. Apply new state
           syncExpandToCurrent();
           applyVisualOrder();
 
-          // 2. Disable transition, force layout
+          // 2. Snap: center OLD card using its pre-transition width (still visually expanded)
           track.classList.add('is-dragging');
           void track.offsetHeight;
-
-          // 3. Set translateX to keep the OLD card centered (compensate for order change)
-          const compensateOffset = getOffsetForCard(oldCurrent);
-          applyTrackTransform(compensateOffset);
+          applyTrackTransform(calcOffset(oldCurrent, oldCurrent));
           void track.offsetHeight;
 
-          // 4. Re-enable transition and slide to the NEW card center
+          // 3. Slide: transition to NEW card centered at its final expanded width
           track.classList.remove('is-dragging');
-          const targetOffset = getBaseOffsetPx();
-          applyTrackTransform(targetOffset);
-
-          // 5. Update card classes and dots
+          applyTrackTransform(getBaseOffsetPx());
           updateCardClasses();
         }
 
@@ -1277,7 +1263,7 @@
           if (!expanded || expanded.contains(e.target)) return;
           expanded.classList.remove('is-expanded');
           onExpandChange();
-          repositionTrack();
+          applyTrackTransform(getBaseOffsetPx());
         }
 
         cards.forEach((card) => {
@@ -1307,7 +1293,7 @@
             e.stopPropagation();
             card.classList.remove('is-expanded');
             onExpandChange();
-            repositionTrack();
+            applyTrackTransform(getBaseOffsetPx());
           });
         });
 
