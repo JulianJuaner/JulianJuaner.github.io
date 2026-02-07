@@ -1026,6 +1026,7 @@
         const total = cards.length;
         let current = 0;
         const gap = 16;
+        const isPortrait = () => window.innerHeight > window.innerWidth;
         let dragStartX = 0;
         let dragStartOffset = 0;
         let isDragging = false;
@@ -1033,8 +1034,10 @@
         let justDragged = false;
 
         // Fixed card widths — never read from DOM to avoid transition timing issues
-        const CARD_W = 480;
-        const CARD_EXPANDED_W = 1060;
+        // On mobile (portrait), abstract is hidden, so expanded = normal width
+        const isMobile = window.innerWidth <= 768;
+        const CARD_W = isMobile ? Math.min(window.innerWidth * 0.8, 340) : 480;
+        const CARD_EXPANDED_W = isMobile ? CARD_W : 1060;
 
         function getCardWidth() {
           return CARD_W;
@@ -1136,6 +1139,18 @@
         }
 
         function updateCarousel() {
+          if (isPortrait()) {
+            track.style.transform = 'none';
+            cards.forEach((c) => {
+              c.classList.remove('works-card--center', 'works-card--left-1', 'works-card--right-1', 'works-card--left-2', 'works-card--right-2', 'works-card--far', 'works-card--right-far', 'is-expanded');
+            });
+            dotsEl.querySelectorAll('.works-carousel-dot').forEach((dot, i) => {
+              dot.classList.toggle('is-active', i === current);
+              dot.setAttribute('aria-selected', i === current);
+            });
+            onExpandChange();
+            return;
+          }
           syncExpandToCurrent();
           applyVisualOrder();
           applyTrackTransform(getBaseOffsetPx());
@@ -1143,6 +1158,7 @@
         }
 
         function go(step) {
+          if (isPortrait()) return;
           const oldCurrent = current;
           current = (current + step + total) % total;
 
@@ -1180,6 +1196,7 @@
         nextBtn.addEventListener('click', () => go(1));
 
         stage.addEventListener('mousedown', (e) => {
+          if (isPortrait()) return;
           if (e.target.closest('a') || e.target.closest('button')) return;
           isDragging = true;
           dragged = false;
@@ -1212,6 +1229,7 @@
         });
 
         stage.addEventListener('touchstart', (e) => {
+          if (isPortrait()) return;
           if (e.target.closest('a') || e.target.closest('button')) return;
           isDragging = true;
           dragged = false;
@@ -1281,6 +1299,7 @@
           abstractEl.appendChild(closeBtn);
           abstractEl.appendChild(text);
           inner.addEventListener('click', (e) => {
+            if (isPortrait()) return;
             if (e.target.closest('a')) return;
             if (justDragged) return;
             const idx = parseInt(card.getAttribute('data-index'), 10);
@@ -1300,6 +1319,7 @@
         buildDots();
         updateCarousel();
         window.addEventListener('resize', updateCarousel);
+        window.addEventListener('orientationchange', () => { setTimeout(updateCarousel, 100); });
       })();
 
       // 格式化star数量（例如：1234 -> "1.2k"）

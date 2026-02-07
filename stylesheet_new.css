@@ -456,7 +456,10 @@ h1, h2, h3, h4, h5, h6 {
   display: none !important;
 }
 
-/* 竖屏时显示竖版图片 */
+/* Portrait (vertical screen): height > width.
+   - Header layout: compact padding, portrait image shown.
+   - Motion toggle and double-click hint hidden (JS turns motion off on init and on orientation/resize).
+   - Representative Works: no carousel, vertical list (no scroll cards). */
 @media (orientation: portrait) {
   .header-container {
     min-height: auto;
@@ -489,9 +492,43 @@ h1, h2, h3, h4, h5, h6 {
   .header-bottom-image .image-portrait {
     display: block !important;
   }
+
+  /* Representative Works: vertical list, no carousel */
+  .works-carousel-prev,
+  .works-carousel-next,
+  .works-carousel-nav {
+    display: none !important;
+  }
+  .works-carousel-stage {
+    overflow: visible;
+  }
+  .works-carousel-track {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    transform: none !important;
+  }
+  .works-carousel .works-card {
+    width: 100%;
+    max-width: 360px;
+    transform: none !important;
+  }
+  .works-carousel .works-card-inner {
+    width: 100%;
+  }
+  .works-carousel .works-card-abstract {
+    display: none !important;
+  }
+  .works-carousel .works-card.is-expanded {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
-/* 使用宽高比作为备用判断方式（当高度大于宽度时） */
+/* Fallback for portrait: max-aspect-ratio 1/1 (height >= width).
+   Same layout as orientation: portrait for browsers that support aspect-ratio but not orientation. */
 @media (max-aspect-ratio: 1/1) {
   .header-container {
     min-height: auto;
@@ -523,6 +560,39 @@ h1, h2, h3, h4, h5, h6 {
   
   .header-bottom-image .image-portrait {
     display: block !important;
+  }
+
+  /* Representative Works: vertical list, no carousel */
+  .works-carousel-prev,
+  .works-carousel-next,
+  .works-carousel-nav {
+    display: none !important;
+  }
+  .works-carousel-stage {
+    overflow: visible;
+  }
+  .works-carousel-track {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    transform: none !important;
+  }
+  .works-carousel .works-card {
+    width: 100%;
+    max-width: 360px;
+    transform: none !important;
+  }
+  .works-carousel .works-card-inner {
+    width: 100%;
+  }
+  .works-carousel .works-card-abstract {
+    display: none !important;
+  }
+  .works-carousel .works-card.is-expanded {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -1604,15 +1674,29 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .works-card {
-    width: 240px;
+    width: min(80vw, 340px);
+    height: auto;
   }
 
   .works-card.is-expanded {
-    width: min(95vw, 560px);
+    width: min(80vw, 340px);
+    height: auto;
   }
 
   .works-card-inner {
-    width: 240px;
+    width: 100%;
+  }
+
+  .works-card-abstract {
+    display: none !important;
+  }
+
+  .works-carousel-stage {
+    min-height: 400px;
+  }
+
+  .works-carousel-track {
+    min-height: 400px;
   }
 
   .works-card.works-card--center {
