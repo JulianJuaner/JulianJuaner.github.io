@@ -12,6 +12,10 @@
   --link-hover-color: #3C56F4;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
@@ -132,6 +136,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Disable opacity transition when hiding mask at end of close (avoids flash) */
 .header-mask-layer.header-mask-layer--closing {
+  transition: none;
+  -webkit-transition: none;
+}
+
+/* Wavy circle animation: no CSS transition, path is updated in JS every frame */
+.header-mask-layer.header-mask-layer--wavy {
   transition: none;
   -webkit-transition: none;
 }
@@ -270,6 +280,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .header-title {
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -656,11 +667,55 @@ h1, h2, h3, h4, h5, h6 {
 /* Representative Works 部分 */
 .works-section {
   width: 100%;
-  padding: 60px 0px;
-  align-items: center;
-  justify-content: center;
+  padding: 72px 0 100px;
   overflow: hidden;
-  background-color: hsl(0, 0%, 97%);
+  background: linear-gradient(180deg, #000000 0%, #080810 50%, #000000 100%);
+}
+
+.section-header {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px 32px;
+  position: relative;
+  z-index: 11;
+}
+
+.section-header:not(.section-header--dark) .section-sub {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.section-header:not(.section-header--dark) .section-title {
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111;
+  text-align: left;
+  margin: 0 0 2rem 0;
+}
+
+.section-header--dark .section-sub {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.section-header--dark .section-title {
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: left;
+  margin: 0;
 }
 
 .section-title {
@@ -669,6 +724,364 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 2rem;
   color: #333;
   text-align: center;
+}
+
+.works-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.works-carousel-stage {
+  perspective: 1800px;
+  min-height: 520px;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  width: 100%;
+  overflow: visible;
+}
+
+.works-carousel-stage:active {
+  cursor: grabbing;
+}
+
+.works-carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+  min-height: 520px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+}
+
+.works-carousel-track.is-dragging {
+  transition: none;
+}
+
+.works-card {
+  flex-shrink: 0;
+  width: 480px;
+  height: 560px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  transition: width 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.45s ease,
+    box-shadow 0.45s ease,
+    filter 0.45s ease;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #1a1a1a;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.works-card.is-expanded {
+  width: 1060px;
+  cursor: default;
+  z-index: 10;
+}
+
+.works-card-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-shrink: 0;
+  width: 480px;
+}
+
+.works-card.is-expanded .works-card-inner {
+  width: 480px;
+}
+
+/* Center: pulled-out photo */
+.works-card.works-card--center {
+  transform: rotateY(0deg) translateZ(60px) scale(1.06);
+  opacity: 1;
+  z-index: 3;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+  filter: brightness(1.02);
+}
+
+/* One step left */
+.works-card.works-card--left-1 {
+  transform: rotateY(36deg) translateZ(-25px) scale(0.92);
+  opacity: 0.82;
+  z-index: 2;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* One step right */
+.works-card.works-card--right-1 {
+  transform: rotateY(-36deg) translateZ(-25px) scale(0.92);
+  opacity: 0.82;
+  z-index: 2;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Two steps left */
+.works-card.works-card--left-2 {
+  transform: rotateY(52deg) translateZ(-60px) scale(0.82);
+  opacity: 0.45;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Two steps right */
+.works-card.works-card--right-2 {
+  transform: rotateY(-52deg) translateZ(-60px) scale(0.82);
+  opacity: 0.45;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Farther: recede into stack */
+.works-card.works-card--far {
+  transform: rotateY(62deg) translateZ(-95px) scale(0.72);
+  opacity: 0.22;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.works-card.works-card--far.works-card--right-far {
+  transform: rotateY(-62deg) translateZ(-95px) scale(0.72);
+}
+
+.works-card .bigcard-content,
+.works-card .bigcard-title,
+.works-card .bigcard-authors,
+.works-card .bigcard-venue,
+.works-card .bigcard-desc,
+.works-card .bigcard-link {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.works-card .bigcard-authors,
+.works-card .bigcard-desc {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.works-card .bigcard-authors .author-name {
+  color: #f5eab8;
+}
+
+.works-card .bigcard-link {
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.works-card .bigcard-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: width 0.3s ease;
+}
+
+.works-card .bigcard-link:hover {
+  color: #fff;
+}
+
+.works-card .bigcard-link:hover::after {
+  width: 100%;
+}
+
+/* Collapse transitions: text fades out first, then panel shrinks */
+.works-card-abstract {
+  flex: 0 0 0;
+  min-width: 0;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  background: #0d0d0d;
+  padding: 0;
+  overflow-y: auto;
+  transition: flex 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.18s,
+    min-width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.18s,
+    max-width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.18s,
+    opacity 0.2s ease,
+    padding 0.4s ease 0.18s;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Expand transitions: panel opens first, then text fades in */
+.works-card.is-expanded .works-card-abstract {
+  flex: 1 1 580px;
+  min-width: 400px;
+  max-width: 580px;
+  opacity: 1;
+  padding: 28px 28px 28px 24px;
+  transition: flex 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    min-width 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    max-width 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.35s ease 0.1s,
+    padding 0.35s ease;
+}
+
+.works-card-abstract::before {
+  content: 'ABSTRACT';
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  line-height: 1;
+}
+
+.works-card-abstract-text,
+.works-card-abstract-close {
+  position: relative;
+  z-index: 1;
+}
+
+/* Close button: fade out immediately on collapse */
+.works-card-abstract-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.2s ease;
+}
+
+/* Close button: fade in with delay on expand */
+.works-card.is-expanded .works-card-abstract-close {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.35s, background 0.2s ease;
+}
+
+.works-card-abstract-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Text: fade out quickly on collapse */
+.works-card-abstract-text {
+  margin-right: 20px;
+  white-space: pre-line;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+/* Text: fade in with delay on expand */
+.works-card.is-expanded .works-card-abstract-text {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+}
+
+.works-carousel-prev,
+.works-carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.25s;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.works-carousel-prev {
+  left: 10%;
+}
+
+.works-carousel-next {
+  right: 10%;
+}
+
+.works-carousel-prev:hover,
+.works-carousel-next:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.works-carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.works-carousel-dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.works-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background 0.3s ease,
+    width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.works-carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.works-carousel-dot.is-active {
+  background: #fff;
+  width: 24px;
+  border-radius: 4px;
 }
 
 .works-list {
@@ -796,7 +1209,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .work-link:hover {
-  color: #000;
+  color: var(--link-hover-color);
 }
 
 .work-link::after {
@@ -1061,6 +1474,11 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 8px 30px var(--card-shadow);
 }
 
+.works-card .bigcard:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .bigcard-img-wrap {
   position: relative;
   width: 100%;
@@ -1099,7 +1517,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bigcard-content {
-  padding: 24px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -1107,17 +1525,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bigcard-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 0.8rem;
-  line-height: 1.4;
+  margin-bottom: 0.6rem;
+  line-height: 1.38;
 }
 
 .bigcard-authors {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   color: rgba(30, 31, 36, 0.8);
-  margin-bottom: 8px;
-  line-height: 1.4;
+  margin-bottom: 6px;
+  line-height: 1.38;
 }
 
 .bigcard-venue {
@@ -1130,7 +1548,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .bigcard-desc {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.45;
   color: rgba(30, 31, 36, 0.7);
   margin-bottom: 20px;
 }
@@ -1154,7 +1572,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bigcard-link:hover {
-  color: #000;
+  color: var(--link-hover-color);
 }
 
 /* 响应式布局 */
@@ -1168,31 +1586,80 @@ h1, h2, h3, h4, h5, h6 {
   .works-list {
     grid-template-columns: 1fr;
   }
-  
+
   .works-section {
-    padding: 40px 0px;
+    padding: 40px 0 60px;
   }
+
+  .section-header {
+    padding: 0 20px 24px;
+  }
+
+  .section-header--dark .section-title {
+    font-size: 1.85rem;
+  }
+
+  .works-carousel {
+    padding: 0 12px 32px;
+  }
+
+  .works-card {
+    width: 240px;
+  }
+
+  .works-card.is-expanded {
+    width: min(95vw, 560px);
+  }
+
+  .works-card-inner {
+    width: 240px;
+  }
+
+  .works-card.works-card--center {
+    transform: rotateY(0deg) translateZ(40px) scale(1.04);
+  }
+
+  .works-card.works-card--left-1,
+  .works-card.works-card--right-1 {
+    transform: rotateY(36deg) translateZ(-25px) scale(0.88);
+  }
+
+  .works-card.works-card--right-1 {
+    transform: rotateY(-36deg) translateZ(-25px) scale(0.88);
+  }
+
+  .works-card.works-card--left-2,
+  .works-card.works-card--right-2,
+  .works-card.works-card--far {
+    transform: rotateY(52deg) translateZ(-60px) scale(0.76);
+  }
+
+  .works-card.works-card--right-2,
+  .works-card.works-card--right-far {
+    transform: rotateY(-52deg) translateZ(-60px) scale(0.76);
+  }
+
   .bigcard{
-    margin: 30px;
+    margin: 20px;
   }
-  
+
   .bigcard-content {
-    padding: 20px;
+    padding: 16px;
   }
-  
+
   .bigcard-title {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
-  
+
   .bigcard-desc {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
   }
 }
 
 /* Full Publications 部分 */
 .publications-section {
   padding: 80px 40px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -1202,17 +1669,37 @@ h1, h2, h3, h4, h5, h6 {
   gap: 10px;
 }
 
+.publications-category {
+  margin-bottom: 2rem;
+}
+
+.publications-category:last-child {
+  margin-bottom: 0;
+}
+
+.publications-category-title {
+  font-family: 'Sora', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+}
+
 .publication-item {
   display: flex;
   gap: 30px;
   align-items: flex-start;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  padding: 20px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .publication-item:hover {
   transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.02);
 }
 
 .publication-item:last-child {
@@ -1223,10 +1710,15 @@ h1, h2, h3, h4, h5, h6 {
   width: 200px;
   height: 120px;
   position: relative;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.publication-item:hover .publication-image {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
 }
 
 .pub-img-default,
@@ -1289,11 +1781,28 @@ h1, h2, h3, h4, h5, h6 {
   color: #000;
   text-decoration: none;
   font-size: 0.9rem;
+  position: relative;
+  padding-bottom: 2px;
   transition: color 0.3s ease;
 }
 
+.publication-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--link-hover-color);
+  transition: width 0.3s ease;
+}
+
 .publication-links a:hover {
-  color: #000;
+  color: var(--link-hover-color);
+}
+
+.publication-links a:hover::after {
+  width: 100%;
 }
 
 .github-stars {
@@ -1334,10 +1843,12 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
 }
 
 .nav-container {
@@ -1371,7 +1882,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link:hover {
-  color: #000;
+  color: var(--link-hover-color);
 }
 
 .nav-link::after {
@@ -1412,9 +1923,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .education-section {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto 40px auto;
-  padding: 60px 20px 20px 20px;
+  padding: 60px 40px 20px 40px;
 }
 
 .education-list, .work-list {
@@ -1422,8 +1933,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .edu-block, .work-block {
-  border-bottom: 1px solid #eee;
-  padding: 18px 0 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 20px 0 14px 0;
 }
 
 .edu-header, .work-header {
@@ -1482,9 +1993,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .awards-section {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto 60px auto;
-  padding: 60px 20px 20px 20px;
+  padding: 60px 40px 20px 40px;
 }
 
 .awards-list {

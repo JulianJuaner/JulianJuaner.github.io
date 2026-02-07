@@ -6,6 +6,9 @@
   <meta name="author" content="ZHANG Yuechen">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="stylesheet_new.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥥</text></svg>">
 </head>
 
@@ -100,141 +103,176 @@
   </div>
   <!-- Representative Works 部分 -->
   <section id="representative" class="works-section">
-    <h2 class="section-title">Representative Research Works</h2>
-    <!-- insert image.png into the page.-->
-    <div class="works-list">
-      <!-- Jenga -->
-      <div class="bigcard">
-        <div class="bigcard-img-wrap hover-img-box">
-          <img src="posters/jenga.png" alt="Jenga" class="bigcard-img img-default" />
-          <img src="images/jenga_default.gif" alt="Jenga" class="bigcard-img img-hover" />
-        </div>
-        <div class="bigcard-content">
-          <div>
-            <div class="bigcard-title">Training-Free Efficient Video Generation via Dynamic Token Carving</div>
-            <div class="bigcard-authors"><span class="author-name">Yuechen Zhang</span>, Jinbo Xing, Bin Xia, Shaoteng Liu, Bohao Peng, Xin Tao, Pengfei Wan, Eric Lo, Jiaya Jia</div>
-            <div class="bigcard-venue">NeurIPS, 2025</div>
-            <div class="bigcard-desc">Jenga accelerates HunyuanVideo by 4.68-10.35× through dynamic attention carving and progressive resolution generation.</div>
-          </div>
-          <div class="bigcard-links">
-              <a href="https://arxiv.org/abs/2505.16864" class="bigcard-link">arXiv</a>
-              <a href="projects/jenga/index.html" class="bigcard-link">Project</a>
-              <a href="https://github.com/dvlab-research/Jenga" class="bigcard-link">Code </a> 
+    <div class="section-header section-header--dark">
+      <span class="section-sub">HOVER IMAGES TO SHOW RESULTS</span>
+      <h2 class="section-title">Representative Research Works</h2>
+    </div>
+    <br><br>
+    <div class="works-carousel">
+      <div class="works-carousel-stage">
+        <div class="works-carousel-track" aria-label="Representative works carousel">
+        <!-- Jenga -->
+        <article class="works-card" data-index="0" data-abstract="Despite the remarkable generation quality of video Diffusion Transformer (DiT) models, their practical deployment is severely hindered by extensive computational requirements. This inefficiency stems from two key challenges: the quadratic complexity of self-attention with respect to token length and the multi-step nature of diffusion models. To address these limitations, we present Jenga, a novel inference pipeline that combines dynamic attention carving with progressive resolution generation. Our approach leverages two key insights: (1) early denoising steps do not require high-resolution latents, and (2) later steps do not require dense attention. Jenga introduces a block-wise attention mechanism that dynamically selects relevant token interactions using 3D space-filling curves, alongside a progressive resolution strategy that gradually increases latent resolution during generation. Experimental results demonstrate that Jenga achieves substantial speedups across multiple state-of-the-art video diffusion models while maintaining comparable generation quality (8.83× speedup with 0.01% performance drop on VBench). As a plug-and-play solution, Jenga enables practical, high-quality video generation on modern hardware by reducing inference time from minutes to seconds—without requiring model retraining.">
+          <div class="works-card-inner">
+            <div class="bigcard-img-wrap hover-img-box">
+              <img src="posters/jenga.png" alt="Jenga" class="bigcard-img img-default" />
+              <img src="images/jenga_default.gif" alt="Jenga" class="bigcard-img img-hover" />
             </div>
+            <div class="bigcard-content">
+              <div>
+                <div class="bigcard-title">Training-Free Efficient Video Generation via Dynamic Token Carving</div>
+                <div class="bigcard-authors"><span class="author-name">Yuechen Zhang</span>, Jinbo Xing, Bin Xia, Shaoteng Liu, Bohao Peng, Xin Tao, Pengfei Wan, Eric Lo, Jiaya Jia</div>
+                <div class="bigcard-venue">NeurIPS, 2025</div>
+                <div class="bigcard-desc">Jenga accelerates HunyuanVideo by 4.68-10.35× through dynamic attention carving and progressive resolution generation.</div>
+              </div>
+              <div class="bigcard-links">
+                <a href="https://arxiv.org/abs/2505.16864" class="bigcard-link">arXiv</a>
+                <a href="projects/jenga/index.html" class="bigcard-link">Project</a>
+                <a href="https://github.com/dvlab-research/Jenga" class="bigcard-link">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="works-card-abstract" aria-hidden="true"></div>
+        </article>
+
+        <!-- MagicMirror -->
+        <article class="works-card" data-index="1" data-abstract="We present MagicMirror, a framework for generating identity-preserved videos with cinematic-level quality and dynamic motion. While recent advances in video diffusion models have shown impressive capabilities in text-to-video generation, maintaining consistent identity while producing natural motion remains challenging. Previous methods either require person-specific fine-tuning or struggle to balance identity preservation with motion diversity. Built upon Video Diffusion Transformers, our method introduces three key components: (1) a dual-branch facial feature extractor that captures both identity and structural features, (2) a lightweight cross-modal adapter with Conditioned Adaptive Normalization for efficient identity integration, and (3) a two-stage training strategy combining synthetic identity pairs with video data. Extensive experiments demonstrate that MagicMirror effectively balances identity consistency with natural motion, outperforming existing methods across multiple metrics while requiring minimal parameters added.">
+          <div class="works-card-inner">
+            <div class="bigcard-img-wrap hover-img-box">
+              <img src="posters/mg.png" alt="MagicMirror" class="bigcard-img img-default" />
+              <img src="images/magicmirror-default.gif" alt="MagicMirror" class="bigcard-img img-hover" />
+            </div>
+            <div class="bigcard-content">
+              <div>
+                <div class="bigcard-title">MagicMirror: ID-Preserved Video Generation in Video Diffusion Transformers</div>
+                <div class="bigcard-authors"><span class="author-name">Yuechen Zhang*</span>, Yaoyang Liu*, Bin Xia, Bohao Peng, Zexin Yan, Eric Lo, Jiaya Jia</div>
+                <div class="bigcard-venue">ICCV, 2025</div>
+                <div class="bigcard-desc">MagicMirror generates identity-preserved videos from reference images using a conditional adaptive normalization module.</div>
+              </div>
+              <div class="bigcard-links">
+                <a href="https://arxiv.org/abs/2501.03931" class="bigcard-link">arXiv</a>
+                <a href="projects/MagicMirror/index.html" class="bigcard-link">Project</a>
+                <a href="https://github.com/dvlab-research/MagicMirror" class="bigcard-link">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="works-card-abstract" aria-hidden="true"></div>
+        </article>
+
+        <!-- Mini-Gemini -->
+        <article class="works-card" data-index="2" data-abstract="In this work, we introduce Mini-Gemini, a simple and effective framework enhancing multi-modality Vision Language Models (VLMs). Despite the advancements in VLMs facilitating basic visual dialog and reasoning, a performance gap persists compared to advanced models like GPT-4 and Gemini. We try to narrow the gap by mining the potential of VLMs for better performance across various cross-modal tasks from three aspects: high-resolution visual tokens, high-quality data, and VLM-guided generation. To enhance visual tokens, we propose to utilize an additional visual encoder for high-resolution refinement without increasing the visual token count. We further construct a high-quality dataset that promotes precise image comprehension and reasoning-based generation, expanding the operational scope of current VLMs. In general, Mini-Gemini further mines the potential of VLMs and empowers current frameworks with image understanding, reasoning, and generation simultaneously. Mini-Gemini supports a series of dense and MoE Large Language Models (LLMs) from 2B to 34B. It is demonstrated to achieve leading performance in several zero-shot benchmarks and even surpasses the developed private models.">
+          <div class="works-card-inner">
+            <div class="bigcard-img-wrap hover-img-box">
+              <img src="posters/mgm.png" alt="Mini-Gemini" class="bigcard-img img-default" />
+              <img src="images/minigemini.png" alt="Mini-Gemini" class="bigcard-img img-hover" />
+            </div>
+            <div class="bigcard-content">
+              <div>
+                <div class="bigcard-title">Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models</div>
+                <div class="bigcard-authors">Yanwei Li*, <span class="author-name">Yuechen Zhang*</span>, Chengyao Wang*, Zhisheng Zhong, Yixin Chen, Ruihang Chu, Shaoteng Liu, Jiaya Jia</div>
+                <div class="bigcard-venue">TPAMI, 2025</div>
+                <div class="bigcard-desc">Mini-Gemini is a novel framework ranges from 2B to 34B VLMs for hi-resolution image understanding and reasoning-aware image generation.</div>
+              </div>
+              <div class="bigcard-links">
+                <a href="https://arxiv.org/abs/2403.18814" class="bigcard-link">arXiv</a>
+                <a href="https://mini-gemini.github.io/" class="bigcard-link">Project</a>
+                <a href="https://github.com/dvlab-research/MiniGemini" class="bigcard-link">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="works-card-abstract" aria-hidden="true"></div>
+        </article>
+
+        <!-- Prompt Highlighter -->
+        <article class="works-card" data-index="3" data-abstract="This study targets a critical aspect of multi-modal LLMs' inference: explicit controllable text generation. Multi-modal LLMs empower multi-modality understanding with the capability of semantic generation yet bring less explainability and heavier reliance on prompt contents due to their autoregressive generative nature. While manipulating prompt formats could improve outputs, designing specific and precise prompts per task can be challenging and ineffective. To tackle this issue we introduce a novel inference method Prompt Highlighter which enables users to highlight specific prompt spans to interactively control the focus during generation. Motivated by the classifier-free diffusion guidance we form regular and unconditional context pairs based on highlighted tokens, demonstrating that the autoregressive generation in models can be guided in a classifier-free way. Notably we find that during inference guiding the models with highlighted tokens through the attention weights leads to more desired outputs. Our approach is compatible with current LLMs and VLMs, achieving impressive customized generation results without training. Experiments confirm its effectiveness in focusing on input contexts and generating reliable content. Without tuning on LLaVA-v1.5 our method secured 70.7 in the MMBench test and 1552.5 in MME-perception.">
+          <div class="works-card-inner">
+            <div class="bigcard-img-wrap hover-img-box">
+              <img src="posters/ph.png" alt="Prompt Highlighter" class="bigcard-img img-default" />
+              <img src="images/ph.png" alt="Prompt Highlighter" class="bigcard-img img-hover" />
+            </div>
+            <div class="bigcard-content">
+              <div>
+                <div class="bigcard-title">Prompt Highlighter: Interactive Control for Multi-Modal LLMs</div>
+                <div class="bigcard-authors"><span class="author-name">Yuechen Zhang</span>, Shengju Qian, Bohao Peng, Shu Liu, Jiaya Jia</div>
+                <div class="bigcard-venue">CVPR, 2024</div>
+                <div class="bigcard-desc">Prompt Highlighter is a training-free inference pipeline, which facilitates token-level user interactions for customized generation.</div>
+              </div>
+              <div class="bigcard-links">
+                <a href="https://arxiv.org/abs/2312.04302" class="bigcard-link">arXiv</a>
+                <a href="projects/PromptHighlighter/" class="bigcard-link">Project</a>
+                <a href="https://github.com/dvlab-research/Prompt-Highlighter/" class="bigcard-link">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="works-card-abstract" aria-hidden="true"></div>
+        </article>
+
+        <!-- RIVAL -->
+        <article class="works-card" data-index="4" data-abstract="Recent diffusion model advancements have enabled high-fidelity images to be generated using text prompts. However, a domain gap exists between generated images and real-world images, which poses a challenge in generating high-quality variations of real-world images. Our investigation uncovers that this domain gap originates from a latent distribution gap in different diffusion processes. To address this issue, we propose a novel inference pipeline called Real-world Image Variation by ALignment (RIVAL) that utilizes diffusion models to generate image variations from a single image exemplar. Our pipeline enhances the generation quality of image variations by aligning the image generation process to the source image's inversion chain. Specifically, we demonstrate that step-wise latent distribution alignment is essential for generating high-quality variations. To attain this, we design a cross-image self-attention injection for feature interaction and a step-wise distribution normalization to align the latent features. Incorporating these alignment processes into a diffusion model allows RIVAL to generate high-quality image variations without further parameter optimization. Our experimental results demonstrate that our proposed approach outperforms existing methods concerning semantic similarity and perceptual quality. This generalized inference pipeline can be easily applied to other diffusion-based generation tasks, such as image-conditioned text-to-image generation and stylization.">
+          <div class="works-card-inner">
+            <div class="bigcard-img-wrap hover-img-box">
+              <img src="posters/rival.png" alt="RIVAL" class="bigcard-img img-default" />
+              <img src="images/rival-default.png" alt="RIVAL" class="bigcard-img img-hover" />
+            </div>
+            <div class="bigcard-content">
+              <div>
+                <div class="bigcard-title">Real-World Image Variation by Aligning Diffusion Inversion Chain</div>
+                <div class="bigcard-authors"><span class="author-name">Yuechen Zhang</span>, Jinbo Xing, Eric Lo, Jiaya Jia</div>
+                <div class="bigcard-venue">NeurIPS (Spotlight), 2023</div>
+                <div class="bigcard-desc">Given an image as the prompt, we can generate its variations by aligning the diffusion inversion chain. The variations are diverse and controllable.</div>
+              </div>
+              <div class="bigcard-links">
+                <a href="https://arxiv.org/abs/2305.18729" class="bigcard-link">arXiv</a>
+                <a href="https://rival-diff.github.io/" class="bigcard-link">Project</a>
+                <a href="https://github.com/julianjuaner/RIVAL/" class="bigcard-link">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="works-card-abstract" aria-hidden="true"></div>
+        </article>
+
+        <!-- Ref-NPR -->
+        <article class="works-card" data-index="5" data-abstract="Current 3D scene stylization methods transfer textures and colors as styles using arbitrary style references, lacking meaningful semantic correspondences. We introduce Reference-Based Non-Photorealistic Radiance Fields (Ref-NPR) to address this limitation. This controllable method stylizes a 3D scene using radiance fields with a single stylized 2D view as a reference. We propose a ray registration process based on the stylized reference view to obtain pseudo-ray supervision in novel views. Then we exploit semantic correspondences in content images to fill occluded regions with perceptually similar styles, resulting in non-photorealistic and continuous novel view sequences. Our experimental results demonstrate that Ref-NPR outperforms existing scene and video stylization methods regarding visual quality and semantic correspondence.">
+          <div class="works-card-inner">
+            <div class="bigcard-img-wrap hover-img-box">
+              <img src="posters/refnpr.png" alt="Ref-NPR" class="bigcard-img img-default" />
+              <img src="images/ref-npr-default.gif" alt="Ref-NPR" class="bigcard-img img-hover" />
+            </div>
+            <div class="bigcard-content">
+              <div>
+                <div class="bigcard-title">Ref-NPR: Reference-Based Non-Photorealistic Radiance Fields</div>
+                <div class="bigcard-authors"><span class="author-name">Yuechen Zhang</span>, Zexin He, Jinbo Xing, Xufeng Yao, Jiaya Jia</div>
+                <div class="bigcard-venue">CVPR, 2023</div>
+                <div class="bigcard-desc">We present a controllable scene stylization method utilizing radiance fields to stylize a 3D scene, with a single stylized 2D view taken as reference.</div>
+              </div>
+              <div class="bigcard-links">
+                <a href="https://arxiv.org/abs/2212.02766" class="bigcard-link">arXiv</a>
+                <a href="https://ref-npr.github.io" class="bigcard-link">Project</a>
+                <a href="https://github.com/dvlab-research/Ref-NPR" class="bigcard-link">Code</a>
+              </div>
+            </div>
+          </div>
+          <div class="works-card-abstract" aria-hidden="true"></div>
+        </article>
         </div>
       </div>
-
-      <!-- MagicMirror -->
-      <div class="bigcard">
-        <div class="bigcard-img-wrap hover-img-box">
-          <img src="posters/mg.png" alt="MagicMirror" class="bigcard-img img-default" />
-          <img src="images/magicmirror-default.gif" alt="MagicMirror" class="bigcard-img img-hover" />
-        </div>
-        <div class="bigcard-content">
-          <div>
-            <div class="bigcard-title">MagicMirror: ID-Preserved Video Generation in Video Diffusion Transformers</div>
-            <div class="bigcard-authors"><span class="author-name">Yuechen Zhang*</span>, Yaoyang Liu*, Bin Xia, Bohao Peng, Zexin Yan, Eric Lo, Jiaya Jia</div>
-            <div class="bigcard-venue">ICCV, 2025</div>
-            <div class="bigcard-desc">MagicMirror generates identity-preserved videos from reference images using a conditional adaptive normalization module.</div>
-          </div>
-          <div class="bigcard-links">
-            <a href="https://arxiv.org/abs/2501.03931" class="bigcard-link">arXiv</a>
-            <a href="projects/MagicMirror/index.html" class="bigcard-link">Project</a>
-            <a href="https://github.com/dvlab-research/MagicMirror" class="bigcard-link">Code</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mini-Gemini -->
-      <div class="bigcard">
-        <div class="bigcard-img-wrap hover-img-box">
-          <img src="posters/mgm.png" alt="Mini-Gemini" class="bigcard-img img-default" />
-          <img src="images/minigemini.png" alt="Mini-Gemini" class="bigcard-img img-hover" />
-        </div>
-        <div class="bigcard-content">
-          <div>
-            <div class="bigcard-title">Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models</div>
-            <div class="bigcard-authors">Yanwei Li*, <span class="author-name">Yuechen Zhang*</span>, Chengyao Wang*, Zhisheng Zhong, Yixin Chen, Ruihang Chu, Shaoteng Liu, Jiaya Jia</div>
-            <div class="bigcard-venue">TPAMI, 2025</div>
-            <div class="bigcard-desc">Mini-Gemini is a novel framework ranges from 2B to 34B VLMs for hi-resolution image understanding and reasoning-aware image generation.</div>
-          </div>
-          <div class="bigcard-links">
-            <a href="https://arxiv.org/abs/2403.18814" class="bigcard-link">arXiv</a>
-            <a href="https://mini-gemini.github.io/" class="bigcard-link">Project</a>
-            <a href="https://github.com/dvlab-research/MiniGemini" class="bigcard-link">Code</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Prompt Highlighter -->
-      <div class="bigcard">
-        <div class="bigcard-img-wrap hover-img-box">
-          <img src="posters/ph.png" alt="Prompt Highlighter" class="bigcard-img img-default" />
-          <img src="images/ph.png" alt="Prompt Highlighter" class="bigcard-img img-hover" />
-        </div>
-        <div class="bigcard-content">
-          <div>
-            <div class="bigcard-title">Prompt Highlighter: Interactive Control for Multi-Modal LLMs</div>
-            <div class="bigcard-authors"><span class="author-name">Yuechen Zhang</span>, Shengju Qian, Bohao Peng, Shu Liu, Jiaya Jia</div>
-            <div class="bigcard-venue">CVPR, 2024</div>
-            <div class="bigcard-desc">Prompt Highlighter is a training-free inference pipeline, which facilitates token-level user interactions for customized generation.</div>
-          </div>
-          <div class="bigcard-links">
-            <a href="https://arxiv.org/abs/2312.04302" class="bigcard-link">arXiv</a>
-            <a href="projects/PromptHighlighter/" class="bigcard-link">Project</a>
-            <a href="https://github.com/dvlab-research/Prompt-Highlighter/" class="bigcard-link">Code</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIVAL -->
-      <div class="bigcard">
-        <div class="bigcard-img-wrap hover-img-box">
-          <img src="posters/rival.png" alt="RIVAL" class="bigcard-img img-default" />
-          <img src="images/rival-default.png" alt="RIVAL" class="bigcard-img img-hover" />
-        </div>
-        <div class="bigcard-content">
-          <div>
-            <div class="bigcard-title">Real-World Image Variation by Aligning Diffusion Inversion Chain</div>
-            <div class="bigcard-authors"><span class="author-name">Yuechen Zhang</span>, Jinbo Xing, Eric Lo, Jiaya Jia <br/> <br/></div>
-            <div class="bigcard-venue">NeurIPS (Spotlight), 2023</div>
-            <div class="bigcard-desc">Given an image as the prompt, we can generate its variations by aligning the diffusion inversion chain. The variations are diverse and controllable.</div>
-          </div>
-          <div class="bigcard-links">
-            <a href="https://arxiv.org/abs/2305.18729" class="bigcard-link">arXiv</a>
-            <a href="https://rival-diff.github.io/" class="bigcard-link">Project</a>
-            <a href="https://github.com/julianjuaner/RIVAL/" class="bigcard-link">Code</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Ref-NPR -->
-      <div class="bigcard">
-        <div class="bigcard-img-wrap hover-img-box">
-          <img src="posters/refnpr.png" alt="Ref-NPR" class="bigcard-img img-default" />
-          <img src="images/ref-npr-default.gif" alt="Ref-NPR" class="bigcard-img img-hover" />
-        </div>
-        <div class="bigcard-content">
-          <div>
-            <div class="bigcard-title">Ref-NPR: Reference-Based Non-Photorealistic Radiance Fields</div>
-            <div class="bigcard-authors"><span class="author-name">Yuechen Zhang</span>, Zexin He, Jinbo Xing, Xufeng Yao, Jiaya Jia</div>
-            <div class="bigcard-venue">CVPR, 2023</div>
-            <div class="bigcard-desc">We present a controllable scene stylization method utilizing radiance fields to stylize a 3D scene, with a single stylized 2D view taken as reference.</div>
-          </div>
-          <div class="bigcard-links">
-            <a href="https://arxiv.org/abs/2212.02766" class="bigcard-link">arXiv</a>
-            <a href="https://ref-npr.github.io" class="bigcard-link">Project</a>
-            <a href="https://github.com/dvlab-research/Ref-NPR" class="bigcard-link">Code</a>
-          </div>
-        </div>
+      <button type="button" class="works-carousel-prev" aria-label="Previous">‹</button>
+      <button type="button" class="works-carousel-next" aria-label="Next">›</button>
+      <div class="works-carousel-nav">
+        <div class="works-carousel-dots" role="tablist" aria-label="Slide index"></div>
       </div>
     </div>
   </section>
 
   <!-- Full Publications 部分 -->
   <section id="publications" class="publications-section">
-    <h2 class="section-title">Full Publications</h2>
+    <div class="section-header">
+      <span class="section-sub">FULL PUBLICATIONS</span>
+      <h2 class="section-title">Full Publications</h2>
+    </div>
     <div class="publications-list">
+      <div class="publications-category">
+        <h3 class="publications-category-title">AIGC</h3>
       <!-- Jenga -->
       <div class="publication-item">
         <div class="publication-image">
@@ -267,61 +305,6 @@
             <a href="https://arxiv.org/abs/2501.03931">arXiv</a> /
             <a href="projects/MagicMirror/index.html">Project</a> /
             <a href="https://github.com/dvlab-research/MagicMirror" class="code-link" data-github-repo="dvlab-research/MagicMirror">Code</a><span class="github-stars" data-github-repo="dvlab-research/MagicMirror"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Lyra -->
-      <div class="publication-item">
-        <div class="publication-image">
-          <img src="images/lyra-default.png" alt="Lyra" class="pub-img-default" />
-          <img src="images/lyra.png" alt="Lyra" class="pub-img-hover" />
-        </div>
-        <div class="publication-content">
-          <div class="publication-title">Lyra: An Efficient and Speech-Centric Framework for Omni-Cognition</div>
-          <div class="publication-authors">Zhisheng Zhong*, Chengyao Wang*, Yuqi Liu*, Senqiao Yang, Longxiang Tang, <span class="author-name">Yuechen Zhang</span>, Jingyao Li, Tianyuan Qu, Yanwei Li, Yukang Chen, Shaozuo Yu, Sitong Wu, Eric Lo, Shu Liu, Jiaya Jia</div>
-          <div class="publication-venue">ICCV, 2025</div>
-          <div class="publication-links">
-            <a href="https://lyra-omni.github.io/">Project</a>
-            <a href="https://arxiv.org/abs/2412.09501">arXiv</a> /
-            <a href="https://www.youtube.com/watch?v=7kh-M0jmmtI">Video</a> /
-            <a href="https://github.com/dvlab-research/Lyra" class="code-link" data-github-repo="dvlab-research/Lyra">Code</a><span class="github-stars" data-github-repo="dvlab-research/Lyra"></span> /
-          </div>
-        </div>
-      </div>
-
-      <!-- Mini-Gemini -->
-      <div class="publication-item">
-        <div class="publication-image">
-          <img src="images/minigemini-default.png" alt="Mini-Gemini" class="pub-img-default" />
-          <img src="images/minigemini.png" alt="Mini-Gemini" class="pub-img-hover" />
-        </div>
-        <div class="publication-content">
-          <div class="publication-title">Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models</div>
-          <div class="publication-authors">Yanwei Li*, <span class="author-name">Yuechen Zhang*</span>, Chengyao Wang*, Zhisheng Zhong, Yixin Chen, Ruihang Chu, Shaoteng Liu, Jiaya Jia</div>
-          <div class="publication-venue">TPAMI, 2025</div>
-          <div class="publication-links">
-            <a href="https://arxiv.org/abs/2403.18814">arXiv</a> /
-            <a href="https://mini-gemini.github.io/">Project</a> /
-            <a href="https://github.com/dvlab-research/MiniGemini" class="code-link" data-github-repo="dvlab-research/MiniGemini">Code</a><span class="github-stars" data-github-repo="dvlab-research/MiniGemini"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Prompt Highlighter -->
-      <div class="publication-item">
-        <div class="publication-image">
-          <img src="images/ph-default.png" alt="Prompt Highlighter" class="pub-img-default" />
-          <img src="images/ph.png" alt="Prompt Highlighter" class="pub-img-hover" />
-        </div>
-        <div class="publication-content">
-          <div class="publication-title">Prompt Highlighter: Interactive Control for Multi-Modal LLMs</div>
-          <div class="publication-authors"><span class="author-name">Yuechen Zhang</span>, Shengju Qian, Bohao Peng, Shu Liu, Jiaya Jia</div>
-          <div class="publication-venue">CVPR, 2024</div>
-          <div class="publication-links">
-            <a href="https://arxiv.org/abs/2312.04302">arXiv</a> /
-            <a href="projects/PromptHighlighter/">Project</a> /
-            <a href="https://github.com/dvlab-research/Prompt-Highlighter/" class="code-link" data-github-repo="dvlab-research/Prompt-Highlighter">Code</a><span class="github-stars" data-github-repo="dvlab-research/Prompt-Highlighter"></span>
           </div>
         </div>
       </div>
@@ -417,24 +400,6 @@
         </div>
       </div>
 
-      <!-- UniVA -->
-      <div class="publication-item">
-        <div class="publication-image">
-          <img src="images/univa-default.png" alt="UniVA" class="pub-img-default" />
-          <img src="images/univa-default.png" alt="UniVA" class="pub-img-hover" />
-        </div>
-        <div class="publication-content">
-          <div class="publication-title">UniVA: Universal Video Agent towards Open-Source Next-Generation Video Generalist</div>
-          <div class="publication-authors">Zhengyang Liang, Daoan Zhang, Huichi Zhou, Rui Huang, Bobo Li, <span class="author-name">Yuechen Zhang</span>, Shengqiong Wu, Xiaohan Wang, Jiebo Luo, Lizi Liao, Hao Fei</div>
-          <div class="publication-venue">Preprint, 2025</div>
-          <div class="publication-links">
-            <a href="https://univa.online/">Project</a> /
-            <a href="https://arxiv.org/abs/2511.08521">arXiv</a> /
-            <a href="https://github.com/univa-agent/univa" class="code-link" data-github-repo="univa-agent/univa">Code</a><span class="github-stars" data-github-repo="univa-agent/univa"></span>
-          </div>
-        </div>
-      </div>
-
       <!-- ControlNeXt -->
       <div class="publication-item">
         <div class="publication-image">
@@ -450,36 +415,6 @@
             <a href="https://pbihao.github.io/projects/controlnext/index.html">Project</a> /
             <a href="https://huggingface.co/spaces/Eugeoter/ControlNeXt">Demo</a> /
             <a href="https://github.com/dvlab-research/ControlNeXt" class="code-link" data-github-repo="dvlab-research/ControlNeXt">Code</a><span class="github-stars" data-github-repo="dvlab-research/ControlNeXt"></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- R^2 -->
-      <div class="publication-item">
-        <div class="publication-image">
-          <img src="images/r2-default.png" alt="R^2" class="pub-img-default" />
-          <img src="images/r2.png" alt="R^2" class="pub-img-hover" />
-        </div>
-        <div class="publication-content">
-          <div class="publication-title">R<sup>2</sup>Former: Probing Region Relationship in Semantic Segmentation Transformers</div>
-          <div class="publication-authors"><span class="author-name">Yuechen Zhang</span>, Tiancheng Shen*, Huaijia Lin, Lu Qi, Eric Lo, Jiaya Jia</div>
-          <div class="publication-venue">Preprint, 2022</div>
-        </div>
-      </div>
-
-      <!-- CRM -->
-      <div class="publication-item">
-        <div class="publication-image">
-          <img src="images/crm-default.png" alt="CRM" class="pub-img-default" />
-          <img src="images/crm.png" alt="CRM" class="pub-img-hover" />
-        </div>
-        <div class="publication-content">
-          <div class="publication-title">High Quality Segmentation for Ultra High-resolution Images</div>
-          <div class="publication-authors">Tiancheng Shen, <span class="author-name">Yuechen Zhang</span>, Lu Qi, Jason Kuen, Xingyu Xie, Jianlong Wu, Zhe Lin, Jiaya Jia</div>
-          <div class="publication-venue">CVPR, 2022</div>
-          <div class="publication-links">
-            <a href="https://openaccess.thecvf.com/content/CVPR2022/papers/Shen_High_Quality_Segmentation_for_Ultra_High-Resolution_Images_CVPR_2022_paper.pdf">Paper</a> /
-            <a href="https://github.com/dvlab-research/Entity/tree/main/High-Quality-Segmention" class="code-link" data-github-repo="dvlab-research/Entity">Code</a><span class="github-stars" data-github-repo="dvlab-research/Entity"></span>
           </div>
         </div>
       </div>
@@ -520,7 +455,87 @@
         </div>
       </div>
 
+      <!-- Flow-aware Synthesis -->
+      <div class="publication-item">
+        <div class="publication-image">
+          <video class="pub-img-hover" muted autoplay loop>
+            <source src="images/FVI.mp4" type="video/mp4">
+          </video>
+          <video class="pub-img-default" muted autoplay loop>
+            <source src="images/FVI.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">Flow-aware Synthesis: A Generic Motion Model for Video Frame Interpolation</div>
+          <div class="publication-authors">Jinbo Xing*, Wenbo Hu*, <span class="author-name">Yuechen Zhang</span>, Tien-Tsin Wong</div>
+          <div class="publication-venue">Computational Visual Media (CVM), 2021</div>
+          <div class="publication-links">
+            <a href="https://link.springer.com/article/10.1007/s41095-021-0208-x">Paper</a>
+          </div>
+        </div>
+      </div>
 
+      </div>
+      <div class="publications-category">
+        <h3 class="publications-category-title">Controllable Large Language Models</h3>
+      <!-- Lyra -->
+      <div class="publication-item">
+        <div class="publication-image">
+          <img src="images/lyra-default.png" alt="Lyra" class="pub-img-default" />
+          <img src="images/lyra.png" alt="Lyra" class="pub-img-hover" />
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">Lyra: An Efficient and Speech-Centric Framework for Omni-Cognition</div>
+          <div class="publication-authors">Zhisheng Zhong*, Chengyao Wang*, Yuqi Liu*, Senqiao Yang, Longxiang Tang, <span class="author-name">Yuechen Zhang</span>, Jingyao Li, Tianyuan Qu, Yanwei Li, Yukang Chen, Shaozuo Yu, Sitong Wu, Eric Lo, Shu Liu, Jiaya Jia</div>
+          <div class="publication-venue">ICCV, 2025</div>
+          <div class="publication-links">
+            <a href="https://lyra-omni.github.io/">Project</a>
+            <a href="https://arxiv.org/abs/2412.09501">arXiv</a> /
+            <a href="https://www.youtube.com/watch?v=7kh-M0jmmtI">Video</a> /
+            <a href="https://github.com/dvlab-research/Lyra" class="code-link" data-github-repo="dvlab-research/Lyra">Code</a><span class="github-stars" data-github-repo="dvlab-research/Lyra"></span> /
+          </div>
+        </div>
+      </div>
+
+      <!-- Mini-Gemini -->
+      <div class="publication-item">
+        <div class="publication-image">
+          <img src="images/minigemini-default.png" alt="Mini-Gemini" class="pub-img-default" />
+          <img src="images/minigemini.png" alt="Mini-Gemini" class="pub-img-hover" />
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models</div>
+          <div class="publication-authors">Yanwei Li*, <span class="author-name">Yuechen Zhang*</span>, Chengyao Wang*, Zhisheng Zhong, Yixin Chen, Ruihang Chu, Shaoteng Liu, Jiaya Jia</div>
+          <div class="publication-venue">TPAMI, 2025</div>
+          <div class="publication-links">
+            <a href="https://arxiv.org/abs/2403.18814">arXiv</a> /
+            <a href="https://mini-gemini.github.io/">Project</a> /
+            <a href="https://github.com/dvlab-research/MiniGemini" class="code-link" data-github-repo="dvlab-research/MiniGemini">Code</a><span class="github-stars" data-github-repo="dvlab-research/MiniGemini"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prompt Highlighter -->
+      <div class="publication-item">
+        <div class="publication-image">
+          <img src="images/ph-default.png" alt="Prompt Highlighter" class="pub-img-default" />
+          <img src="images/ph.png" alt="Prompt Highlighter" class="pub-img-hover" />
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">Prompt Highlighter: Interactive Control for Multi-Modal LLMs</div>
+          <div class="publication-authors"><span class="author-name">Yuechen Zhang</span>, Shengju Qian, Bohao Peng, Shu Liu, Jiaya Jia</div>
+          <div class="publication-venue">CVPR, 2024</div>
+          <div class="publication-links">
+            <a href="https://arxiv.org/abs/2312.04302">arXiv</a> /
+            <a href="projects/PromptHighlighter/">Project</a> /
+            <a href="https://github.com/dvlab-research/Prompt-Highlighter/" class="code-link" data-github-repo="dvlab-research/Prompt-Highlighter">Code</a><span class="github-stars" data-github-repo="dvlab-research/Prompt-Highlighter"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+      <div class="publications-category">
+        <h3 class="publications-category-title">Others</h3>
       <!-- CodeTalker -->
       <div class="publication-item">
         <div class="publication-image">
@@ -557,6 +572,54 @@
         </div>
       </div>
 
+      <!-- UniVA -->
+      <div class="publication-item">
+        <div class="publication-image">
+          <img src="images/univa-default.png" alt="UniVA" class="pub-img-default" />
+          <img src="images/univa-default.png" alt="UniVA" class="pub-img-hover" />
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">UniVA: Universal Video Agent towards Open-Source Next-Generation Video Generalist</div>
+          <div class="publication-authors">Zhengyang Liang, Daoan Zhang, Huichi Zhou, Rui Huang, Bobo Li, <span class="author-name">Yuechen Zhang</span>, Shengqiong Wu, Xiaohan Wang, Jiebo Luo, Lizi Liao, Hao Fei</div>
+          <div class="publication-venue">Preprint, 2025</div>
+          <div class="publication-links">
+            <a href="https://univa.online/">Project</a> /
+            <a href="https://arxiv.org/abs/2511.08521">arXiv</a> /
+            <a href="https://github.com/univa-agent/univa" class="code-link" data-github-repo="univa-agent/univa">Code</a><span class="github-stars" data-github-repo="univa-agent/univa"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- R^2 -->
+      <div class="publication-item">
+        <div class="publication-image">
+          <img src="images/r2-default.png" alt="R^2" class="pub-img-default" />
+          <img src="images/r2.png" alt="R^2" class="pub-img-hover" />
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">R<sup>2</sup>Former: Probing Region Relationship in Semantic Segmentation Transformers</div>
+          <div class="publication-authors"><span class="author-name">Yuechen Zhang</span>, Tiancheng Shen*, Huaijia Lin, Lu Qi, Eric Lo, Jiaya Jia</div>
+          <div class="publication-venue">Preprint, 2022</div>
+        </div>
+      </div>
+
+      <!-- CRM -->
+      <div class="publication-item">
+        <div class="publication-image">
+          <img src="images/crm-default.png" alt="CRM" class="pub-img-default" />
+          <img src="images/crm.png" alt="CRM" class="pub-img-hover" />
+        </div>
+        <div class="publication-content">
+          <div class="publication-title">High Quality Segmentation for Ultra High-resolution Images</div>
+          <div class="publication-authors">Tiancheng Shen, <span class="author-name">Yuechen Zhang</span>, Lu Qi, Jason Kuen, Xingyu Xie, Jianlong Wu, Zhe Lin, Jiaya Jia</div>
+          <div class="publication-venue">CVPR, 2022</div>
+          <div class="publication-links">
+            <a href="https://openaccess.thecvf.com/content/CVPR2022/papers/Shen_High_Quality_Segmentation_for_Ultra_High-Resolution_Images_CVPR_2022_paper.pdf">Paper</a> /
+            <a href="https://github.com/dvlab-research/Entity/tree/main/High-Quality-Segmention" class="code-link" data-github-repo="dvlab-research/Entity">Code</a><span class="github-stars" data-github-repo="dvlab-research/Entity"></span>
+          </div>
+        </div>
+      </div>
+
       <!-- PCL -->
       <div class="publication-item">
         <div class="publication-image">
@@ -574,31 +637,15 @@
         </div>
       </div>
 
-      <!-- Flow-Aware Video-to-Video Synthesis -->
-      <div class="publication-item">
-        <div class="publication-image">
-          <video class="pub-img-hover" muted autoplay loop>
-            <source src="images/FVI.mp4" type="video/mp4">
-          </video>
-          <video class="pub-img-default" muted autoplay loop>
-            <source src="images/FVI.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="publication-content">
-          <div class="publication-title">Flow-aware Synthesis: A Generic Motion Model for Video Frame Interpolation</div>
-          <div class="publication-authors">Jinbo Xing*, Wenbo Hu*, <span class="author-name">Yuechen Zhang</span>, Tien-Tsin Wong</div>
-          <div class="publication-venue">Computational Visual Media (CVM), 2021</div>
-          <div class="publication-links">
-            <a href="https://link.springer.com/article/10.1007/s41095-021-0208-x">Paper</a>
-          </div>
-        </div>
       </div>
-
     </div>
   </section>
     <!-- 教育与工作经历 Section -->
     <section id="education" class="education-section">
-      <h2 class="section-title">Education & Work Experience</h2>
+      <div class="section-header">
+        <span class="section-sub">EDUCATION & EXPERIENCE</span>
+        <h2 class="section-title">Education & Work Experience</h2>
+      </div>
       <div class="education-list">
         <div class="edu-block">
           <div class="edu-header">
@@ -640,6 +687,17 @@
       <div class="work-list">
         <div class="work-block">
           <div class="work-header">
+            <span class="work-company">Xiaomi MiMo</span>
+            <span class="work-location">Beijing, China</span>
+          </div>
+          <div class="work-detail">
+            <span class="work-title">Research Scientist, Multi-Modal</span>
+            <span class="work-time">Jan 2026 - Present</span>
+          </div>
+          <div class="work-desc">Multi-modal research and development.</div>
+        </div>
+        <div class="work-block">
+          <div class="work-header">
             <span class="work-company">Kling, Kuaishou</span>
             <span class="work-location">Shenzhen, China</span>
           </div>
@@ -676,7 +734,10 @@
 
     <!-- AWARDS & COMMUNITY CONTRIBUTIONS Section -->
     <section id="awards" class="awards-section">
-      <h2 class="section-title">Awards & Community Contributions</h2>
+      <div class="section-header">
+        <span class="section-sub">AWARDS & COMMUNITY</span>
+        <h2 class="section-title">Awards & Community Contributions</h2>
+      </div>
       <ul class="awards-list">
         <li>CUHK ELITE Stream Scholarship, 2016-2017, 2017-2018</li>
         <li>CUHK CSE Academic Outstanding Award, 2017-2018, 2018-2019, 2019-2020</li>
@@ -684,7 +745,7 @@
         <li>CWChu College Exchange Scholarship, 2018-2019</li>
         <li>CWChu College Scholarships for Academic Excellence, 2017-2018, 2018-2019, 2019-2020</li>
         <li>Teaching Assistant: CSCI3280 Intro. to Multimedia, ESTR4999 Final Year Project, CSCI3250/3251: Computer and Society.</li>
-        <li>Conference Reviewer: CVPR, NeurIPS, ICCV, ECCV, ICLR, AAAI</li>
+        <li>Conference Reviewer: CVPR, NeurIPS, ICLR, ICML, ICCV, SIGGRAPH, ECCV, AAAI</li>
         <li>Top Reviewer: NeurIPS 2025</li>
       </ul>
     </section>
@@ -952,6 +1013,308 @@
           setMotionEnabled(false);
         }
       }
+
+      (function worksCarousel() {
+        const carousel = document.querySelector('.works-carousel');
+        if (!carousel) return;
+        const stage = carousel.querySelector('.works-carousel-stage');
+        const track = carousel.querySelector('.works-carousel-track');
+        const cards = Array.from(carousel.querySelectorAll('.works-card'));
+        const prevBtn = carousel.querySelector('.works-carousel-prev');
+        const nextBtn = carousel.querySelector('.works-carousel-next');
+        const dotsEl = carousel.querySelector('.works-carousel-dots');
+        const total = cards.length;
+        let current = 0;
+        const gap = 16;
+        let dragStartX = 0;
+        let dragStartOffset = 0;
+        let isDragging = false;
+        let dragged = false;
+        let justDragged = false;
+
+        function getCardWidth() {
+          const collapsed = Array.from(cards).find((c) => !c.classList.contains('is-expanded'));
+          return collapsed ? collapsed.offsetWidth : 540;
+        }
+
+        // Circular distance from current to card i, in range [-total/2, total/2)
+        function circDist(i) {
+          let d = ((i - current) % total + total) % total;
+          if (d > total / 2) d -= total;
+          return d;
+        }
+
+        // Visual order: cards sorted by circular distance, left-to-right
+        function getVisualOrder() {
+          const half = Math.floor(total / 2);
+          const order = [];
+          for (let offset = -half; offset < total - half; offset++) {
+            order.push(((current + offset) % total + total) % total);
+          }
+          return order;
+        }
+
+        function applyVisualOrder() {
+          const visualOrder = getVisualOrder();
+          visualOrder.forEach((cardIdx, pos) => {
+            cards[cardIdx].style.order = pos;
+          });
+        }
+
+        function getBaseOffsetPx() {
+          const containerWidth = stage.offsetWidth;
+          if (!containerWidth) return 0;
+          const visualOrder = getVisualOrder();
+          let leftEdge = 0;
+          let currentLeft = 0;
+          let currentWidth = 0;
+          for (let pos = 0; pos < visualOrder.length; pos++) {
+            const idx = visualOrder[pos];
+            const w = cards[idx].offsetWidth;
+            if (idx === current) {
+              currentLeft = leftEdge;
+              currentWidth = w;
+            }
+            leftEdge += w + gap;
+          }
+          const centerX = containerWidth / 2;
+          const cardCenterX = currentLeft + currentWidth / 2;
+          return Math.round(centerX - cardCenterX);
+        }
+
+        function applyTrackTransform(offsetPx) {
+          track.style.transform = `translateX(${offsetPx}px)`;
+        }
+
+        function getCardClass(i) {
+          const d = circDist(i);
+          if (d === 0) return 'works-card--center';
+          if (d === -1) return 'works-card--left-1';
+          if (d === 1) return 'works-card--right-1';
+          if (d === -2) return 'works-card--left-2';
+          if (d === 2) return 'works-card--right-2';
+          if (d < 0) return 'works-card--far';
+          return 'works-card--far works-card--right-far';
+        }
+
+        function syncExpandToCurrent() {
+          cards.forEach((c) => c.classList.remove('is-expanded'));
+          if (cards[current]) cards[current].classList.add('is-expanded');
+          onExpandChange();
+        }
+
+        function updateCardClasses() {
+          cards.forEach((card, i) => {
+            card.classList.remove('works-card--center', 'works-card--left-1', 'works-card--right-1', 'works-card--left-2', 'works-card--right-2', 'works-card--far', 'works-card--right-far');
+            const cls = getCardClass(i);
+            cls.split(' ').forEach(c => { if (c) card.classList.add(c); });
+          });
+          dotsEl.querySelectorAll('.works-carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('is-active', i === current);
+            dot.setAttribute('aria-selected', i === current);
+          });
+        }
+
+        // Find the translateX that centers a given card index in the current visual layout
+        function getOffsetForCard(targetIdx) {
+          const containerWidth = stage.offsetWidth;
+          if (!containerWidth) return 0;
+          const visualOrder = getVisualOrder();
+          let leftEdge = 0;
+          let targetLeft = 0;
+          let targetWidth = 0;
+          for (let pos = 0; pos < visualOrder.length; pos++) {
+            const idx = visualOrder[pos];
+            const w = cards[idx].offsetWidth;
+            if (idx === targetIdx) {
+              targetLeft = leftEdge;
+              targetWidth = w;
+            }
+            leftEdge += w + gap;
+          }
+          return Math.round(containerWidth / 2 - (targetLeft + targetWidth / 2));
+        }
+
+        // Reposition track without changing expand state
+        function repositionTrack(optionalDragPx) {
+          applyVisualOrder();
+          void track.offsetHeight;
+          const baseOffset = getBaseOffsetPx();
+          const dragPx = optionalDragPx != null ? optionalDragPx : 0;
+          applyTrackTransform(baseOffset + dragPx);
+          updateCardClasses();
+        }
+
+        function updateCarousel(optionalDragPx) {
+          syncExpandToCurrent();
+          repositionTrack(optionalDragPx);
+        }
+
+        function go(step) {
+          const oldCurrent = current;
+          current = (current + step + total) % total;
+
+          // 1. Apply new expand state and visual order
+          syncExpandToCurrent();
+          applyVisualOrder();
+
+          // 2. Disable transition, force layout
+          track.classList.add('is-dragging');
+          void track.offsetHeight;
+
+          // 3. Set translateX to keep the OLD card centered (compensate for order change)
+          const compensateOffset = getOffsetForCard(oldCurrent);
+          applyTrackTransform(compensateOffset);
+          void track.offsetHeight;
+
+          // 4. Re-enable transition and slide to the NEW card center
+          track.classList.remove('is-dragging');
+          const targetOffset = getBaseOffsetPx();
+          applyTrackTransform(targetOffset);
+
+          // 5. Update card classes and dots
+          updateCardClasses();
+        }
+
+        function buildDots() {
+          dotsEl.innerHTML = '';
+          for (let i = 0; i < total; i += 1) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'works-carousel-dot' + (i === current ? ' is-active' : '');
+            btn.setAttribute('role', 'tab');
+            btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+            btn.setAttribute('aria-selected', i === current);
+            btn.addEventListener('click', () => { current = i; updateCarousel(); });
+            dotsEl.appendChild(btn);
+          }
+        }
+
+        prevBtn.addEventListener('click', () => go(-1));
+        nextBtn.addEventListener('click', () => go(1));
+
+        stage.addEventListener('mousedown', (e) => {
+          if (e.target.closest('a') || e.target.closest('button')) return;
+          isDragging = true;
+          dragged = false;
+          dragStartX = e.clientX;
+          dragStartOffset = getBaseOffsetPx();
+          track.classList.add('is-dragging');
+        });
+
+        window.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          const dx = e.clientX - dragStartX;
+          if (Math.abs(dx) > 8) dragged = true;
+          applyTrackTransform(dragStartOffset + dx);
+        });
+
+        window.addEventListener('mouseup', (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          track.classList.remove('is-dragging');
+          const dx = e.clientX - dragStartX;
+          const cardWidth = getCardWidth();
+          const threshold = cardWidth * 0.2;
+          if (dragged && dx > threshold) go(-1);
+          else if (dragged && dx < -threshold) go(1);
+          else updateCarousel();
+          if (dragged) {
+            justDragged = true;
+            setTimeout(() => { justDragged = false; }, 100);
+          }
+        });
+
+        stage.addEventListener('touchstart', (e) => {
+          if (e.target.closest('a') || e.target.closest('button')) return;
+          isDragging = true;
+          dragged = false;
+          dragStartX = e.touches[0].clientX;
+          dragStartOffset = getBaseOffsetPx();
+          track.classList.add('is-dragging');
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+          if (!isDragging || !e.touches.length) return;
+          const dx = e.touches[0].clientX - dragStartX;
+          if (Math.abs(dx) > 8) dragged = true;
+          applyTrackTransform(dragStartOffset + dx);
+        }, { passive: true });
+
+        window.addEventListener('touchend', (e) => {
+          if (!isDragging) return;
+          isDragging = false;
+          track.classList.remove('is-dragging');
+          const touch = e.changedTouches[0];
+          if (!touch) return;
+          const dx = touch.clientX - dragStartX;
+          const cardWidth = getCardWidth();
+          const threshold = cardWidth * 0.2;
+          if (dragged && dx > threshold) go(-1);
+          else if (dragged && dx < -threshold) go(1);
+          else updateCarousel();
+          if (dragged) {
+            justDragged = true;
+            setTimeout(() => { justDragged = false; }, 100);
+          }
+        });
+
+        function collapseAll() {
+          cards.forEach((c) => c.classList.remove('is-expanded'));
+        }
+
+        function onExpandChange() {
+          const expanded = carousel.querySelector('.works-card.is-expanded');
+          if (expanded) {
+            document.addEventListener('mousedown', handleClickOutside);
+          } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+          }
+        }
+
+        function handleClickOutside(e) {
+          const expanded = carousel.querySelector('.works-card.is-expanded');
+          if (!expanded || expanded.contains(e.target)) return;
+          expanded.classList.remove('is-expanded');
+          onExpandChange();
+          repositionTrack();
+        }
+
+        cards.forEach((card) => {
+          const inner = card.querySelector('.works-card-inner');
+          const abstractEl = card.querySelector('.works-card-abstract');
+          const abstract = card.getAttribute('data-abstract') || '[Abstract placeholder]';
+          const closeBtn = document.createElement('button');
+          closeBtn.type = 'button';
+          closeBtn.className = 'works-card-abstract-close';
+          closeBtn.setAttribute('aria-label', 'Close');
+          closeBtn.textContent = '×';
+          const text = document.createElement('p');
+          text.className = 'works-card-abstract-text';
+          text.textContent = abstract;
+          abstractEl.appendChild(closeBtn);
+          abstractEl.appendChild(text);
+          inner.addEventListener('click', (e) => {
+            if (e.target.closest('a')) return;
+            if (justDragged) return;
+            const idx = parseInt(card.getAttribute('data-index'), 10);
+            if (idx !== current) {
+              current = idx;
+              updateCarousel();
+            }
+          });
+          closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            card.classList.remove('is-expanded');
+            onExpandChange();
+            repositionTrack();
+          });
+        });
+
+        buildDots();
+        updateCarousel();
+        window.addEventListener('resize', updateCarousel);
+      })();
 
       // 格式化star数量（例如：1234 -> "1.2k"）
       function formatStars(count) {
