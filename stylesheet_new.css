@@ -2102,4 +2102,87 @@ h1, h2, h3, h4, h5, h6 {
   .awards-list li {
     font-size: 0.97rem;
   }
+}
+
+/* Portrait / vertical screen: all sections use 100% viewport width */
+@media (orientation: portrait) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .header-container,
+  .works-section,
+  .publications-section,
+  .education-section,
+  .awards-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .section-header {
+    max-width: 100%;
+  }
+
+  .works-carousel,
+  .works-carousel-stage {
+    max-width: 100%;
+  }
+
+  /* Left padding for Full pub and Experience */
+  .publications-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .education-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* Portrait: image switch on click instead of hover (Representative works) */
+  .bigcard-img-wrap {
+    cursor: pointer;
+  }
+
+  .bigcard-img-wrap:hover .img-default {
+    opacity: 1;
+    transform: none;
+  }
+
+  .bigcard-img-wrap:hover .img-hover {
+    opacity: 0;
+    transform: none;
+  }
+
+  .bigcard-img-wrap.img-revealed .img-default {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  .bigcard-img-wrap.img-revealed .img-hover {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  /* Portrait: image switch on click instead of hover (Full pub) */
+  .publication-image {
+    cursor: pointer;
+  }
+
+  .publication-image:hover .pub-img-default {
+    opacity: 1;
+  }
+
+  .publication-image:hover .pub-img-hover {
+    opacity: 0;
+  }
+
+  .publication-image.img-revealed .pub-img-default {
+    opacity: 0;
+  }
+
+  .publication-image.img-revealed .pub-img-hover {
+    opacity: 1;
+  }
 } 
